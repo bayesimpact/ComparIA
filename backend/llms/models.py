@@ -105,23 +105,23 @@ class PreferencesData(BaseModel):
     Aggregated counts of user ratings for specific quality attributes.
 
     Attributes:
-        positive_prefs_ratio: Percentage of positive preferences (useful, complete, etc.)
+        positive_prefs_ratio: Percentage of positive preferences
         total_prefs: Total number of preference votes received
-        useful/complete/creative/clear_formatting: Count of positive preferences
-        incorrect/superficial/instructions_not_followed: Count of negative preferences
+        accuracy/completeness/actionable/safety: Count of positive clinical preferences
+        discordance/reasoning_error/clinical_risk: Count of negative clinical preferences
     """
 
     positive_prefs_ratio: float
     total_prefs: int
-    # Positive quality indicators
-    useful: int
-    clear_formatting: int
-    complete: int
-    creative: int
-    # Negative quality indicators
-    incorrect: int
-    instructions_not_followed: int
-    superficial: int
+    # Positive clinical quality indicators (Bayes Impact / Impulse Healthtech)
+    accuracy: int
+    completeness: int
+    actionable: int
+    safety: int
+    # Negative clinical quality indicators
+    discordance: int
+    reasoning_error: int
+    clinical_risk: int
 
     @field_validator("positive_prefs_ratio", mode="before")
     @classmethod

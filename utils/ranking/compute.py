@@ -108,13 +108,13 @@ def _aggregate_preferences(
                 positive_count / all_prefs_count if all_prefs_count > 0 else -1
             ),
             total_prefs=total[model],
-            useful=c["useful"],
-            complete=c["complete"],
-            creative=c["creative"],
-            clear_formatting=c["clear_formatting"],
-            incorrect=c["incorrect"],
-            superficial=c["superficial"],
-            instructions_not_followed=c["instructions_not_followed"],
+            accuracy=c["accuracy"],
+            completeness=c["completeness"],
+            actionable=c["actionable"],
+            safety=c["safety"],
+            discordance=c["discordance"],
+            reasoning_error=c["reasoning_error"],
+            clinical_risk=c["clinical_risk"],
         )
 
     return result

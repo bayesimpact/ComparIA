@@ -156,13 +156,13 @@ def upsert_reaction_to_db(data: dict) -> dict:
                 liked = EXCLUDED.liked,
                 disliked = EXCLUDED.disliked,
                 comment = EXCLUDED.comment,
-                useful = EXCLUDED.useful,
-                complete = EXCLUDED.complete,
-                creative = EXCLUDED.creative,
-                clear_formatting = EXCLUDED.clear_formatting,
-                incorrect = EXCLUDED.incorrect,
-                superficial = EXCLUDED.superficial,
-                instructions_not_followed = EXCLUDED.instructions_not_followed,
+                accuracy = EXCLUDED.accuracy,
+                completeness = EXCLUDED.completeness,
+                actionable = EXCLUDED.actionable,
+                safety = EXCLUDED.safety,
+                discordance = EXCLUDED.discordance,
+                reasoning_error = EXCLUDED.reasoning_error,
+                clinical_risk = EXCLUDED.clinical_risk,
                 msg_rank = EXCLUDED.msg_rank,
                 question_id = EXCLUDED.question_id;
         """)
@@ -294,20 +294,21 @@ class VoteRecord(BaseModel):
     both_equal: bool
     conv_comments_a: str
     conv_comments_b: str
-    conv_useful_a: bool
-    conv_useful_b: bool
-    conv_complete_a: bool
-    conv_complete_b: bool
-    conv_creative_a: bool
-    conv_creative_b: bool
-    conv_clear_formatting_a: bool
-    conv_clear_formatting_b: bool
-    conv_incorrect_a: bool
-    conv_incorrect_b: bool
-    conv_superficial_a: bool
-    conv_superficial_b: bool
-    conv_instructions_not_followed_a: bool
-    conv_instructions_not_followed_b: bool
+    # Bayes Impact / Impulse Healthtech clinical criteria (per side a/b)
+    conv_accuracy_a: bool
+    conv_accuracy_b: bool
+    conv_completeness_a: bool
+    conv_completeness_b: bool
+    conv_actionable_a: bool
+    conv_actionable_b: bool
+    conv_safety_a: bool
+    conv_safety_b: bool
+    conv_discordance_a: bool
+    conv_discordance_b: bool
+    conv_reasoning_error_a: bool
+    conv_reasoning_error_b: bool
+    conv_clinical_risk_a: bool
+    conv_clinical_risk_b: bool
 
 
 def record_vote(
@@ -408,17 +409,17 @@ class ReactionRecord(BaseModel):
     msg_rank: int
     question_id: str
 
-    # Reaction
+    # Reaction (Bayes Impact / Impulse Healthtech clinical criteria)
     liked: bool
     disliked: bool
     comment: str
-    useful: bool
-    complete: bool
-    creative: bool
-    clear_formatting: bool
-    incorrect: bool
-    superficial: bool
-    instructions_not_followed: bool
+    accuracy: bool
+    completeness: bool
+    actionable: bool
+    safety: bool
+    discordance: bool
+    reasoning_error: bool
+    clinical_risk: bool
 
 
 def delete_reaction(conv: Conversation, msg_index: int) -> dict:

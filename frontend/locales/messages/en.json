@@ -1891,18 +1891,18 @@
             "tabLabel": "Preference focused view",
             "table": {
                 "cols": {
-                    "clear_formatting": "Clear formatting<br>",
-                    "complete": "Complete",
-                    "creative": "Creative",
-                    "incorrect": "Incorrect",
-                    "instructions_not_followed": "Instructions<br> not followed",
+                    "accuracy": "Clinical<br> accuracy",
+                    "completeness": "Completeness",
+                    "actionable": "Decisional<br> helpfulness",
+                    "safety": "Safety",
+                    "discordance": "Guideline<br> discordance",
+                    "reasoning_error": "Reasoning<br> error",
+                    "clinical_risk": "Clinical<br> risk",
                     "n_match": "Total matches",
                     "name": "Model",
                     "positive_prefs_ratio": "Distribution of preferences",
-                    "superficial": "Superficial",
                     "total_negative_prefs": "Total preferences<br> Negative",
-                    "total_positive_prefs": "Total preferences<br> Positive",
-                    "useful": "Useful"
+                    "total_positive_prefs": "Total preferences<br> Positive"
                 },
                 "percentLabel": "Preferences in percentage",
                 "tooltips": {
@@ -2048,18 +2048,18 @@
         "choices": {
             "altText": "{choice} for model {model}",
             "negative": {
-                "incorrect": "Incorrect",
-                "instructions_not_followed": "Instructions not followed",
-                "question": "Why did you not like the answer",
-                "superficial": "Superficial"
+                "discordance": "Guideline discordance",
+                "reasoning_error": "Reasoning error / hallucination",
+                "clinical_risk": "Severe clinical risk",
+                "question": "Why did this answer not meet clinical expectations?"
             },
             "other": "Other…",
             "positive": {
-                "clear_formatting": "Clear formatting",
-                "complete": "Complete",
-                "creative": "Creative",
-                "question": "What did you like about the answer?",
-                "useful": "Useful"
+                "accuracy": "Clinical accuracy",
+                "completeness": "Completeness",
+                "actionable": "Decisional helpfulness",
+                "safety": "Safety",
+                "question": "What did you like about this answer clinically?"
             }
         },
         "comment": {

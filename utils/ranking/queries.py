@@ -22,10 +22,8 @@ def fetch_votes() -> list[dict]:
 
     Returns:
         List of dicts with keys: model_a_name, model_b_name, chosen_model_name,
-        both_equal, conv_useful_a, conv_useful_b, conv_complete_a, conv_complete_b,
-        conv_creative_a, conv_creative_b, conv_clear_formatting_a, conv_clear_formatting_b,
-        conv_incorrect_a, conv_incorrect_b, conv_superficial_a, conv_superficial_b,
-        conv_instructions_not_followed_a, conv_instructions_not_followed_b, country_portal.
+        both_equal, conv_{accuracy,completeness,actionable,safety}_{a,b},
+        conv_{discordance,reasoning_error,clinical_risk}_{a,b}, country_portal.
     """
     with db_cursor("get votes", logger, cursor_factory=RealDictCursor) as cursor:
         cursor.execute(
@@ -34,20 +32,20 @@ def fetch_votes() -> list[dict]:
                     "v": (
                         "chosen_model_name",
                         "both_equal",
-                        "conv_useful_a",
-                        "conv_useful_b",
-                        "conv_complete_a",
-                        "conv_complete_b",
-                        "conv_creative_a",
-                        "conv_creative_b",
-                        "conv_clear_formatting_a",
-                        "conv_clear_formatting_b",
-                        "conv_incorrect_a",
-                        "conv_incorrect_b",
-                        "conv_superficial_a",
-                        "conv_superficial_b",
-                        "conv_instructions_not_followed_a",
-                        "conv_instructions_not_followed_b",
+                        "conv_accuracy_a",
+                        "conv_accuracy_b",
+                        "conv_completeness_a",
+                        "conv_completeness_b",
+                        "conv_actionable_a",
+                        "conv_actionable_b",
+                        "conv_safety_a",
+                        "conv_safety_b",
+                        "conv_discordance_a",
+                        "conv_discordance_b",
+                        "conv_reasoning_error_a",
+                        "conv_reasoning_error_b",
+                        "conv_clinical_risk_a",
+                        "conv_clinical_risk_b",
                     ),
                     "c": (
                         "model_a_name",
@@ -79,13 +77,13 @@ def fetch_reactions() -> list[dict]:
                         "refers_to_model",
                         "liked",
                         "disliked",
-                        "useful",
-                        "complete",
-                        "creative",
-                        "clear_formatting",
-                        "incorrect",
-                        "superficial",
-                        "instructions_not_followed",
+                        "accuracy",
+                        "completeness",
+                        "actionable",
+                        "safety",
+                        "discordance",
+                        "reasoning_error",
+                        "clinical_risk",
                     ),
                     "c": (
                         "model_a_name",

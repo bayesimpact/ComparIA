@@ -66,8 +66,12 @@ export interface ChatRound {
 
 // REACTIONS
 
-export const APIPositivePrefs = ['useful', 'complete', 'creative', 'clear_formatting'] as const
-export const APINegativePrefs = ['incorrect', 'superficial', 'instructions_not_followed'] as const
+// Bayes Impact / Impulse Healthtech clinical criteria (from bayes-bench).
+// Diverges from upstream betagouv/ComparIA: generic prefs replaced with
+// clinical ones — keep in sync with backend/config.py `POSITIVE_PREFS` /
+// `NEGATIVE_PREFS` and DB columns in init-db.sql.
+export const APIPositivePrefs = ['accuracy', 'completeness', 'actionable', 'safety'] as const
+export const APINegativePrefs = ['discordance', 'reasoning_error', 'clinical_risk'] as const
 export type APIReactionPref = (typeof APIPositivePrefs)[number] | (typeof APINegativePrefs)[number]
 
 export type ReactionKind = 'like' | 'comment'
