@@ -1,113 +1,94 @@
-<script>
+<script lang="ts">
   import SeoHead from '$components/SEOHead.svelte'
   import { m } from '$lib/i18n/messages'
-  import { externalLinkProps, sanitize } from '$lib/utils/commons'
+
+  // Bayes Impact / Impulse Healthtech override: RGPD notice rewritten for the
+  // medical/clinical evaluation context. Upstream i18n keys are intentionally
+  // unused here.
 </script>
 
 <SeoHead title={m['seo.titles.donnees-personnelles']()} />
 
 <main class="py-10 lg:py-15">
   <div class="fr-container">
-    <h1 id="politique-de-confidentialite">{m['general.privacy.title']()}</h1>
-    <p>{m['general.privacy.desc']()}</p>
+    <h1 id="politique-de-confidentialite">Protection des données personnelles</h1>
 
-    <h2 id="cookies">{m['general.privacy.cookiesTitle']()}</h2>
-    <p>{m['general.privacy.cookiesDesc']()}</p>
-    <p>{m['general.privacy.cookiesDescMore']()}</p>
-
-    <div id="matomo-opt-out"></div>
-
-    <h2 id="cookie-banner">{m['general.privacy.cookiesBannerTitle']()}</h2>
-    <p>{m['general.privacy.cookiesBannerDesc']()}</p>
-    <p>{m['general.privacy.cookiesBannerNoNeed']()}</p>
     <p>
-      {@html sanitize(
-        m['general.privacy.cookiesBannerTools']({
-          matomoLinkProps: externalLinkProps('https://matomo.org/'),
-          libreLinkProps: externalLinkProps('https://matomo.org/free-software/'),
-          cnilLinkProps: externalLinkProps(
-            'https://www.cnil.fr/fr/solutions-pour-la-mesure-daudience'
-          )
-        })
-      )}
+      Cette politique décrit la manière dont Bayes Impact traite les données
+      personnelles dans le cadre du programme <em>Impulse Healthtech</em>,
+      lequel met cette plateforme à disposition de professionnels de santé
+      pour évaluer la pertinence et la fiabilité de grands modèles de langage
+      (LLM) appliqués à l'information médicale.
     </p>
 
-    <h2 id="tally">{m['general.privacy.tallyTitle']()}</h2>
+    <h2 id="finalite">Finalité du traitement</h2>
     <p>
-      {@html sanitize(
-        m['general.privacy.tallyDesc']({
-          tallyLinkProps: externalLinkProps('https://tally.so/')
-        })
-      )}
+      Les données collectées sont traitées dans le but unique d'évaluer la
+      qualité de grands modèles de langage appliqués à l'information médicale,
+      notamment pour mesurer leur fiabilité clinique, leur sécurité et leur
+      utilité décisionnelle pour les professionnels de santé hospitaliers.
     </p>
+
+    <h2 id="base-legale">Base légale</h2>
+    <p>
+      Le traitement repose sur le <strong>consentement libre, spécifique,
+      éclairé et univoque</strong> des testeurs, conformément à
+      l'article&nbsp;6.1.a du Règlement général sur la protection des données
+      (RGPD). Le consentement peut être retiré à tout moment, sans affecter la
+      licéité du traitement effectué avant ce retrait.
+    </p>
+
+    <h2 id="donnees-collectees">Données collectées</h2>
     <ul>
-      <li>{m['general.privacy.tallyNewsletter']()}</li>
-      <li>{m['general.privacy.tallyFeedback']()}</li>
+      <li>les prompts saisis par les testeurs (questions médicales) ;</li>
+      <li>les réponses générées par les modèles comparés ;</li>
+      <li>les votes et critères d'évaluation clinique sélectionnés par le testeur (exactitude, sécurité, complétude, etc.) ;</li>
+      <li>les éventuels commentaires libres laissés par le testeur ;</li>
+      <li>des données techniques (identifiant de session, adresse IP, horodatage) à des fins de sécurité et de mesure d'audience anonymisée.</li>
     </ul>
     <p>
-      {@html sanitize(
-        m['general.privacy.tallyData']({
-          tallyPrivacyLinkProps: externalLinkProps('https://tally.so/help/privacy-policy')
-        })
-      )}
+      <strong>Important :</strong> les testeurs sont invités à ne saisir aucune
+      donnée à caractère personnel concernant des patients réels (nom, date de
+      naissance, identifiant de santé, contexte clinique permettant
+      l'identification, etc.). Les prompts doivent rester anonymes ou
+      fictionnels.
     </p>
 
-    <h2 id="data-access">{m['general.privacy.dataAccessTitle']()}</h2>
+    <h2 id="duree">Durée de conservation</h2>
     <p>
-      {@html sanitize(
-        m['general.privacy.dataAccessDesc']({
-          linkProps: externalLinkProps(
-            'https://stats.beta.gouv.fr/index.php?module=CoreHome&action=index&idSite=126&period=day&date=yesterday#?period=day&date=yesterday&category=Dashboard_Dashboard&subcategory=1&idSite=126'
-          )
-        })
-      )}
-    </p>
-    <p>
-      {@html sanitize(
-        m['general.privacy.dataAccessDatasets']({
-          linkProps: externalLinkProps('https://huggingface.co/ministere-culture')
-        })
-      )}
+      Les données collectées sont conservées pendant une durée maximale de
+      <strong>3 ans</strong> à compter de leur enregistrement. À l'issue de
+      cette période, elles sont supprimées ou anonymisées de manière
+      irréversible.
     </p>
 
-    <h2 id="privacy">{m['general.privacy.privacyTitle']()}</h2>
-    <p>{m['general.privacy.privacyDesc']()}</p>
-    <p>{m['general.privacy.privacyData']()}</p>
+    <h2 id="droits">Vos droits</h2>
+    <p>Vous disposez à tout moment des droits suivants sur vos données :</p>
     <ul>
-      <li>{m['general.privacy.privacyDataArena']()}</li>
-      <li>{m['general.privacy.privacyDataForm']()}</li>
+      <li><strong>Droit d'accès</strong> : connaître les données vous concernant traitées par Bayes Impact ;</li>
+      <li><strong>Droit de rectification</strong> : demander la correction de données inexactes ;</li>
+      <li><strong>Droit à l'effacement</strong> : demander la suppression de vos données ;</li>
+      <li><strong>Droit d'opposition</strong> : vous opposer au traitement de vos données ;</li>
+      <li><strong>Droit au retrait du consentement</strong> : à tout moment, sans justification.</li>
     </ul>
+
+    <h2 id="dpo">Contact du Délégué à la protection des données</h2>
     <p>
-      {@html sanitize(m['general.privacy.privacyResp']({ linkProps: 'href="/modalites"' }))}
+      Pour exercer vos droits ou pour toute question relative au traitement
+      de vos données, écrivez au DPO de Bayes Impact :
+      <a href="mailto:dpo@bayesimpact.org">dpo@bayesimpact.org</a>
+    </p>
+    <p>
+      Vous disposez également du droit d'introduire une réclamation auprès
+      de la <abbr title="Commission Nationale de l'Informatique et des Libertés">CNIL</abbr>
+      (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>).
     </p>
 
-    <h2 id="data-use">{m['general.privacy.dataUseTitle']()}</h2>
-    <p>{m['general.privacy.dataUseDesc']()}</p>
-
-    <h2 id="data-time">{m['general.privacy.dataTimeTitle']()}</h2>
-    <p>{m['general.privacy.dataTimeDesc']()}</p>
-
-    <h2 id="data-responsability">{m['general.privacy.dataRespTitle']()}</h2>
-    <p>{m['general.privacy.dataRespDesc']()}</p>
-
-    <h2 id="data-extra">{m['general.privacy.dataExtraTitle']()}</h2>
-    <ul>
-      <li>{m['general.privacy.dataExtraHost']()}</li>
-      <li>{m['general.privacy.dataExtraCountry']()}</li>
-      <li>{m['general.privacy.dataExtraWhat']()}</li>
-      <li>
-        {@html sanitize(
-          m['general.privacy.dataExtraWarranty']({
-            linkProps: externalLinkProps(
-              'https://storage.gra.cloud.ovh.net/v1/AUTH_325716a587c64897acbef9a4a4726e38/contracts/9e74492-OVH_Data_Protection_Agreement-FR-6.0.pdf'
-            )
-          })
-        )}
-      </li>
-    </ul>
+    <h2 id="securite">Sécurité</h2>
+    <p>
+      Les données sont stockées sur des serveurs situés en Union européenne,
+      sous administration directe de Bayes Impact. Les accès sont restreints
+      aux personnes habilitées dans le cadre du programme Impulse Healthtech.
+    </p>
   </div>
-
-  <script
-    src="https://stats.beta.gouv.fr/index.php?module=CoreAdminHome&action=optOutJS&divId=matomo-opt-out&language=auto&showIntro=1"
-  ></script>
 </main>
