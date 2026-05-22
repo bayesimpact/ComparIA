@@ -3,15 +3,33 @@
 @import './icons.css';
 
 :root {
-  /* Accessibility override (WCAG AA): replace DSFR violet #6a6af4 with #6464f3
-     to reach 4.5:1 contrast against white text on primary CTAs. */
-  --blue-france-main-525: #6464f3;
+  /* Bayes Impact / Impulse Healthtech — primary action color replaces DSFR violet */
+  --blue-france-main-525: #1067FE;
   --text-inverted-blue-france: #ffffff;
 
   /* CUSTOM DSFR LIKE ADDITION */
-  --cg-blue-france-main-525-hover: #5454e3;
-  --cg-blue-france-main-525-active: #4545d3;
-  --outline-color: #0a76f6;
+  --cg-blue-france-main-525-hover: #0050d8;
+  --cg-blue-france-main-525-active: #003fad;
+  --outline-color: #1067FE;
+
+  /* Bayes Impact palette — accents */
+  --accent-orange: #FF8400;
+  --accent-blue: #1067FE;
+  --gold: #9A6F24;
+  --gold-bg: #EBE092;
+
+  /* Bayes Impact palette — backgrounds */
+  --bg: #F2EFE9;
+  --bg-2: #F1EEE9;
+  --cream: #F7F7F2;
+  --card: #FFFFFF;
+
+  /* Bayes Impact palette — typography & borders */
+  --ink: #000000;
+  --ink-soft: rgba(0, 0, 0, 0.8);
+  --muted: #657180;
+  --border-soft: #DBCCAF;
+  --border: #EAECF0;
 
   /* CUSTOM */
   --cg-very-light-grey: #fcfcfd;
@@ -19,7 +37,7 @@
   --cg-very-light-blue: #f9fbff;
   --cg-green: #58b77d;
   --cg-purple: #a96afe;
-  --cg-orange: #ff9575;
+  --cg-orange: #FF8400;
 
   /* xs breakpoint */
   --text-xs: 0.675rem;
@@ -64,6 +82,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 !important;
+  background-color: var(--bg);
 }
 #app,
 main {
