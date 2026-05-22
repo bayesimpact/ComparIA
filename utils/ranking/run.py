@@ -54,6 +54,10 @@ def main(mode: Literal["all", "redis", "json"] = "redis") -> None:
     """
     data = compute_all_rankings()
 
+    if "all" not in data:
+        logger.warning("[Ranking] No global ranking computed, nothing to store")
+        return
+
     if mode in ("all", "json"):
         # FIXME reflect previous data structure and override utils/models/generated-models-extra-data.json?
         write_json(LLMS_RANKING_DATA_FILE, jsonable_encoder(data["all"]))
