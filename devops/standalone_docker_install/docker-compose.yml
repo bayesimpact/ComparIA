@@ -8,7 +8,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-comparia}
     volumes:
       - postgres-data:/var/lib/postgresql/data
-      - ../data/init-db.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-comparia}"]
       interval: 5s
@@ -24,7 +24,7 @@ services:
   backend:
     build:
       context: ../..
-      dockerfile: devops/Dockerfile
+      dockerfile: devops/docker/Dockerfile
     restart: unless-stopped
     depends_on:
       postgres:
@@ -34,7 +34,8 @@ services:
     environment:
       COMPARIA_DB_URI: postgresql://${POSTGRES_USER:-comparia}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-comparia}
       COMPARIA_REDIS_HOST: redis
-      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
       ALBERT_KEY: ${ALBERT_KEY:-}
       ALTCHA_HMAC_KEY: ${ALTCHA_HMAC_KEY:-}
       CACHE_ENABLED: ${CACHE_ENABLED:-true}
@@ -43,11 +44,36 @@ services:
       CACHE_MAX_RESPONSES: ${CACHE_MAX_RESPONSES:-5}
       LOG_FORMAT: JSON
       LOGDIR: /data
+    ports:
+      - "8008:80"        # backend accessible sur http://MAC:8008
+
+  ranking-cron:
+    build:
+      context: ../..
+      dockerfile: devops/docker/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    environment:
+      COMPARIA_DB_URI: postgresql://${POSTGRES_USER:-comparia}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-comparia}
+      COMPARIA_REDIS_HOST: redis
+      LOG_FORMAT: JSON
+    # Recompute Bradley-Terry rankings hourly and store in Redis (24h TTL).
+    entrypoint: ["sh", "-c"]
+    command:
+      - |
+        while true; do
+          uv run python -m utils.ranking.run || echo "ranking run failed"
+          sleep 3600
+        done
 
   frontend:
     build:
       context: ../../frontend
-      dockerfile: ../devops/Dockerfile.front
+      dockerfile: ../devops/docker/Dockerfile.front
       args:
         PUBLIC_API_URL: ${PUBLIC_URL}
         MATOMO_ID: ${MATOMO_ID:-}
@@ -59,22 +85,25 @@ services:
       PORT: 3000
       PUBLIC_API_URL: ${PUBLIC_URL}
       PUBLIC_API_LOCAL_URL: http://backend:80
-
-  caddy:
-    image: caddy:2-alpine
-    restart: unless-stopped
-    depends_on:
-      - frontend
-      - backend
     ports:
-      - "80:80"
-      - "443:443"
-    environment:
-      PUBLIC_DOMAIN: ${PUBLIC_DOMAIN}
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy-data:/data
-      - caddy-config:/config
+      - "3000:3000"      # frontend accessible sur http://MAC:3000
+
+
+#  caddy:
+#    image: caddy:2-alpine
+#    restart: unless-stopped
+#    depends_on:
+#      - frontend
+#      - backend
+#    ports:
+#      - "80:80"
+#      - "443:443"
+#    environment:
+#      PUBLIC_DOMAIN: ${PUBLIC_DOMAIN}
+#    volumes:
+#      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+#      - caddy-data:/data
+#      - caddy-config:/config
 
 volumes:
   postgres-data:
