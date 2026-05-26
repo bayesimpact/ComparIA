@@ -15,8 +15,8 @@
             "done": "Message copié"
         },
         "downloadData": "Télécharger les données",
-        "home": "Page d'accueil",
-        "returnHome": "Revenir à l'accueil",
+        "home": "Page d’accueil",
+        "returnHome": "Revenir à l’accueil",
         "scrollLeft": "Defiler vers la gauche",
         "scrollRight": "Défiler vers la droite",
         "searchModel": "Rechercher un modèle",
@@ -43,7 +43,7 @@
             "generateAnother": "Générer un autre message",
             "title": "Suggestions de prompts"
         },
-        "title": "Comment puis-je vous aider aujourd'hui ?",
+        "title": "Comment puis-je vous aider aujourd’hui ?",
         "errors": {
             "rateLimitCustomSelection": "Le choix de modèles est limité pour garantir un accès équitable à tous. Vous pouvez continuer à utiliser le mode aléatoire, ou réessayer plus tard."
         }
@@ -59,7 +59,7 @@
                 "vote": "Ou bien conclure votre expérience en donnant votre avis sur les modèles."
             },
             "tooLong": {
-                "message": "Chaque modèle est limité dans la taille des conversations qu'il est capable de traiter.",
+                "message": "Chaque modèle est limité dans la taille des conversations qu’il est capable de traiter.",
                 "retry": "Vous pouvez recommencer une conversation avec deux nouveaux modèles.",
                 "title": "Oups, la conversation est trop longue pour un des modèles.",
                 "vote": "Vous pouvez tout de même donner votre avis sur ces modèles ou recommencer une conversation avec deux nouveaux."
@@ -95,7 +95,7 @@
                 "system": "Système",
                 "systemSub": "Utilise les paramètres système"
             },
-            "title": "Paramètres d'affichage"
+            "title": "Paramètres d’affichage"
         }
     },
     "datasets": {
@@ -122,14 +122,14 @@
         "reuse": {
             "bunka": {
                 "analyze": {
-                    "desc": "Analyse des conversations des utilisateurs avec détection des tâches (création, recherche d'informations...), des sujets (arts et culture, éducation...), des émotions complexes (curiosité, enthousiasme...), des types de langage (formel, professionnel...)",
+                    "desc": "Analyse des conversations des utilisateurs avec détection des tâches (création, recherche d’informations...), des sujets (arts et culture, éducation...), des émotions complexes (curiosité, enthousiasme...), des types de langage (formel, professionnel...)",
                     "title": "Accéder à l’analyse par indicateur"
                 },
                 "conversations": {
                     "desc": "Visualisation interactive des conversations où chaque point représente un cluster de discussions évoqué par les utilisateurs (comme l’éducation, la santé, l’environnement, ou encore la philosophie).",
                     "title": "Explorer la visualisation de données"
                 },
-                "desc": "L'équipe Bunka.ai a mené une étude approfondie sur les interactions entre les utilisateurs de la plateforme Compar:IA et les modèles d'IA, examinant les thématiques privilégiées, les tâches principales et déterminant si ces modèles fonctionnent avant tout comme des outils d'automatisation ou d'augmentation des capacités humaines. Cette analyse repose sur un large échantillon de 25 000 conversations.",
+                "desc": "L’équipe Bunka.ai a mené une étude approfondie sur les interactions entre les utilisateurs de la plateforme Compar:IA et les modèles d’IA, examinant les thématiques privilégiées, les tâches principales et déterminant si ces modèles fonctionnent avant tout comme des outils d’automatisation ou d’augmentation des capacités humaines. Cette analyse repose sur un large échantillon de 25 000 conversations.",
                 "method": "En savoir plus sur la méthodologie"
             },
             "desc": "Exemples de réutilisation des jeux de données compar:IA",
@@ -138,7 +138,7 @@
     },
     "errors": {
         "404": {
-            "desc": "Si vous avez tapé l'adresse web dans le navigateur, vérifiez qu'elle est correcte. La page n’est peut-être plus disponible.<br />Dans ce cas, pour continuer votre visite vous pouvez consulter notre page d’accueil.<br />Sinon contactez-nous pour que l’on puisse vous rediriger vers la bonne information.",
+            "desc": "Si vous avez tapé l’adresse web dans le navigateur, vérifiez qu’elle est correcte. La page n’est peut-être plus disponible.<br />Dans ce cas, pour continuer votre visite vous pouvez consulter notre page d’accueil.<br />Sinon contactez-nous pour que l’on puisse vous rediriger vers la bonne information.",
             "error": "Erreur 404",
             "sorry": "La page que vous cherchez est introuvable. Excusez-nous pour la gène occasionnée.",
             "title": "Page non trouvée"
@@ -155,15 +155,15 @@
         "datasets": {
             "questions": {
                 "1": {
-                    "desc": "<p>Les données de préférence servent à améliorer les modèles lors d'entraînements futurs.</p><p>En comparant à l'aveugle les réponses de deux modèles, les utilisateurs de compar:IA expriment leurs préférences, indiquant ainsi quelles réponses sont les plus pertinentes. Ces données de préférence peuvent être utilisées pour affiner l'alignement des modèles, c'est-à-dire pour les entraîner à générer des réponses plus conformes aux attentes et aux préférences des utilisateurs.</p><p>Il s'agit d'un processus itératif, où le modèle apprend progressivement à générer de meilleures réponses en fonction des retours formulés par les humains sur la qualité des réponses. En étant exposés à des données de préférence, les modèles apprennent à les intégrer dans leur processus de génération de réponses.</p>",
+                    "desc": "<p>Les données de préférence servent à améliorer les modèles lors d’entraînements futurs.</p><p>En comparant à l’aveugle les réponses de deux modèles, les utilisateurs de compar:IA expriment leurs préférences, indiquant ainsi quelles réponses sont les plus pertinentes. Ces données de préférence peuvent être utilisées pour affiner l’alignement des modèles, c’est-à-dire pour les entraîner à générer des réponses plus conformes aux attentes et aux préférences des utilisateurs.</p><p>Il s’agit d’un processus itératif, où le modèle apprend progressivement à générer de meilleures réponses en fonction des retours formulés par les humains sur la qualité des réponses. En étant exposés à des données de préférence, les modèles apprennent à les intégrer dans leur processus de génération de réponses.</p>",
                     "title": "Les données de préférence ont-elles un effet immédiat pour améliorer les modèles?"
                 },
                 "2": {
-                    "desc": "<p>La spécificité des données collectées sur la plateforme compar:IA est qu’elles sont en français et qu’elles correspondent à des tâches réelles des utilisateurs. Ces données reflètent des préférences humaines dans un contexte linguistique et culturel précis. Elles permettent dans un second temps d'ajuster les modèles pour qu’ils soient plus pertinents, précis et adaptés aux usages des utilisateurs, tout en comblant les éventuels biais ou lacunes des modèles actuels.</p>",
+                    "desc": "<p>La spécificité des données collectées sur la plateforme compar:IA est qu’elles sont en français et qu’elles correspondent à des tâches réelles des utilisateurs. Ces données reflètent des préférences humaines dans un contexte linguistique et culturel précis. Elles permettent dans un second temps d’ajuster les modèles pour qu’ils soient plus pertinents, précis et adaptés aux usages des utilisateurs, tout en comblant les éventuels biais ou lacunes des modèles actuels.</p>",
                     "title": "Pourquoi les données de préférence collectées sur compar:IA ont-elles de la valeur ?"
                 },
                 "3": {
-                    "desc": "<p>compar:IA se positionne comme un outil d'évaluation et d'alignement spécifique au français, axé sur la qualité des réponses et la collecte de données de préférence, se distinguant ainsi de l'approche de classement global de <a href='https://lmarena.ai/' target='_blank'>chatbot arena</a> développé par <a href='http://lmsys.org' target='_blank'>lmsys.org</a> et de l'alignement éthique des modèles d’IA de <a href='https://hannahkirk.github.io/prism-alignment/' target='_blank'>Prism Alignment Project</a>.</p>",
+                    "desc": "<p>compar:IA se positionne comme un outil d’évaluation et d’alignement spécifique au français, axé sur la qualité des réponses et la collecte de données de préférence, se distinguant ainsi de l’approche de classement global de <a href='https://lmarena.ai/' target='_blank'>chatbot arena</a> développé par <a href='http://lmsys.org' target='_blank'>lmsys.org</a> et de l’alignement éthique des modèles d’IA de <a href='https://hannahkirk.github.io/prism-alignment/' target='_blank'>Prism Alignment Project</a>.</p>",
                     "title": "Quelle est la spécificité de compar:IA par rapport à d’autres initiatives similaires ?"
                 }
             },
@@ -172,15 +172,15 @@
         "ecology": {
             "questions": {
                 "1": {
-                    "desc": "<p>compar:IA utilise la méthodologie développée par <a target='_blank' href='https://ecologits.ai/latest/'><strong>Ecologits</strong> (GenAI Impact)</a> pour fournir un bilan énergétique qui permet aux utilisateurs de comparer l'impact environnemental de différents modèles d'IA pour une même requête. Cette transparence est essentielle pour encourager le développement et l'adoption de modèles d'IA plus éco-responsables.</p><p>Ecologits applique les principes de l'analyse du cycle de vie (ACV) conformément à la norme ISO 14044 en se concentrant pour le moment sur l'impact de <strong>l'inférence</strong> (c'est-à-dire l'utilisation des modèles pour répondre aux requêtes) et de la <strong>fabrication des cartes graphiques</strong> (extraction des ressources, fabrication et transport).</p><p>La consommation électrique du modèle est estimée en tenant compte de divers paramètres tels que la taille du modèle d'IA utilisé, la localisation des serveurs où sont déployés les modèles et le nombre de tokens de sortie. Le calcul de l’indicateur de potentiel de réchauffement climatique exprimé en équivalent CO2 est dérivé de la mesure de consommation électrique du modèle.</p><p>Il est important de noter que les méthodologies d'évaluation de l'impact environnemental de l'IA sont encore en développement.</p>",
+                    "desc": "<p>compar:IA utilise la méthodologie développée par <a target='_blank' href='https://ecologits.ai/latest/'><strong>Ecologits</strong> (GenAI Impact)</a> pour fournir un bilan énergétique qui permet aux utilisateurs de comparer l’impact environnemental de différents modèles d’IA pour une même requête. Cette transparence est essentielle pour encourager le développement et l’adoption de modèles d’IA plus éco-responsables.</p><p>Ecologits applique les principes de l’analyse du cycle de vie (ACV) conformément à la norme ISO 14044 en se concentrant pour le moment sur l’impact de <strong>l’inférence</strong> (c’est-à-dire l’utilisation des modèles pour répondre aux requêtes) et de la <strong>fabrication des cartes graphiques</strong> (extraction des ressources, fabrication et transport).</p><p>La consommation électrique du modèle est estimée en tenant compte de divers paramètres tels que la taille du modèle d’IA utilisé, la localisation des serveurs où sont déployés les modèles et le nombre de tokens de sortie. Le calcul de l’indicateur de potentiel de réchauffement climatique exprimé en équivalent CO2 est dérivé de la mesure de consommation électrique du modèle.</p><p>Il est important de noter que les méthodologies d’évaluation de l’impact environnemental de l’IA sont encore en développement.</p>",
                     "title": "Comment les indicateurs écologiques sont-ils calculés ?"
                 },
                 "2": {
-                    "desc": "<p>La localisation des centres de données joue un rôle dans l'empreinte carbone de l'IA. Si un modèle est entraîné ou utilisé dans un pays fortement dépendant des énergies fossiles, son impact environnemental sera plus important que s'il est hébergé dans un pays utilisant majoritairement des énergies renouvelables.</p><p>La méthode d'analyse de l'impact environnemental de l'IA développée par <a target='_blank' href='https://ecologits.ai/latest/'>Ecologits (de GenAI Impact)</a>, intègre des données sur le mix énergétique des différents pays où se situent les serveurs. Cela permet d'obtenir une estimation plus précise et nuancée de l'empreinte carbone réelle de l’inférence sur les différents modèles d’IA générative.</p>",
+                    "desc": "<p>La localisation des centres de données joue un rôle dans l’empreinte carbone de l’IA. Si un modèle est entraîné ou utilisé dans un pays fortement dépendant des énergies fossiles, son impact environnemental sera plus important que s’il est hébergé dans un pays utilisant majoritairement des énergies renouvelables.</p><p>La méthode d’analyse de l’impact environnemental de l’IA développée par <a target='_blank' href='https://ecologits.ai/latest/'>Ecologits (de GenAI Impact)</a>, intègre des données sur le mix énergétique des différents pays où se situent les serveurs. Cela permet d’obtenir une estimation plus précise et nuancée de l’empreinte carbone réelle de l’inférence sur les différents modèles d’IA générative.</p>",
                     "title": "Les indicateurs écologiques tiennent-ils compte du mix énergétique des différents pays ?"
                 },
                 "3": {
-                    "desc": "<p>Les indicateurs d'impact écologique actuels se focalisent principalement sur l'impact de <strong>l'inférence</strong>, c'est-à-dire l'utilisation des modèles d'IA pour répondre aux requêtes. Cette approche peut donner l'illusion que l'inférence est moins énergivore que l'entraînement des modèles. Cependant, <strong>la réalité est plus complexe.</strong> Prenons l'analogie de la voiture :</p><ul><li>Construire une voiture (l'entraînement) est un processus ponctuel et gourmand en ressources.</li><li>Chaque trajet en voiture (l'inférence) consomme moins d'énergie, mais ces trajets sont répétés quotidiennement, et leur nombre est potentiellement immense.</li></ul><p>De la même manière, <strong>l'impact cumulé de l'inférence, à l'échelle de millions d'utilisateurs effectuant des requêtes quotidiennement, peut s'avérer supérieur à l'impact de l'entraînement initial.</strong> C'est pourquoi il est crucial que les outils d'évaluation de l'empreinte carbone de l'IA prennent en compte <strong>l'ensemble du cycle de vie</strong> des modèles, de l'entraînement à l'utilisation en production</p>",
+                    "desc": "<p>Les indicateurs d’impact écologique actuels se focalisent principalement sur l’impact de <strong>l’inférence</strong>, c’est-à-dire l’utilisation des modèles d’IA pour répondre aux requêtes. Cette approche peut donner l’illusion que l’inférence est moins énergivore que l’entraînement des modèles. Cependant, <strong>la réalité est plus complexe.</strong> Prenons l’analogie de la voiture :</p><ul><li>Construire une voiture (l’entraînement) est un processus ponctuel et gourmand en ressources.</li><li>Chaque trajet en voiture (l’inférence) consomme moins d’énergie, mais ces trajets sont répétés quotidiennement, et leur nombre est potentiellement immense.</li></ul><p>De la même manière, <strong>l’impact cumulé de l’inférence, à l’échelle de millions d’utilisateurs effectuant des requêtes quotidiennement, peut s’avérer supérieur à l’impact de l’entraînement initial.</strong> C’est pourquoi il est crucial que les outils d’évaluation de l’empreinte carbone de l’IA prennent en compte <strong>l’ensemble du cycle de vie</strong> des modèles, de l’entraînement à l’utilisation en production</p>",
                     "title": "Les indicateurs d’impact écologique tiennent-ils compte des ressources utilisées pour entraîner les modèles ?"
                 }
             },
@@ -189,12 +189,12 @@
         "i18n": {
             "questions": {
                 "1": {
-                    "desc": "<p>Oui, l'internationalisation de compar:IA est en cours. Nous commençons par un élargissement à trois pays pilotes : la Lituanie, la Suède et le Danemark. Cette première phase permet de tester l’approche et d'adapter l’interface à différents contextes linguistiques et culturels européens. À terme, le cercle pourra s'étendre à davantage de langues européennes selon les retours d'expérience de ces pays pilotes. L'objectif est de construire progressivement un véritable commun numérique européen pour l'évaluation humaine des IA conversationelles, avec une gouvernance collaborative qui reste encore à définir entre les différents pays participants.</p>",
-                    "title": "compar:IA s’est d’abord concentré sur le français : y a-t-il des plans pour d'autres langues européennes ?"
+                    "desc": "<p>Oui, l’internationalisation de compar:IA est en cours. Nous commençons par un élargissement à trois pays pilotes : la Lituanie, la Suède et le Danemark. Cette première phase permet de tester l’approche et d’adapter l’interface à différents contextes linguistiques et culturels européens. À terme, le cercle pourra s’étendre à davantage de langues européennes selon les retours d’expérience de ces pays pilotes. L’objectif est de construire progressivement un véritable commun numérique européen pour l’évaluation humaine des IA conversationelles, avec une gouvernance collaborative qui reste encore à définir entre les différents pays participants.</p>",
+                    "title": "compar:IA s’est d’abord concentré sur le français : y a-t-il des plans pour d’autres langues européennes ?"
                 },
                 "2": {
-                    "desc": "<p>Le développement d’un plateforme européenne de comparaison des modèles d’IA conversationnelle offre plusieurs avantages concrets. Elle permet de collecter des données de préférence reflétant les besoins réels des utilisateurs européens, améliorant ainsi la pertinence des modèles pour ce public. Elle garantit ainsi une meilleure représentation des langues et cultures européennes, souvent sous-représentées dans les évaluations globales dominées par l'anglais. Elle assure aussi une conformité avec les réglementations européennes (RGPD, AI Act) et intègre des critères d'évaluation alignés sur les priorités européennes comme la durabilité environnementale et la transparence algorithmique. Enfin, elle favorise l'émergence d'un écosystème d'IA européen compétitif et autonome.</p>",
-                    "title": "Quels sont les avantages d'une plateforme de collecte de préférences spécifiquement européenne ?"
+                    "desc": "<p>Le développement d’un plateforme européenne de comparaison des modèles d’IA conversationnelle offre plusieurs avantages concrets. Elle permet de collecter des données de préférence reflétant les besoins réels des utilisateurs européens, améliorant ainsi la pertinence des modèles pour ce public. Elle garantit ainsi une meilleure représentation des langues et cultures européennes, souvent sous-représentées dans les évaluations globales dominées par l’anglais. Elle assure aussi une conformité avec les réglementations européennes (RGPD, AI Act) et intègre des critères d’évaluation alignés sur les priorités européennes comme la durabilité environnementale et la transparence algorithmique. Enfin, elle favorise l’émergence d’un écosystème d’IA européen compétitif et autonome.</p>",
+                    "title": "Quels sont les avantages d’une plateforme de collecte de préférences spécifiquement européenne ?"
                 }
             },
             "title": "Internationalisation"
@@ -210,11 +210,11 @@
                     "title": "Comment parvenez-vous à rendre ce service gratuit ?"
                 },
                 "3": {
-                    "desc": "<p>Les modèles quantisés sont optimisés pour consommer moins de ressources en simplifiant certains calculs tout en visant la meilleure qualité de réponse.</p><p>La quantisation est une technique d'optimisation qui consiste à réduire la précision des nombres utilisés pour représenter les paramètres d'un modèle d'IA. Cela permet de <strong>diminuer la taille du modèle</strong> et <strong>d'accélérer les calculs</strong>, ce qui est particulièrement avantageux pour l'inférence sur des machines limitées en ressources.</p>",
+                    "desc": "<p>Les modèles quantisés sont optimisés pour consommer moins de ressources en simplifiant certains calculs tout en visant la meilleure qualité de réponse.</p><p>La quantisation est une technique d’optimisation qui consiste à réduire la précision des nombres utilisés pour représenter les paramètres d’un modèle d’IA. Cela permet de <strong>diminuer la taille du modèle</strong> et <strong>d’accélérer les calculs</strong>, ce qui est particulièrement avantageux pour l’inférence sur des machines limitées en ressources.</p>",
                     "title": "« modèle quantisé », quésaco ?"
                 },
                 "4": {
-                    "desc": "<p><strong>La capacité d'un modèle à parler plusieurs langues est liée à la diversité linguistique de ses données d'entraînement et non au pays</strong>. Les <strong>LLM utilisent d'énormes corpus dans de nombreuses langues</strong>, mais la répartition des langues dans les données d'entraînement n'est pas uniforme. Une surreprésentation de l'anglais peut entraîner des limitations dans d'autres langues. Ces limitations se traduisent par exemple par des <strong>anglicismes ou une incapacité à générer des contenus dans certaines langues classées « en danger » par l'UNESCO</strong>.</p><p><strong>L'exactitude et la richesse du vocabulaire d'un modèle dépendent des données utilisées pour son apprentissage</strong>.</p>",
+                    "desc": "<p><strong>La capacité d’un modèle à parler plusieurs langues est liée à la diversité linguistique de ses données d’entraînement et non au pays</strong>. Les <strong>LLM utilisent d’énormes corpus dans de nombreuses langues</strong>, mais la répartition des langues dans les données d’entraînement n’est pas uniforme. Une surreprésentation de l’anglais peut entraîner des limitations dans d’autres langues. Ces limitations se traduisent par exemple par des <strong>anglicismes ou une incapacité à générer des contenus dans certaines langues classées « en danger » par l’UNESCO</strong>.</p><p><strong>L’exactitude et la richesse du vocabulaire d’un modèle dépendent des données utilisées pour son apprentissage</strong>.</p>",
                     "title": "Y a-t-il un lien entre la nationalité de l’entreprise ou du laboratoire à l’origine du modèle et sa capacité à parler plusieurs langues ?"
                 },
                 "5": {
@@ -228,27 +228,27 @@
         "usage": {
             "questions": {
                 "1": {
-                    "desc": "<p>Les modèles de langage conversationnels actuels sont <strong>incapables de citer les sources</strong> qu'ils ont utilisées pour générer une réponse. Ils fonctionnent en prédisant le mot suivant le plus probable en fonction de la distribution statistique des données d'entraînement. Bien qu'ils puissent synthétiser des informations provenant de diverses sources, ils ne conservent pas la trace de l'origine de ces informations.</p><p>Cependant, il existe des techniques comme la <strong>Génération Augmentée par Récupération (RAG)</strong> qui visent à pallier cette limitation. Le RAG permet aux modèles d'accéder à des bases de connaissances externes et de <strong>fournir des informations contextualisées en citant les sources</strong>. Cette approche est essentielle pour améliorer la transparence et la fiabilité des réponses générées par les modèles.</p>",
+                    "desc": "<p>Les modèles de langage conversationnels actuels sont <strong>incapables de citer les sources</strong> qu’ils ont utilisées pour générer une réponse. Ils fonctionnent en prédisant le mot suivant le plus probable en fonction de la distribution statistique des données d’entraînement. Bien qu’ils puissent synthétiser des informations provenant de diverses sources, ils ne conservent pas la trace de l’origine de ces informations.</p><p>Cependant, il existe des techniques comme la <strong>Génération Augmentée par Récupération (RAG)</strong> qui visent à pallier cette limitation. Le RAG permet aux modèles d’accéder à des bases de connaissances externes et de <strong>fournir des informations contextualisées en citant les sources</strong>. Cette approche est essentielle pour améliorer la transparence et la fiabilité des réponses générées par les modèles.</p>",
                     "title": "Les modèles peuvent-ils citer leurs sources ?"
                 },
                 "2": {
-                    "desc": "<p>Vous avez posé la question suivante “explique-moi la motion de censure à l'œuvre actuellement en France à l'Assemblée nationale et cite-moi tes sources” et avez été déçu·e des réponses ? C’est normal…</p><p><strong>Les modèles d'IA conversationnels “bruts” ne peuvent pas répondre aux questions sur l'actualité la plus récente.</strong> Ils sont entraînés sur des ensembles de données statiques et ne peuvent pas interagir avec le web ou ouvrir des liens. Ils n'ont pas la capacité de se mettre à jour en temps réel avec les événements qui se déroulent dans le monde. Les informations auxquelles le modèle a accès sont limitées à la date de son dernier entraînement.</p><p>Par conséquent, si vous posez une question sur un fait d’actualité récent, le modèle s'appuiera sur des informations potentiellement obsolètes, risquant de générer des réponses inexactes.</p><p>Dans le cas de Perplexity, Copilot ou ChatGPT, les modèles d’IA conversationnelle dits “bruts” sont associés à d’autres briques technologiques qui permettent de se connecter à internet pour accéder à des informations en temps réel. On parle alors “d’agents conversationnels”.</p>",
+                    "desc": "<p>Vous avez posé la question suivante “donne moi la dernière recommandations sur la prise en charge de l’arrêt cardiaque en France et cite-moi tes sources” et avez été déçu·e des réponses ? C’est normal…</p><p><strong>Les modèles d’IA conversationnels “bruts” ne peuvent pas répondre aux questions sur l’actualité la plus récente.</strong> Ils sont entraînés sur des ensembles de données statiques et ne peuvent pas interagir avec le web ou ouvrir des liens. Ils n’ont pas la capacité de se mettre à jour en temps réel avec les événements qui se déroulent dans le monde. Les informations auxquelles le modèle a accès sont limitées à la date de son dernier entraînement.</p><p>Par conséquent, si vous posez une question sur un fait d’actualité récent, le modèle s’appuiera sur des informations potentiellement obsolètes, risquant de générer des réponses inexactes.</p><p>Dans le cas de Perplexity, Copilot ou ChatGPT, les modèles d’IA conversationnelle dits “bruts” sont associés à d’autres briques technologiques qui permettent de se connecter à internet pour accéder à des informations en temps réel. On parle alors “d’agents conversationnels”.</p>",
                     "title": "Si je pose une question sur l’actualité la plus récente, le modèle peut-il répondre ?"
                 },
                 "3": {
-                    "desc": "<p>Si vous intégrez une URL dans une requête, le modèle conversationnel ne peut pas y accéder directement. Les modèles de langage traitent le texte de la requête mais n'ont pas la capacité d'interagir avec le web ou d'ouvrir des liens. Ils sont entraînés sur un ensemble de données textuelles fixes et leurs réponses reposent sur ces données d’entraînement. Lorsqu'une question est posées, les modèles utilisent cet entraînement pour générer une réponse mais ne peuvent pas accéder à de nouvelles informations en ligne.</p><p>Par analogie, imaginez un étudiant passant un examen sans accès à internet. Il peut utiliser ses connaissances acquises pour répondre aux questions, mais ne peut pas consulter de sites web pour obtenir des informations supplémentaires.</p>",
+                    "desc": "<p>Si vous intégrez une URL dans une requête, le modèle conversationnel ne peut pas y accéder directement. Les modèles de langage traitent le texte de la requête mais n’ont pas la capacité d’interagir avec le web ou d’ouvrir des liens. Ils sont entraînés sur un ensemble de données textuelles fixes et leurs réponses reposent sur ces données d’entraînement. Lorsqu’une question est posées, les modèles utilisent cet entraînement pour générer une réponse mais ne peuvent pas accéder à de nouvelles informations en ligne.</p><p>Par analogie, imaginez un étudiant passant un examen sans accès à internet. Il peut utiliser ses connaissances acquises pour répondre aux questions, mais ne peut pas consulter de sites web pour obtenir des informations supplémentaires.</p>",
                     "title": "Si j’intègre un lien d’URL dans une requête, le modèle peut-il y accéder ?"
                 },
                 "4": {
-                    "desc": "<p>Il arrive que les modèles perdent le fil d'une conversation en raison de leur <strong>fenêtre de contexte limitée.</strong> Cette « fenêtre » représente la quantité d'informations précédentes que le modèle peut retenir, agissant comme une mémoire à court terme. Plus la fenêtre est petite, plus le modèle est susceptible d'oublier des éléments clés de la conversation, conduisant à des réponses incohérentes. Les conversations longues ou complexes peuvent rapidement saturer la fenêtre de contexte, augmentant le risque d'incohérence.</p><p>Par analogie, imaginez une personne qui ne se souvient que des cinq dernières phrases d'une conversation. Si la conversation est courte, la personne peut suivre. Mais si la conversation devient longue, la personne oubliera des informations cruciales, ce qui rendra ses réponses incohérentes. De même, un modèle d'IA avec une petite fenêtre de contexte peut « perdre le fil » d'une conversation lorsque trop d'informations sont échangées, oubliant des éléments clés et produisant des réponses qui n'ont plus de sens.</p>",
+                    "desc": "<p>Il arrive que les modèles perdent le fil d’une conversation en raison de leur <strong>fenêtre de contexte limitée.</strong> Cette « fenêtre » représente la quantité d’informations précédentes que le modèle peut retenir, agissant comme une mémoire à court terme. Plus la fenêtre est petite, plus le modèle est susceptible d’oublier des éléments clés de la conversation, conduisant à des réponses incohérentes. Les conversations longues ou complexes peuvent rapidement saturer la fenêtre de contexte, augmentant le risque d’incohérence.</p><p>Par analogie, imaginez une personne qui ne se souvient que des cinq dernières phrases d’une conversation. Si la conversation est courte, la personne peut suivre. Mais si la conversation devient longue, la personne oubliera des informations cruciales, ce qui rendra ses réponses incohérentes. De même, un modèle d’IA avec une petite fenêtre de contexte peut « perdre le fil » d’une conversation lorsque trop d’informations sont échangées, oubliant des éléments clés et produisant des réponses qui n’ont plus de sens.</p>",
                     "title": "Pourquoi certains modèles perdent-ils rapidement le fil de la conversation ?"
                 },
                 "5": {
-                    "desc": "<p>La formulation des questions, ou « prompts », influence la cohérence de la conversation. Pour obtenir les meilleurs résultats d'un modèle de langage, il est essentiel de maîtriser l'art du <em>prompting</em>, c'est-à-dire la formulation des requêtes ou instructions. <strong>La clarté est primordiale</strong>:</p><ul><li>Utilisez un langage simple et direct, en évitant les questions trop longues ou complexes. Décomposez les requêtes en plusieurs questions plus simples pour des réponses plus précises.</li><li><strong>Précisez si besoin des contraintes de formats spécifiques</strong> : Si vous avez besoin d’une réponse dans un certain format (liste, tableau, résumé, etc.), précisez-le dans le prompt. Vous pouvez également préciser les étapes à suivre et les critères de qualité souhaités.</li><li><strong>Spécifiez le rôle du modèle</strong> : Par exemple, commencez par “Agis comme un expert en…” ou “Imagine que tu es un enseignant…” pour orienter le ton et la perspective de la réponse.</li><li><strong>Contextualisez vos questions</strong> : si nécessaire, fournissez des exemples pertinents pour guider le modèle.</li><li><strong>Encouragez le raisonnement</strong>: utilisez l’incitation au raisonnement pas à pas (<em>Chain-of-Thought Prompting</em>) pour demander au modèle d'expliciter son raisonnement, ce qui rend les réponses plus robustes.</li></ul><p>Les modèles conversationnels sont sensibles aux variations de formulation: un langage simple, des questions courtes et une reformulation si nécessaire peuvent aider à guider le modèle vers des réponses pertinentes. Testez et affinez vos prompts pour trouver la formulation la plus efficace !</p>",
+                    "desc": "<p>La formulation des questions, ou « prompts », influence la cohérence de la conversation. Pour obtenir les meilleurs résultats d’un modèle de langage, il est essentiel de maîtriser l’art du <em>prompting</em>, c’est-à-dire la formulation des requêtes ou instructions. <strong>La clarté est primordiale</strong>:</p><ul><li>Utilisez un langage simple et direct, en évitant les questions trop longues ou complexes. Décomposez les requêtes en plusieurs questions plus simples pour des réponses plus précises.</li><li><strong>Précisez si besoin des contraintes de formats spécifiques</strong> : Si vous avez besoin d’une réponse dans un certain format (liste, tableau, résumé, etc.), précisez-le dans le prompt. Vous pouvez également préciser les étapes à suivre et les critères de qualité souhaités.</li><li><strong>Spécifiez le rôle du modèle</strong> : Par exemple, commencez par “Agis comme un expert en…” ou “Imagine que tu es un enseignant…” pour orienter le ton et la perspective de la réponse.</li><li><strong>Contextualisez vos questions</strong> : si nécessaire, fournissez des exemples pertinents pour guider le modèle.</li><li><strong>Encouragez le raisonnement</strong>: utilisez l’incitation au raisonnement pas à pas (<em>Chain-of-Thought Prompting</em>) pour demander au modèle d’expliciter son raisonnement, ce qui rend les réponses plus robustes.</li></ul><p>Les modèles conversationnels sont sensibles aux variations de formulation: un langage simple, des questions courtes et une reformulation si nécessaire peuvent aider à guider le modèle vers des réponses pertinentes. Testez et affinez vos prompts pour trouver la formulation la plus efficace !</p>",
                     "title": "Quelles sont les bonnes pratiques pour prompter ?"
                 },
                 "6": {
-                    "desc": "<p>L'IA conversationnelle répond directement en formulant des phrases à partir d’un grand ensemble de données sur lesquelles le modèle a été entraîné, tandis qu’un moteur de recherche propose des liens et des ressources pour que l’internaute les explore lui-même.</p>",
+                    "desc": "<p>L’IA conversationnelle répond directement en formulant des phrases à partir d’un grand ensemble de données sur lesquelles le modèle a été entraîné, tandis qu’un moteur de recherche propose des liens et des ressources pour que l’internaute les explore lui-même.</p>",
                     "title": "Quelle est la différence entre poser une question à un modèle d’IA conversationnelle et faire une recherche sur Google ?"
                 }
             },
@@ -256,7 +256,7 @@
         }
     },
     "footer": {
-        "backHome": "Retour à l'accueil du site - compar:IA",
+        "backHome": "Retour à l’accueil du site - compar:IA",
         "dpg": "Le service est reconnu comme un bien public numérique par l’Alliance Digital Public Goods",
         "helpUs": "Aidez-nous à améliorer ce service !",
         "license": {
@@ -269,9 +269,9 @@
             "privacy": "Politique de confidentialité",
             "rgesn": "Écoconception",
             "sources": "Code source",
-            "tos": "Modalités d'utilisation"
+            "tos": "Modalités d’utilisation"
         },
-        "writeUs": "Si vous rencontrez un problème ou si vous avez un commentaire sur le comparateur, n'hésitez pas à nous écrire <a {formLinkProps}>via ce formulaire</a>, nous lisons tous vos messages.<br />Merci !"
+        "writeUs": "Si vous rencontrez un problème ou si vous avez un commentaire sur le comparateur, n’hésitez pas à nous écrire <a {formLinkProps}>via ce formulaire</a>, nous lisons tous vos messages.<br />Merci !"
     },
     "general": {
         "a11y": {
@@ -320,9 +320,9 @@
             "cookiesBannerTitle": "Ce site n’affiche pas de bannière de consentement aux cookies, pourquoi ?",
             "cookiesBannerTools": "Nous utilisons pour cela <a {matomoLinkProps}>Matomo</a>, un outil <a {libreLinkProps}>libre</a>, paramétré pour être en conformité avec la <a {cnilLinkProps}>recommandation « Cookies »</a> de la CNIL. Cela signifie que votre adresse IP, par exemple, est anonymisée avant d’être enregistrée. Il est donc impossible d’associer vos visites sur ce site à votre personne.",
             "cookiesDesc": "Ce site dépose un petit fichier texte (un « cookie ») sur votre ordinateur lorsque vous le consultez. Cela nous permet de mesurer le nombre de visites et de comprendre quelles sont les pages les plus consultées.",
-            "cookiesDescMore": "Vous pouvez vous opposer au suivi de votre navigation sur ce site web. Cela protégera votre vie privée, mais empêchera également le propriétaire d'apprendre de vos actions et de créer une meilleure expérience pour vous et les autres utilisateurs.",
+            "cookiesDescMore": "Vous pouvez vous opposer au suivi de votre navigation sur ce site web. Cela protégera votre vie privée, mais empêchera également le propriétaire d’apprendre de vos actions et de créer une meilleure expérience pour vous et les autres utilisateurs.",
             "cookiesTitle": "Cookies déposés et consentement",
-            "dataAccessDatasets": "Les données de dialogue et de préférence de l’utilisateur sont distribuées sous la Licence Ouverte 2.0 d'Etalab sur la plateforme Hugging Face à travers le compte du ministère de la culture (<a {linkProps}>https://huggingface.co/ministere-culture</a>).",
+            "dataAccessDatasets": "Les données de dialogue et de préférence de l’utilisateur sont distribuées sous la Licence Ouverte 2.0 d’Etalab sur la plateforme Hugging Face à travers le compte du ministère de la culture (<a {linkProps}>https://huggingface.co/ministere-culture</a>).",
             "dataAccessDesc": "Bien sûr ! Les statistiques d’usage du site sont disponibles en accès libre sur <a {linkProps}>stats.beta.gouv.fr</a>.",
             "dataAccessTitle": "Je contribue à enrichir vos données, puis-je y accéder ?",
             "dataExtraCountry": "Pays destinataire : France",
@@ -342,24 +342,24 @@
             "privacyDataForm": "Données relatives au questionnaire « Nous aider à améliorer compar:IA ».",
             "tallyTitle": "Formulaires Tally",
             "tallyDesc": "Ce site utilise <a {tallyLinkProps}>Tally</a>, un service de création de formulaires en ligne, pour deux fonctionnalités :",
-            "tallyNewsletter": "Le formulaire d'inscription à la lettre d'information (infolettre) compar:IA",
+            "tallyNewsletter": "Le formulaire d’inscription à la lettre d’information (infolettre) compar:IA",
             "tallyFeedback": "Le formulaire « Votre avis » permettant de recueillir vos retours sur le service",
-            "tallyData": "Lorsque vous remplissez l'un de ces formulaires, les données saisies sont transmises et hébergées par Tally (Tally BV, Belgique). Tally s'engage à ne pas utiliser vos données à des fins commerciales et à respecter le RGPD. Pour plus d'informations, consultez la <a {tallyPrivacyLinkProps}>politique de confidentialité de Tally</a>.",
-            "privacyDesc": "Le service ne traite pas de données à caractère personnel telles que définies par la CNIL, à savoir toute information relative à une personne physique susceptible d'être identifiée, directement ou indirectement.",
-            "privacyResp": "L’utilisateur est responsable des données ou contenus qu'il ou elle saisit dans l’invite offert par la plateforme. En acceptant les <a {linkProps}>modalités d’utilisation</a>, l’utilisateur ou l’utilisatrice s’engage à ne pas transmettre d’informations permettant de l’identifier ou d’identifier un tiers.",
+            "tallyData": "Lorsque vous remplissez l’un de ces formulaires, les données saisies sont transmises et hébergées par Tally (Tally BV, Belgique). Tally s’engage à ne pas utiliser vos données à des fins commerciales et à respecter le RGPD. Pour plus d’informations, consultez la <a {tallyPrivacyLinkProps}>politique de confidentialité de Tally</a>.",
+            "privacyDesc": "Le service ne traite pas de données à caractère personnel telles que définies par la CNIL, à savoir toute information relative à une personne physique susceptible d’être identifiée, directement ou indirectement.",
+            "privacyResp": "L’utilisateur est responsable des données ou contenus qu’il ou elle saisit dans l’invite offert par la plateforme. En acceptant les <a {linkProps}>modalités d’utilisation</a>, l’utilisateur ou l’utilisatrice s’engage à ne pas transmettre d’informations permettant de l’identifier ou d’identifier un tiers.",
             "privacyTitle": "Traitons-nous des données à caractère personnel ?",
             "title": "Politique de confidentialité"
         },
         "rgesn": {
             "1": {
-                "1": "Le site compar:IA permet de donner accès simplement et gratuitement à une très grande diversité de modèles d'IA conversationnelle et ainsi de sensibiliser les citoyens aux divers enjeux des IA génératives : diversité, biais, impact environnemental. Par ailleurs, les jeux de données de questions et de préférences constitués sont partagés en open source sous licence MIT/Etalab 2.0.",
-                "2": "Les cibles utilisatrices du service Compar:IA ont été identifiées en procédant à des entretiens utilisateurs et une phase préalable d'investigation des besoins.",
-                "3": "Ainsi, tous les citoyens sont concernés comme utilisateurs potentiels, mais particulièrement les professeurs, élèves, étudiants, médiateurs numériques, formateurs IA, ainsi que chercheurs (computer sciences, IA, SHS) et entreprises intéressées par l'analyse ou l’utilisation des jeux de données partagés en open source.<br> En cohérence, le service numérique répond à leurs besoins grâce aux fonctionnalités suivantes : tester et comparer gratuitement les modèles, utiliser les données partagées en open source.",
+                "1": "Le site compar:IA permet de donner accès simplement et gratuitement à une très grande diversité de modèles d’IA conversationnelle et ainsi de sensibiliser les citoyens aux divers enjeux des IA génératives : diversité, biais, impact environnemental. Par ailleurs, les jeux de données de questions et de préférences constitués sont partagés en open source sous licence MIT/Etalab 2.0.",
+                "2": "Les cibles utilisatrices du service Compar:IA ont été identifiées en procédant à des entretiens utilisateurs et une phase préalable d’investigation des besoins.",
+                "3": "Ainsi, tous les citoyens sont concernés comme utilisateurs potentiels, mais particulièrement les professeurs, élèves, étudiants, médiateurs numériques, formateurs IA, ainsi que chercheurs (computer sciences, IA, SHS) et entreprises intéressées par l’analyse ou l’utilisation des jeux de données partagés en open source.<br> En cohérence, le service numérique répond à leurs besoins grâce aux fonctionnalités suivantes : tester et comparer gratuitement les modèles, utiliser les données partagées en open source.",
                 "4": "Le service compar:IA s’inscrit dans une démarche d’écoconception visant à réduire les impacts environnementaux. À cette fin, la déclaration a été rédigée dans le cadre de la mise en œuvre du référentiel général de l’écoconception des services numériques (RGESN, version 2024).<br> Le RGESN, réalisé par l’Arcep et l’Arcom, en collaboration avec l’ADEME, la DINUM, la CNIL et l’Inria, est disponible sur le <a {linkProps}>site web de l’Arcep</a>.",
                 "title": "Raison d’être de ce service"
             },
             "2": {
-                "1": "L'écoconception de services numériques est une démarche visant à réduire et limiter les impacts environnementaux d’un service dès sa phase de conception et tout au long de son cycle de vie.",
+                "1": "L’écoconception de services numériques est une démarche visant à réduire et limiter les impacts environnementaux d’un service dès sa phase de conception et tout au long de son cycle de vie.",
                 "2": {
                     "1": "Concevoir des services numériques plus durables permettant d’allonger la durée de vie des terminaux ;",
                     "2": "Promouvoir une démarche de sobriété environnementale face aux stratégies de captation de l’attention de l’utilisateur pour des usages en ligne avec les objectifs environnementaux internationaux ;",
@@ -374,7 +374,7 @@
                     "4": "Limiter la consommation d’énergie permettant d’héberger le service",
                     "title": "Concrètement, l’écoconception se traduit par un ensemble de bonnes pratiques à respecter avant, pendant et après la création ou l’amélioration d’un service, permettant notamment de :"
                 },
-                "4": "Il s’agit d’une démarche d'amélioration continue et collective.",
+                "4": "Il s’agit d’une démarche d’amélioration continue et collective.",
                 "title": "Qu’est ce que l’écoconception ?"
             },
             "3": {
@@ -433,7 +433,7 @@
                     "title": "S’astreindre à un poids maximum et une limite de requêtes par écran (critère 6.1) :"
                 },
                 "4": "Convertir les illustrations en WebP, AVIF, JPEG XL ou un format d’image plus performant pour les images matricielles (critère 5.1).",
-                "5": "Laisser la possibilité d'interrompre l'inférence (chargement des réponses) lors de la comparaison des modèles.",
+                "5": "Laisser la possibilité d’interrompre l’inférence (chargement des réponses) lors de la comparaison des modèles.",
                 "6": "Les scores d’analyses EcoIndex démontrent un décalage important dans les mesures d’impact avec des notes allant jusqu’à E ou F pour certaines pages (poids, complexité et nombre de requêtes des pages relativement importants) ; il s’agit désormais de comprendre plus finement ces résultats au cas par cas, malgré les bonnes pratiques mises en œuvre, pour identifier de nouvelles améliorations.",
                 "desc": "Plusieurs améliorations ont été ou sont toujours en cours d’identification, parmi lesquelles :",
                 "title": "Améliorations identifiées"
@@ -455,14 +455,14 @@
             "descTitle": "3. Description de la plateforme",
             "descUse": "L’utilisateur ou l’utilisatrice pose une question en français et obtient des réponses de deux grands modèles de langages (LLM) anonymes. Il ou elle vote pour le modèle qui fournit la réponse qu’il préfère et se voit alors révélée l’identité des modèles. Ce dispositif de production participative inspiré de la plateforme <a {linkProps}>« chatbot arena » (LMSYS)</a> permet de constituer des jeux de données de préférences humaines sur des tâches réelles, en français, utilisables pour l’alignement des modèles.",
             "dispoDesc": "La plateforme est accessible, sauf cas de force majeure ou d’évènement hors de contrôle de son éditeur.",
-            "dispoResp": "A ce titre, l’éditeur ne saurait être tenu responsable des pertes ou préjudices, de quelque nature qu’ils soient, qui pourraient être causés à la suite d’un dysfonctionnement ou une indisponibilité du service. De telles situations n'ouvriront droit à aucune compensation financière.",
-            "dispoRight": "L’éditeur se réserve le droit de suspendre, d'interrompre ou de limiter, sans avis préalable, l'accès à tout ou partie des services, notamment pour des opérations de maintenance et de mises à jour nécessaires au bon fonctionnement du service et des matériels afférents, ou pour toute autre raison, notamment technique.",
+            "dispoResp": "A ce titre, l’éditeur ne saurait être tenu responsable des pertes ou préjudices, de quelque nature qu’ils soient, qui pourraient être causés à la suite d’un dysfonctionnement ou une indisponibilité du service. De telles situations n’ouvriront droit à aucune compensation financière.",
+            "dispoRight": "L’éditeur se réserve le droit de suspendre, d’interrompre ou de limiter, sans avis préalable, l’accès à tout ou partie des services, notamment pour des opérations de maintenance et de mises à jour nécessaires au bon fonctionnement du service et des matériels afférents, ou pour toute autre raison, notamment technique.",
             "dispoTitle": "7. Disponibilité des services",
-            "dispoWarranty": "Il n’est pas garanti que le service soit exempt d’anomalies ou d'erreurs. Le service est donc mis à disposition sans garantie sur sa disponibilité et ses performances.",
+            "dispoWarranty": "Il n’est pas garanti que le service soit exempt d’anomalies ou d’erreurs. Le service est donc mis à disposition sans garantie sur sa disponibilité et ses performances.",
             "evoDesc": "Les modalités d’utilisation peuvent être modifiées ou complétées à tout moment, sans préavis, en fonction des modifications apportées aux services, de l’évolution de la législation ou pour tout autre motif jugé nécessaire.",
             "evoDescMore": "Ces modifications et mises à jour s’imposent à l’utilisateur ou l’utilisatrice qui doit, en conséquence, se référer régulièrement à cette rubrique pour vérifier les modalités générales en vigueur.",
-            "evoTitle": "8. Évolution des modalités d'utilisation",
-            "featuresDatasets": "Le service collecte les données de dialogue (questions, réponses des deux modèles) et les préférences des utilisateurs (vote, métadonnées associées). Ces données servent à la fois à constituer des jeux de données partagés et à établir un classement des modèles d'IA affiché sur la plateforme, basé sur les votes exprimés.",
+            "evoTitle": "8. Évolution des modalités d’utilisation",
+            "featuresDatasets": "Le service collecte les données de dialogue (questions, réponses des deux modèles) et les préférences des utilisateurs (vote, métadonnées associées). Ces données servent à la fois à constituer des jeux de données partagés et à établir un classement des modèles d’IA affiché sur la plateforme, basé sur les votes exprimés.",
             "featuresDatasetsMore": "L’éditeur se réserve le droit de distribuer sous licence ouverte 2.0 les données de dialogue et de préférence de l’utilisateur. Le jeu de données est diffusé sur la plateforme Hugging Face à travers le compte du ministère de la culture (<a {linkProps}>https://huggingface.co/ministere-culture</a>).",
             "featuresDesc": "Afin de répondre au double objectif de sensibiliser les citoyens aux grands modèles de langage et collecter les préférences des utilisateurs et utilisatrices, les services rendus par la plateforme sans restriction d’accès sont les suivants :",
             "featuresDescMore": "Une interface humain-machine permettant de dialoguer simultanément avec deux modèles conversationnels et de voter pour la réponse préférée.",
@@ -483,9 +483,9 @@
             "respLegal": "La plateforme n’a pas vocation à être utilisée pour générer des contenus illicites ou contraires à l’ordre public et plus généralement toute génération de contenu contrevenant au cadre juridique en vigueur.",
             "respLegalMore": "A cet égard, l’utilisateur ne saisit pas dans l’invite des contenus ou informations contraires aux dispositions légales et réglementaires en vigueur.",
             "respPrivacy": "Les données saisies par l’utilisateur sur la plateforme ayant vocation à être mises à disposition, il ou elle s’engage à ne pas transmettre d’informations permettant de l’identifier ou d’identifier un tiers.",
-            "respPrivacyMore": "En tout état de cause, l’éditeur s’engage à mettre en œuvre les moyens permettant de s'assurer de l'anonymisation des données de dialogue avant leur mise à disposition. Si, malgré les efforts de l'éditeur, des données sensibles venaient à être publiées dans les jeux de données, vous pouvez le signaler immédiatement via ce formulaire : [https://adtk8x51mbw.eu.typeform.com/to/B49aloXZ](https://adtk8x51mbw.eu.typeform.com/to/B49aloXZ).",
+            "respPrivacyMore": "En tout état de cause, l’éditeur s’engage à mettre en œuvre les moyens permettant de s’assurer de l’anonymisation des données de dialogue avant leur mise à disposition. Si, malgré les efforts de l’éditeur, des données sensibles venaient à être publiées dans les jeux de données, vous pouvez le signaler immédiatement via ce formulaire : [https://adtk8x51mbw.eu.typeform.com/to/B49aloXZ](https://adtk8x51mbw.eu.typeform.com/to/B49aloXZ).",
             "respTitle": "5. Responsabilités",
-            "respUser": "L’utilisateur est responsable des données ou contenus qu'il ou elle saisit dans l’invite offert par la plateforme.",
+            "respUser": "L’utilisateur est responsable des données ou contenus qu’il ou elle saisit dans l’invite offert par la plateforme.",
             "scopeDesc": "L’accès à la plateforme est gratuit, sans inscription et entraîne l’application de conditions spécifiques, listées dans les présentes modalités d’utilisation.",
             "scopeTitle": "1. Champ d’application",
             "title": "Modalités d’utilisation"
@@ -686,6 +686,11 @@
                 "OpenAI": {
                     "commercial_use_specificities": "",
                     "license_desc": "Le modèle est disponible sous licence payante et accessible via API sur les plateformes de la société OpenAI ou via les services Microsoft Azure, nécessitant un paiement à l'utilisation basé sur le nombre de jetons traités ou sur l’infrastructure réservée.",
+                    "reuse_specificities": ""
+                },
+                "OpenRouter": {
+                    "commercial_use_specificities": "",
+                    "license_desc": "",
                     "reuse_specificities": ""
                 },
                 "Ordbogen": {
@@ -1246,6 +1251,11 @@
                 "fyi": "<p>Petit frère de la famille Mixtral, ce modèle est capable de traiter des contextes de 32 000 tokens et supporte l'anglais, le français, l'italien, l'allemand et l'espagnol. Grâce à l’architecture SMoE (sparse mixture of experts), seule une fraction des paramètres est activée pour chaque inférence, réduisant ainsi les coûts et la latence.</p>",
                 "size_desc": "<p>Les modèles moyens offrent un bon équilibre entre complexité, coût et performance : ils sont beaucoup moins consommateurs de ressources que les grands modèles tout en étant capables de gérer des tâches complexes telles que l'analyse de sentiment ou le raisonnement.</p>"
             },
+            "Nemotron 3 Nano Omni 30B-A3B": {
+                "desc": "<p>Grand modèle multimodal de Nvidia, le fabricant de cartes graphiques, capable de traiter du texte, des images, des vidéos et de l'audio en une seule inférence. Fondé sur une architecture hybride Mamba-Transformer à mélange d'experts, il est conçu pour fonctionner comme sous-agent de perception dans des systèmes d'agents d'entreprise. Nvidia publie les poids, les recettes d'entraînement et une grande partie des données d'entraînement.</p>",
+                "fyi": "<p>Nemotron 3 Nano Omni est une extension multimodale du Nemotron 3 Nano, partageant la même architecture hybride à 29 couches (23 couches Mamba-2/MoE + 6 couches d'attention Transformer). La version Omni y ajoute deux encodeurs spécialisés : CRADIO v4-H pour la vision (images et vidéos) et Parakeet pour la parole, permettant un traitement unifié de quatre modalités dans une seule boucle d'inférence. Le modèle intègre un traitement vidéo efficace via l'échantillonnage adaptatif (jusqu'à 256 images par vidéo) et prend en charge l'audio jusqu'à une heure. Il peut produire des horodatages mot à mot pour la transcription et appeler des outils externes.</p>\n<p>L'entraînement multimodal s'appuie sur environ 717 milliards de jetons répartis sur 1 395 jeux de données couvrant texte, images (70 M d'exemples), audio (268 M d'exemples) et vidéo (25 M d'exemples). Le pipeline post-entraînement comprend un affinage supervisé sur 124 millions d'exemples multimodaux et 20 environnements d'apprentissage par renforcement couvrant cinq nouvelles tâches visuelles (ancrage visuel, compréhension de graphiques, STEM visuel, compréhension vidéo, reconnaissance vocale automatique). Comme pour le Super 120B, une part importante des données est synthétique, générée à l'aide de modèles tiers (GPT-OSS 120B, Qwen3-VL, DeepSeek).</p>\n<p>Côté performance, le modèle affiche un gain de 76 % sur OSWorld (automatisation d'interface graphique) et de 35 % sur ChartXiv Reasoning par rapport à la génération précédente (Nemotron Nano VL V2). Les variantes quantisées FP8 (32,8 Go) et NVFP4 (20,9 Go) perdent moins de 0,5 point en moyenne sur 9 benchmarks multimodaux par rapport à la version BF16 (61,5 Go), ce qui le rend déployable sur des configurations matérielles accessibles. La disponibilité en tier gratuit sur OpenRouter (avec limite de 50 req/jour) en fait un point d'entrée sans coût pour l'expérimentation.</p>",
+                "size_desc": "<p>Avec 30 milliards de paramètres au total dont 3 milliards activés par jeton, ce modèle peut fonctionner sur une seule carte graphique puissante. L'architecture de mélange d'experts (MoE, Mixture of Experts) permet de n'activer qu'une fraction des paramètres, ce qui réduit l'empreinte par rapport à un modèle dense de même taille. La fenêtre de contexte atteint 256 000 jetons. Les modèles de raisonnement de ce type fonctionnent plus longtemps pour produire une réponse, ce qui augmente la consommation énergétique.</p>"
+            },
             "Nemotron 3 Super 120B-A12B": {
                 "desc": "<p>Grand modèle de Nvidia, le fabricant de cartes graphiques, fondé sur une architecture hybride qui combine différents types de couches pour traiter efficacement de très longs documents tout en limitant le coût de calcul. Nvidia publie les poids, les recettes d'entraînement et une grande partie des données d'entraînement.</p>",
                 "fyi": "<p>Nemotron 3 Super se distingue par son architecture hybride à 88 couches, qui combine des couches Mamba-2 (traitement linéaire des séquences, moins coûteux que l'attention classique sur de longs contextes), des couches d'attention Transformer (pour la recherche précise d'informations) et des couches de mélange d'experts latents (LatentMoE). Le LatentMoE projette les représentations des jetons dans un espace compressé avant le routage, ce qui permet de consulter 512 experts (dont 22 activés par jeton), soit bien plus que les architectures MoE classiques (~128 experts, 6 à 8 activés), sans surcoût de calcul. Le modèle intègre également la prédiction multi-jetons (MTP, Multi-Token Prediction), qui permet un décodage spéculatif natif et accélère l'inférence.</p>\n<p>L'entraînement s'est déroulé en trois phases : un pré-entraînement sur 25 billions de jetons (dont 10 billions de jetons uniques sélectionnés), un affinage supervisé (SFT) sur environ 7 millions d'exemples couvrant le code, les mathématiques, l'utilisation d'outils et le suivi d'instructions, puis un apprentissage par renforcement multi-environnement (GRPO, Group Relative Policy Optimization) avec plus de 1,2 million de trajectoires sur 21 configurations différentes. Le modèle a été pré-entraîné nativement en précision NVFP4 à l'aide du framework Megatron-LM. Une part importante des données d'entraînement est synthétique, générée à partir de modèles tiers (GPT-OSS, Qwen3, DeepSeek), ce qui soulève des questions sur l'origine réelle des capacités du modèle.</p>\n<p>Côté ouverture, Nvidia publie non seulement les poids du modèle sous licence Nemotron Open (usage commercial autorisé), mais aussi les recettes d'entraînement complètes et une grande partie des données d'entraînement sur HuggingFace, ce qui est rare pour un modèle de cette envergure. Certains jeux de données restent toutefois sous accès restreint. À noter : le modèle a tendance à produire des réponses particulièrement longues, ce qui peut réduire en pratique les gains de vitesse liés à son architecture.</p>",
@@ -1285,6 +1295,11 @@
                 "desc": "<p>OLMo 2 32B est un modèle entièrement open source (corpus et code d'entraînement inclus) créé par l'Allen AI Institute (Ai2), publié en mars 2025. </p>",
                 "fyi": "<p>OLMo 2 32B est un modèle entièrement open source : le corpus et le code d'entraînement sont entièrement accessibles. Cette famille de modèle OLMo a été conçue par l'Allen Institute for AI (Ai2).</p>",
                 "size_desc": "<p>Les modèles moyens offrent un bon équilibre entre complexité, coût et performance : ils sont beaucoup moins consommateurs de ressources que les grands modèles tout en étant capables de gérer des tâches complexes telles que l'analyse de sentiment ou le raisonnement.</p>"
+            },
+            "Owl Alpha": {
+                "desc": "<p>Modèle fondation haute performance d'OpenRouter, conçu pour les tâches agentiques. Supporte nativement l'appel d'outils et les contextes très longs, avec de bonnes capacités en génération de code, automatisation de workflows et exécution d'instructions complexes. Compatible avec Claude Code, OpenClaw et d'autres outils de productivité. Publié en tant que modèle « stealth » : l'identité de l'équipe de développement n'est pas divulguée.</p>",
+                "fyi": "<p>Owl Alpha est le premier modèle publié directement par OpenRouter en tant que plateforme — une initiative inédite pour un agrégateur d'API. Il est publié sous forme « stealth » : l'identité de l'équipe ou du laboratoire à l'origine du modèle n'est pas divulguée. Cette approche, parfois utilisée pour soumettre des modèles à l'évaluation sur des arènes comme LMSYS Arena, permet d'éviter les biais de notoriété dans les évaluations humaines.</p>\n<p>Les spécifications publiques font état de 295B paramètres totaux et 21B paramètres actifs, ce qui le rapproche en coût de calcul effectif de modèles comme Qwen3-27B. Sa fenêtre de contexte de ~1M tokens et sa sortie maximale de 262K tokens le distinguent nettement des offres gratuites comparables. Il supporte l'appel d'outils natif (Tool Calling) et est déjà intégré dans des environnements de développement comme KiloCode, OpenCode, OpenClaw et Claude Code.</p>\n<p>Point de vigilance important : OpenRouter précise explicitement que les prompts et les completions peuvent être enregistrés par le fournisseur et utilisés pour améliorer le modèle. Cela le rend inadapté au traitement de données sensibles, de secrets commerciaux ou de données personnelles — notamment dans le cadre d'une démo santé avec des professionnels hospitaliers.</p>",
+                "size_desc": "<p>Avec 295 milliards de paramètres au total dont 21 milliards activés par jeton, ce modèle repose sur une architecture de mélange d'experts (MoE) qui n'active qu'une fraction des paramètres à chaque requête. La fenêtre de contexte atteint 1 048 756 jetons (~1 million), et la sortie maximale est de 262 144 jetons, ce qui est considérablement plus élevé que la plupart des modèles comparables. Le modèle est distribué en quantification int8, un compromis entre vitesse d'inférence et qualité des réponses.</p>"
             },
             "Phi-3-Mini": {
                 "desc": "<p>Performant pour des tâches de génération de code, et de résumé, ce modèle compact supporte un contexte restreint de 4000 tokens.</p>",
@@ -1458,45 +1473,45 @@
             "title": "Vos questions les plus courantes"
         },
         "intro": {
-            "desc": "Comparez deux IA à l'aveugle sur vos questions médicales et évaluez leurs réponses",
+            "desc": "Comparez deux IA à l’aveugle sur vos questions médicales et évaluez leurs réponses",
             "steps": {
-                "a11yDesc": "1. Je discute avec deux IA anonymes : échangez aussi longtemps que vous le souhaitez. 2. Je donne mon avis : vous contribuez ainsi à l'amélioration des modèles d’IA. 3. Les modèles sont démasqués : apprenez-en plus sur les modèles d’IA et leurs caractéristiques.",
+                "a11yDesc": "1. Je discute avec deux IA anonymes : échangez aussi longtemps que vous le souhaitez. 2. Je donne mon avis : vous contribuez ainsi à l’amélioration des modèles d’IA. 3. Les modèles sont démasqués : apprenez-en plus sur les modèles d’IA et leurs caractéristiques.",
                 "one": {
-                    "desc": "Soumettez un cas ou une question issue de votre pratique quotidienne",
+                    "desc": "Soumettez une situation issue de votre pratique quotidienne",
                     "title": "Je pose une question clinique"
                 },
                 "three": {
-                    "desc": "Découvrez quel modèle a produit chaque réponse et ses caractéristiques",
+                    "desc": "Découvrez quel modèle a généré chaque réponse et ses caractéristiques",
                     "title": "Les modèles sont révélés !"
                 },
                 "title": "Comment ça marche",
                 "two": {
-                    "desc": "Comparez fiabilité clinique, clarté et pertinence des réponses",
-                    "title": "J'évalue les deux réponses"
+                    "desc": "Comparez qualité, clarté et pertinence des réponses",
+                    "title": "J’évalue les réponses"
                 }
             },
-            "title": "Testez les IA sur vos <span {props}>cas cliniques réels</span>",
+            "title": "Testez <span {props}>connaissances en santé</span> des IA",
             "tos": {
-                "accept": "J'accepte les <a {linkProps}>conditions générales d’utilisation</a>",
-                "error": "Vous devez accepter les modalités d'utilisation pour continuer",
+                "accept": "J’accepte les <a {linkProps}>conditions générales d’utilisation</a>",
+                "error": "Vous devez accepter les modalités d’utilisation pour continuer",
                 "help": "Vos données sont partagées à des fins de recherche"
             }
         },
         "origin": {
             "project": {
-                "desc": "Cette arène a été déployée dans le cadre du programme <a {linkProps}>Impulse Healthtech</a> de l'ONG Bayes Impact, en partenariat avec des professionnels de santé de l'hôpital public. Elle s'appuie sur le projet open source compar:IA créé par Beta.gouv.fr.",
-                "title": "À l'origine du projet"
+                "desc": "Cette arène a été déployée dans le cadre d’un partenariat en Compar:IA et l’ONG Bayes Impact, en partenariat avec des professionnels de santé. Elle s’appuie sur le projet open source compar:IA créé par Beta.gouv.fr.",
+                "title": "À l’origine du projet"
             },
             "team": {
-                "desc": "Bayes Impact est une ONG spécialisée dans l'usage de la data science et de l'IA pour l'intérêt général. Le programme Impulse Healthtech accompagne les hôpitaux publics dans l'évaluation et l'adoption responsable de l'IA générative.",
+                "desc": "Bayes Impact est une ONG spécialisée dans l’usage de la data science et de l’IA pour l’intérêt général. Au travers de son programme Impulse Healthtech, Bayes Impact accompagne les hôpitaux publics dans l’évaluation et l’adoption responsable de l’IA générative.",
                 "title": "Qui sommes-nous ?"
             }
         },
         "usage": {
-            "desc": "L'outil s'adresse aux médecins, infirmiers, pharmaciens et autres professionnels de santé",
+            "desc": "L’outil s’adresse aux médecins, infirmiers, pharmaciens et autres professionnels de santé",
             "educate": {
-                "desc": "Développez une culture critique de l'IA générative pour mieux accompagner vos patients",
-                "title": "Se former à l'IA médicale"
+                "desc": "Développez une culture critique de l’IA générative pour mieux accompagner vos patients",
+                "title": "Se former à l’IA médicale"
             },
             "explore": {
                 "desc": "Comparez les capacités et limites des modèles sur des cas de santé concrets",
@@ -1504,28 +1519,28 @@
             },
             "title": "Des usages adaptés aux soignants",
             "use": {
-                "desc": "Vos votes alimentent une base de données sur l'acceptabilité de l'IA en santé",
+                "desc": "Vos votes alimentent une base de données sur les usages et les limites de l’IA en santé",
                 "title": "Contribuer à la recherche"
             }
         },
         "use": {
             "compare": {
                 "alt": "Comparer",
-                "desc": "Développez votre esprit critique face à l'IA en évaluant les réponses côte à côte",
-                "title": "Comparer les réponses sur vos cas cliniques"
+                "desc": "Développez votre esprit critique face à l’IA en évaluant les réponses côte à côte",
+                "title": "Toutes les IA ne se valent pas"
             },
-            "desc": "Un outil dédié aux professionnels de santé pour évaluer l'IA générative dans vos pratiques quotidiennes.",
+            "desc": "Un outil dédié aux professionnels de santé pour évaluer l’IA générative dans vos pratiques quotidiennes.",
             "measure": {
                 "alt": "Mesurer",
-                "desc": "Évaluez comment l'IA peut réduire votre charge cognitive et améliorer votre efficacité",
-                "title": "Mesurer le temps médical libéré"
+                "desc": "Découvrez l’impact environnemental de vos discussions avec chaque modèle",
+                "title": "Mesurer l’impact écologique des questions posées aux IA"
             },
             "test": {
                 "alt": "Tester",
-                "desc": "Identifiez les limites et risques des modèles d'IA sur des questions de santé réelles",
+                "desc": "Identifiez les limites et risques des modèles d’IA sur des questions de santé",
                 "title": "Détecter les hallucinations et erreurs médicales"
             },
-            "title": "Pourquoi tester les IA en conditions réelles ?"
+            "title": "Pourquoi tester les IA auprès des soignants ?"
         },
         "vote": {
             "datasetAccess": "Accéder aux jeux de données",
@@ -1533,14 +1548,14 @@
             "steps": {
                 "datasets": {
                     "desc": "Toutes les questions posées et les votes sont compilés dans des jeux de données et publiés librement après anonymisation.",
-                    "title": "Les jeux de données par langue"
+                    "title": "Les jeux de données par spécialités"
                 },
                 "finetune": {
-                    "desc": "À terme, les entreprises et les acteurs universitaires peuvent exploiter les jeux de données pour entrainer de nouveaux modèles plus respectueux de la diversité linguistique et culturelle.",
-                    "title": "Des modèles affinés sur la langue spécifique"
+                    "desc": "À terme, les entreprises et les acteurs universitaires peuvent exploiter les jeux de données pour entrainer de nouveaux modèles plus respectueux des préoccupations réelles des professionnels de santé.",
+                    "title": "Des modèles affinés par thématique santé"
                 },
                 "prefs": {
-                    "desc": "Après avoir discuté avec les IA, vous indiquez votre préférence selon des critères cliniques : fiabilité, clarté, risque d'hallucination.",
+                    "desc": "Après avoir discuté avec les IA, vous indiquez votre préférence selon des critères cliniques : fiabilité, clarté, risque d’hallucination.",
                     "title": "Vos évaluations cliniques"
                 }
             },
@@ -1561,7 +1576,7 @@
                 "subTitle": "Vous ne pouvez pas les réutiliser pour entraîner d’autres modèles",
                 "title": "Réutilisation des résultats générés"
             },
-            "title": "Conditions d'utilisation",
+            "title": "Conditions d’utilisation",
             "types": {
                 "allowed": "Autorisé",
                 "conditions": "Sous conditions",
@@ -1604,7 +1619,7 @@
                     "legend": "Éditeur"
                 },
                 "license": {
-                    "legend": "Licence d'utilisation"
+                    "legend": "Licence d’utilisation"
                 },
                 "reset": "Effacer tous les filtres",
                 "size": {
@@ -1618,7 +1633,7 @@
                     "legend": "Taille (paramètres)"
                 }
             },
-            "intro": "Explorez les différents modèles d'IA conversationnels disponibles, leurs caractéristiques et leurs licences.",
+            "intro": "Explorez les différents modèles d’IA conversationnels disponibles, leurs caractéristiques et leurs licences.",
             "model": "modèle",
             "models": "modèles",
             "noresults": "Aucun modèle ne correspond à vos critères de recherche.",
@@ -1641,8 +1656,8 @@
             "tooltips": {
                 "copyleft": "Une fois modifié, le modèle doit être redistribué sous la même licence que celle du modèle source.",
                 "free": "Une fois modifié, le modèle peut être redistribué sous une licence différente du modèle source.",
-                "openSource": "Le corpus, le code d'entraînement, et les poids de ce modèle (c’est-à-dire les paramètres appris pendant son entraînement) sont entièrement téléchargeables et modifiables par le public, lui permettant de faire fonctionner et modifier le modèle sur son propre matériel. Qu'un modèle soit « open source » est plus contraignant qu'« open weights », notamment à cause de la nécessité de transparence du corpus d'entraînement, et rares sont les modèles qui sont considérés « open source ».",
-                "openWeight": "Modèle dit « open weights » dont les poids, c’est-à-dire les paramètres appris pendant son entraînement, sont téléchargeables par le public, lui permettant de faire fonctionner le modèle sur son propre matériel. Qu'un modèle soit « open source » est plus contraignant (principalement par rapport à la transparence du corpus d'entraînement), et rares sont les modèles qui sont considérés « open source ».",
+                "openSource": "Le corpus, le code d’entraînement, et les poids de ce modèle (c’est-à-dire les paramètres appris pendant son entraînement) sont entièrement téléchargeables et modifiables par le public, lui permettant de faire fonctionner et modifier le modèle sur son propre matériel. Qu’un modèle soit « open source » est plus contraignant qu’« open weights », notamment à cause de la nécessité de transparence du corpus d’entraînement, et rares sont les modèles qui sont considérés « open source ».",
+                "openWeight": "Modèle dit « open weights » dont les poids, c’est-à-dire les paramètres appris pendant son entraînement, sont téléchargeables par le public, lui permettant de faire fonctionner le modèle sur son propre matériel. Qu’un modèle soit « open source » est plus contraignant (principalement par rapport à la transparence du corpus d’entraînement), et rares sont les modèles qui sont considérés « open source ».",
                 "params": "Les paramètres ou les poids, comptés en milliards, sont les variables, apprises par un modèle au cours de son entrainement, qui déterminent ses réponses. Plus le nombre de paramètres est important, plus il a besoin de ressources pour fonctionner.",
                 "ram": "La mémoire vive stocke les données traitées par un LLM en temps réel. Plus le modèle est grand, plus il a besoin de mémoire vive pour fonctionner."
             }
@@ -1722,7 +1737,7 @@
                         },
                         "mathilde": {
                             "date": "Depuis Septembre 2024",
-                            "job": "Responsable de l'Atelier numérique / Product Ops"
+                            "job": "Responsable de l’Atelier numérique / Product Ops"
                         },
                         "nicolas": {
                             "date": "Depuis Juin 2025",
@@ -1741,15 +1756,15 @@
         "comparator": {
             "challenges": {
                 "bias": {
-                    "desc": "Mettre en avant les biais de l'IA liés à la sous-représentation des données non anglophones dans les modèles et sensibiliser à leurs conséquences.",
+                    "desc": "Mettre en avant les biais de l’IA liés à la sous-représentation des données non anglophones dans les modèles et sensibiliser à leurs conséquences.",
                     "title": "Biais culturels et linguistiques"
                 },
                 "impacts": {
-                    "desc": "Révéler les effets écologiques de l'IA générative, encore largement méconnus du grand public.",
+                    "desc": "Révéler les effets écologiques de l’IA générative, encore largement méconnus du grand public.",
                     "title": "Impact environnemental"
                 },
                 "pluralism": {
-                    "desc": "Assurer aux citoyens l'accès à une diversité de modèles d'IA afin qu'ils puissent faire des choix éclairés et développer un regard critique sur ces technologies.",
+                    "desc": "Assurer aux citoyens l’accès à une diversité de modèles d’IA afin qu’ils puissent faire des choix éclairés et développer un regard critique sur ces technologies.",
                     "title": "Pluralisme des modèles"
                 },
                 "thinking": {
@@ -1765,7 +1780,7 @@
                 "desc": "Le comparateur sera mis à disposition de leurs citoyens dans leurs langues nationales. L’objectif est de créer des jeux de données de préférence afin d’améliorer les futurs modèles d’IA dans ces langues européennes.",
                 "title": "Le comparateur <span {props}>devient européen</span> !"
             },
-            "screenshotAlt": "Capture d'écran de l'arène compar:ia, avec la question initiale, les deux réponses des modèles et les boutons de vote.",
+            "screenshotAlt": "Capture d’écran de l’arène compar:ia, avec la question initiale, les deux réponses des modèles et les boutons de vote.",
             "tabLabel": "Le comparateur",
             "title": "Le comparateur permet de créer des <span {props}>jeux de données</span> de préférence centrés sur des <span {props}>usages réels</span> exprimés dans les <span {props}>langues européennes</span>."
         },
@@ -1813,7 +1828,7 @@
                         },
                         "4": {
                             "date": "Février 2025",
-                            "desc": "Plus de 300 personnes dans le cadre de conférences et d’ateliers dédiés aux enjeux éthiques, culturels et environnementaux des systèmes d'IA conversationnelle.",
+                            "desc": "Plus de 300 personnes dans le cadre de conférences et d’ateliers dédiés aux enjeux éthiques, culturels et environnementaux des systèmes d’IA conversationnelle.",
                             "title": "<a {linkProps}>Journée comparIA à la BnF</a> pendant le sommet pour l’action sur l’IA"
                         }
                     },
@@ -1832,7 +1847,7 @@
                             "title": "Lancement des <a {linkProps}>« Duels de l’IA »</a>"
                         },
                         "3": {
-                            "desc": "Construit en partenariat avec le Pôle d'Expertise de la Régulation Numérique (<a {linkProps}>PEReN</a>), le classement compar:IA repose sur l’ensemble des votes et réactions collectés depuis l’ouverture du service au public en octobre 2024.",
+                            "desc": "Construit en partenariat avec le Pôle d’Expertise de la Régulation Numérique (<a {linkProps}>PEReN</a>), le classement compar:IA repose sur l’ensemble des votes et réactions collectés depuis l’ouverture du service au public en octobre 2024.",
                             "title": "Publication du <a {linkProps}>classement compar:IA</a>"
                         },
                         "4": {
@@ -1889,22 +1904,22 @@
         "problem": {
             "alignment": {
                 "alignment": {
-                    "a": "L'alignement intervient après l'étape de pré-entraînement d'un modèle de langage, comme une étape de « finition » ou de « polissage ». Lors de son pré-entrainement, le modèle apprend à prédire le mot suivant et devient capable de générer du texte cohérent.",
+                    "a": "L’alignement intervient après l’étape de pré-entraînement d’un modèle de langage, comme une étape de « finition » ou de « polissage ». Lors de son pré-entrainement, le modèle apprend à prédire le mot suivant et devient capable de générer du texte cohérent.",
                     "b": "L’étape d’alignement consiste à apprendre au modèle à mieux répondre aux besoins humains, c’est à dire à le rendre plus <strong>pertinent</strong> (le modèle répond « mieux » aux questions), <strong>honnête</strong> (capacité à assumer « qu’il ne sait pas répondre » quand il n’y a pas suffisamment de données), et <strong>inoffensif</strong> (éviter de générer des contenus dangereux ou inappropriés).",
-                    "c": "<strong>Sans alignement, un LLM pourrait être techniquement compétent mais difficile à utiliser en pratique, car il ne comprendrait pas vraiment ce qu'on attend de lui dans une conversation.</strong>",
+                    "c": "<strong>Sans alignement, un LLM pourrait être techniquement compétent mais difficile à utiliser en pratique, car il ne comprendrait pas vraiment ce qu’on attend de lui dans une conversation.</strong>",
                     "title": "L’alignement, étape décisive d’instruction du modèle"
                 },
                 "datasets": {
-                    "a": "L'alignement utilise des données très spécifiques, spécialement créées pour enseigner au modèle comment « bien » se comporter.",
+                    "a": "L’alignement utilise des données très spécifiques, spécialement créées pour enseigner au modèle comment « bien » se comporter.",
                     "b": "Les <strong>données de préférence</strong> constituent un type particulier de données d’alignement, aux côtés des <strong>données de démonstration</strong> (exemples de conversations entre humains et assistants IA, rédigées par des annotateurs experts selon des consignes précises de ton et de style), des <strong>données de sécurité</strong> (exemples spécifiques enseignant au modèle à éviter les contenus dangereux en montrant comment refuser les demandes problématiques) ou des <strong>données spécialisées</strong> couvrant des domaines spécifiques (médecine, droit, éducation…).",
                     "c": "Les données de préférence présentent plusieurs réponses possibles à une même question, classées par ordre de qualité par des évaluateurs humains : les utilisateurs indiquent quelle réponse est la meilleure selon des critères donnés, telles que la pertinence, l’utilité, la nocivité. Une fois constitués, ces jeux de données sont utilisés pour entraîner les modèles en les ajustant selon les préférences exprimées par les utilisateurs.",
                     "title": "Des jeux de données spécifiques"
                 },
-                "desc": "L'alignement : une technique de réduction des biais qui repose sur la collecte des préférences d’utilisateurs",
+                "desc": "L’alignement : une technique de réduction des biais qui repose sur la collecte des préférences d’utilisateurs",
                 "diversity": {
-                    "a": "Pour refléter la diversité des cultures et des langues dans les résultats générés par les modèles, <strong>les jeux de données d’alignement doivent inclure une variété de langues</strong>, de contextes et d’exemples issus de tâches courantes des utilisateurs. La diversification des données d'alignement permet d’améliorer à terme les performances d’un modèle à double titre :",
-                    "b": "D'une part, elle <strong>réduit les biais culturels</strong> en évitant qu'une seule perspective - souvent anglo-saxonne - domine les réponses de l'IA. Le modèle apprend ainsi à reconnaître qu'il existe plusieurs façons valides d'aborder une même question selon le contexte culturel.",
-                    "c": "D'autre part, cette exposition à la diversité de langues et de cultures favorise l’adaptation des réponses à des contextes spécifiques : un utilisateur français recevra des conseils adaptés au système français, tandis qu'un utilisateur danois obtiendra des informations correspondant à son contexte national.",
+                    "a": "Pour refléter la diversité des cultures et des langues dans les résultats générés par les modèles, <strong>les jeux de données d’alignement doivent inclure une variété de langues</strong>, de contextes et d’exemples issus de tâches courantes des utilisateurs. La diversification des données d’alignement permet d’améliorer à terme les performances d’un modèle à double titre :",
+                    "b": "D’une part, elle <strong>réduit les biais culturels</strong> en évitant qu’une seule perspective - souvent anglo-saxonne - domine les réponses de l’IA. Le modèle apprend ainsi à reconnaître qu’il existe plusieurs façons valides d’aborder une même question selon le contexte culturel.",
+                    "c": "D’autre part, cette exposition à la diversité de langues et de cultures favorise l’adaptation des réponses à des contextes spécifiques : un utilisateur français recevra des conseils adaptés au système français, tandis qu’un utilisateur danois obtiendra des informations correspondant à son contexte national.",
                     "d": "Le résultat est un modèle d’IA conversationnelle plus inclusif, capable de tenir compte des différentes cultures.",
                     "title": "Diversifier les données pour réduire les biais"
                 },
@@ -1922,7 +1937,7 @@
                     "title": "Diversités culturelles et linguistiques négligées"
                 },
                 "english": {
-                    "desc": "Les IA conversationnelles reposent sur des grands modèles de langage (LLM) entraînés principalement sur des données en anglais, ce qui crée des biais linguistiques et culturels dans les résultats qu'ils produisent.",
+                    "desc": "Les IA conversationnelles reposent sur des grands modèles de langage (LLM) entraînés principalement sur des données en anglais, ce qui crée des biais linguistiques et culturels dans les résultats qu’ils produisent.",
                     "title": "Données d’entrainement majoritairement en anglais"
                 },
                 "stereotypes": {
@@ -1979,10 +1994,10 @@
                     },
                     "3": {
                         "descs": {
-                            "1": "compar:IA utilise la méthodologie développée par <a {ecoLinkProps}><strong>Ecologits</strong></a> (<a {genaiLinkProps}><strong>GenAI Impact</strong></a>) pour fournir une estimation du bilan énergétique lié à l’inférence des modèles d’IA générative conversationnelle. Cette estimation permet aux utilisateurs de comparer l'impact environnemental de différents modèles d'IA pour une même requête. Cette transparence est essentielle pour encourager le développement et l'adoption de modèles d'IA plus éco-responsables.",
-                            "2": "Ecologits applique les principes de l'analyse du cycle de vie (ACV) conformément à la norme ISO 14044 en se concentrant pour le moment sur l'impact de l'inférence (c'est-à-dire l'utilisation des modèles pour répondre aux requêtes) et de la <strong>fabrication des cartes graphiques</strong> (extraction des ressources, fabrication et transport).",
-                            "3": "La consommation électrique du modèle est estimée en tenant compte de divers paramètres tels que la taille et l’architecture du modèle d'IA utilisé, la localisation des serveurs où sont déployés les modèles et le nombre de tokens de sortie. Le calcul de l’indicateur de potentiel de réchauffement climatique exprimé en équivalent CO2 est dérivé de la mesure de consommation électrique du modèle.",
-                            "4": "Il est important de noter que les méthodologies d'évaluation de l'impact environnemental de l'IA sont encore en développement."
+                            "1": "compar:IA utilise la méthodologie développée par <a {ecoLinkProps}><strong>Ecologits</strong></a> (<a {genaiLinkProps}><strong>GenAI Impact</strong></a>) pour fournir une estimation du bilan énergétique lié à l’inférence des modèles d’IA générative conversationnelle. Cette estimation permet aux utilisateurs de comparer l’impact environnemental de différents modèles d’IA pour une même requête. Cette transparence est essentielle pour encourager le développement et l’adoption de modèles d’IA plus éco-responsables.",
+                            "2": "Ecologits applique les principes de l’analyse du cycle de vie (ACV) conformément à la norme ISO 14044 en se concentrant pour le moment sur l’impact de l’inférence (c’est-à-dire l’utilisation des modèles pour répondre aux requêtes) et de la <strong>fabrication des cartes graphiques</strong> (extraction des ressources, fabrication et transport).",
+                            "3": "La consommation électrique du modèle est estimée en tenant compte de divers paramètres tels que la taille et l’architecture du modèle d’IA utilisé, la localisation des serveurs où sont déployés les modèles et le nombre de tokens de sortie. Le calcul de l’indicateur de potentiel de réchauffement climatique exprimé en équivalent CO2 est dérivé de la mesure de consommation électrique du modèle.",
+                            "4": "Il est important de noter que les méthodologies d’évaluation de l’impact environnemental de l’IA sont encore en développement."
                         },
                         "title": "Comment est calculé l’impact énergétique des modèles ?"
                     }
@@ -2008,7 +2023,7 @@
                 "winrate": {
                     "desc": {
                         "1": "En se basant uniquement sur le <strong>taux de victoire moyen</strong>, on peut obtenir un classement global, mais ce calcul suppose que chaque modèle ait joué contre tous les autres.",
-                        "2": "Cette méthode n'est pas idéale car elle nécessite les données de toutes les combinaisons de modèles et ès qu’on augmente le nombre de modèles, cela devient vite coûteux et lourd à maintenir."
+                        "2": "Cette méthode n’est pas idéale car elle nécessite les données de toutes les combinaisons de modèles et ès qu’on augmente le nombre de modèles, cela devient vite coûteux et lourd à maintenir."
                     },
                     "title": "10 premiers modèles du classement selon de taux de victoire « empirique »"
                 }
@@ -2019,9 +2034,9 @@
                 "elo": {
                     "def": "<strong>Définition</strong> : Système de classement où le gain ou la perte de points dépend du résultat (victoire/défaite/nul <strong>et</strong> du niveau estimé de l’adversaire : si un modèle plus faible bat un modèle plus fort, sa progression dans le classement est plus importante.",
                     "list": {
-                        "1": "<strong>Modèle probabiliste</strong> : on peut estimer le résultat probable de n'importe quelle confrontation, même entre des modèles n'ayant jamais été directement comparés.",
+                        "1": "<strong>Modèle probabiliste</strong> : on peut estimer le résultat probable de n’importe quelle confrontation, même entre des modèles n’ayant jamais été directement comparés.",
                         "2": "<strong>Prise en compte de la difficulté des matchs</strong> : les scores estimés à partir du modèle Bradley Terry tiennent compte du niveau des adversaires rencontrés, permettant une comparaison équitable entre modèles.",
-                        "3": "<strong>Meilleure gestion de l’incertitude</strong> : l'intervalle de confiance intègre l'ensemble du réseau de comparaisons. Cela permet une estimation plus précise de l'incertitude, surtout pour les modèles ayant peu de confrontations directes mais beaucoup d'adversaires communs."
+                        "3": "<strong>Meilleure gestion de l’incertitude</strong> : l’intervalle de confiance intègre l’ensemble du réseau de comparaisons. Cela permet une estimation plus précise de l’incertitude, surtout pour les modèles ayant peu de confrontations directes mais beaucoup d’adversaires communs."
                     },
                     "title": "Classement Bradley-Terry (BT)"
                 },
@@ -2065,13 +2080,13 @@
                 },
                 "percentLabel": "Préférences en pourcentage",
                 "tooltips": {
-                    "positive_prefs_ratio": "Lors du vote, des badges permettaient de préciser les raisons de votre préférence. Cette colonne présente la répartition en pourcentage de ces badges (positifs ou négatifs) pour l'ensemble des votes."
+                    "positive_prefs_ratio": "Lors du vote, des badges permettaient de préciser les raisons de votre préférence. Cette colonne présente la répartition en pourcentage de ces badges (positifs ou négatifs) pour l’ensemble des votes."
                 }
             },
             "title": "Comment se répartissent les préférences des utilisateurs ?"
         },
         "ranking": {
-            "desc": "Merci pour vos contributions !<br> Le classement <strong>compar:IA</strong> repose sur l’ensemble des votes et réactions issus de la <strong>comparaison à l'aveugle </strong> des modèles et collectés depuis l’ouverture du service au public en octobre 2024.<br> Construit en partenariat avec le Pôle d'Expertise de la Régulation Numérique (<a {linkProps}>PEReN</a>), le classement des modèles est établi en fonction du <strong>score de satisfaction</strong> calculé à partir du modèle statistique <strong>Bradley Terry</strong>, méthode largement répandue pour convertir des votes binaires en classement probabiliste.<br> Le classement compar:IA n’a pas vocation à constituer une recommandation officielle ni à évaluer la performance technique des modèles. Il reflète les <strong>préférences subjectives</strong> des utilisateurs de la plateforme et non la factualité ou la véracité des réponses.",
+            "desc": "Merci pour vos contributions !<br> Le classement <strong>compar:IA</strong> repose sur l’ensemble des votes et réactions issus de la <strong>comparaison à l’aveugle </strong> des modèles et collectés depuis l’ouverture du service au public en octobre 2024.<br> Construit en partenariat avec le Pôle d’Expertise de la Régulation Numérique (<a {linkProps}>PEReN</a>), le classement des modèles est établi en fonction du <strong>score de satisfaction</strong> calculé à partir du modèle statistique <strong>Bradley Terry</strong>, méthode largement répandue pour convertir des votes binaires en classement probabiliste.<br> Le classement compar:IA n’a pas vocation à constituer une recommandation officielle ni à évaluer la performance technique des modèles. Il reflète les <strong>préférences subjectives</strong> des utilisateurs de la plateforme et non la factualité ou la véracité des réponses.",
             "tabLabel": "Classement"
         },
         "table": {
@@ -2092,12 +2107,12 @@
                 },
                 "estimation": "(estimation)",
                 "tooltips": {
-                    "arch": "L'architecture d'un modèle LLM désigne les principes de conception qui définissent comment les composants d'un réseau de neurones sont agencés et interagissent pour transformer les données d'entrée en sorties prédictives, incluant le mode d'activation des paramètres (dense vs. sparse), la spécialisation des composants et les mécanismes de traitement de l'information (transformers, réseaux convolutifs, architectures hybrides).",
-                    "consumption": "Mesurée en milliwattheures, l’énergie consommée représente l'électricité utilisée par le modèle pour traiter une requête et générer la réponse correspondante. La consommation énergétique des modèles dépend de leur taille et de leur architecture. Nous prenons le parti d’afficher en grisé non analysés (N/A) les modèles propriétaires pour lesquels nous ne disposons pas d’information transparente sur la taille et l’architecture.",
-                    "elo": "Score statistique estimé selon le modèle Bradley-Terry reflétant la probabilité qu'un modèle soit préféré à un autre. Ce score est calculé à partir de l'ensemble des votes et réactions des utilisateurs. Pour en savoir plus, rendez-vous sur l’onglet méthodologie.",
+                    "arch": "L’architecture d’un modèle LLM désigne les principes de conception qui définissent comment les composants d’un réseau de neurones sont agencés et interagissent pour transformer les données d’entrée en sorties prédictives, incluant le mode d’activation des paramètres (dense vs. sparse), la spécialisation des composants et les mécanismes de traitement de l’information (transformers, réseaux convolutifs, architectures hybrides).",
+                    "consumption": "Mesurée en milliwattheures, l’énergie consommée représente l’électricité utilisée par le modèle pour traiter une requête et générer la réponse correspondante. La consommation énergétique des modèles dépend de leur taille et de leur architecture. Nous prenons le parti d’afficher en grisé non analysés (N/A) les modèles propriétaires pour lesquels nous ne disposons pas d’information transparente sur la taille et l’architecture.",
+                    "elo": "Score statistique estimé selon le modèle Bradley-Terry reflétant la probabilité qu’un modèle soit préféré à un autre. Ce score est calculé à partir de l’ensemble des votes et réactions des utilisateurs. Pour en savoir plus, rendez-vous sur l’onglet méthodologie.",
                     "rank": "Rang de classement attribué selon le score de satisfaction Bradley-Terry",
                     "size": "Taille du modèle en milliards de paramètres, catégorisée selon cinq classes. Pour les modèles propriétaires, cette taille n’est pas communiquée.",
-                    "trust_range": "Intervalle indiquant la fiabilité du rang de classement : plus l'intervalle est étroit, plus l'estimation du rang est fiable. Il y a 95% de chances que le vrai rang du modèle soit dans cette plage."
+                    "trust_range": "Intervalle indiquant la fiabilité du rang de classement : plus l’intervalle est étroit, plus l’estimation du rang est fiable. Il y a 95% de chances que le vrai rang du modèle soit dans cette plage."
                 }
             },
             "lastUpdate": "Mise à jour le {date}",
@@ -2110,7 +2125,7 @@
         "equivalent": {
             "co2": {
                 "label": "CO<sub>2</sub> émis",
-                "tooltip": "Le CO<sub>2</sub> émis équivaut aux émissions de dioxyde de carbone produites par l’énergie utilisée pour faire fonctionner le modèle. Elle traduit l'impact environnemental lié à la consommation énergétique. Le calcul d’équivalence Wattheures/CO<sub>2</sub> diffère selon le mix énergétique de chaque pays. Or, les serveurs utilisés pour l’inférence des modèles ne sont pas tous localisés en France. Ainsi, le calcul d’équivalence repose sur la moyenne mondiale du taux d’émissions de CO<sub>2</sub> par énergie consommée.",
+                "tooltip": "Le CO<sub>2</sub> émis équivaut aux émissions de dioxyde de carbone produites par l’énergie utilisée pour faire fonctionner le modèle. Elle traduit l’impact environnemental lié à la consommation énergétique. Le calcul d’équivalence Wattheures/CO<sub>2</sub> diffère selon le mix énergétique de chaque pays. Or, les serveurs utilisés pour l’inférence des modèles ne sont pas tous localisés en France. Ainsi, le calcul d’équivalence repose sur la moyenne mondiale du taux d’émissions de CO<sub>2</sub> par énergie consommée.",
                 "unit": "tonnes"
             },
             "desc": "Si tous les Français qui utilisent l’IA générative (48%) avaient eu cette discussion, cela représenterait :",
@@ -2141,7 +2156,7 @@
                 }
             },
             "title": "Équivalences en tonnes de CO2",
-            "title_tooltip": "Les équivalences sont des projections pour illustrer l'effet de masse, nous avons multiplié l'impact de votre discussion avec ce modèle à l'ensemble des utilisateurs d'IA en France : 48% des Français déclarent aujourd’hui avoir recours à l’IA générative, jamais une technologie numérique n'avait été adoptée aussi vite.(source <a {linkProps}>Baromètre du numérique du CREDOC</a>)"
+            "title_tooltip": "Les équivalences sont des projections pour illustrer l’effet de masse, nous avons multiplié l’impact de votre discussion avec ce modèle à l’ensemble des utilisateurs d’IA en France : 48% des Français déclarent aujourd’hui avoir recours à l’IA générative, jamais une technologie numérique n’avait été adoptée aussi vite.(source <a {linkProps}>Baromètre du numérique du CREDOC</a>)"
         },
         "feedback": {
             "description": "Faites découvrir compar:IA en partageant les modèles d’IA avec lesquels vous avez échangé ! Seuls les noms et l’impact énergétique de la discussion seront visibles via ce lien, sans accès aux messages échangés.",
@@ -2152,7 +2167,7 @@
         "impacts": {
             "energy": {
                 "label": "énergie conso.",
-                "tooltip": "Mesurée en milliwattheures, l’énergie consommée représente l'électricité utilisée par le modèle pour traiter une requête et générer la réponse correspondante. Plus un modèle est grand (en milliards de paramètres), plus il faut d'énergie pour produire un token."
+                "tooltip": "Mesurée en milliwattheures, l’énergie consommée représente l’électricité utilisée par le modèle pour traiter une requête et générer la réponse correspondante. Plus un modèle est grand (en milliards de paramètres), plus il faut d’énergie pour produire un token."
             },
             "size": {
                 "count": "milliards param.",
@@ -2171,14 +2186,14 @@
         "thanks": {
             "cta": "Accéder au classement",
             "desc": "Découvrez comment votre préférence se situe par rapport au classement général des modèles dans compar:IA.",
-            "graphAlt": "Aperçu du graphique représentant le score et la consommation d'électricité des modèles",
+            "graphAlt": "Aperçu du graphique représentant le score et la consommation d’électricité des modèles",
             "rankingAlt": "Aperçu du classement sous forme de tableau",
             "title": "Merci pour votre contribution !"
         }
     },
     "seo": {
-        "desc": "compar:IA est un outil permettant de comparer à l’aveugle différents modèles d'IA conversationnelle pour sensibiliser aux enjeux de l'IA générative (biais, impact environmental) et constituer des jeux de données de préférence en français.",
-        "title": "compar:IA, le comparateur d'IA conversationnelles",
+        "desc": "compar:IA est un outil permettant de comparer à l’aveugle différents modèles d’IA conversationnelle pour sensibiliser aux enjeux de l’IA générative (biais, impact environmental) et constituer des jeux de données de préférence en français.",
+        "title": "compar:IA, le comparateur d’IA conversationnelles",
         "titles": {
             "accessibilite": "Déclaration d’accessibilité",
             "arene": "Discussion",
@@ -2218,7 +2233,7 @@
                 "completeness": "Complétude",
                 "actionable": "Utilité décisionnelle",
                 "safety": "Sécurité",
-                "question": "Qu'avez-vous apprécié dans cette réponse, sur le plan clinique ?"
+                "question": "Qu’avez-vous apprécié dans cette réponse, sur le plan clinique ?"
             }
         },
         "comment": {
@@ -2226,14 +2241,14 @@
             "placeholder": "Vous pouvez ajouter des précisions sur cette réponse du modèle {model}"
         },
         "dislike": {
-            "label": "je n'apprécie pas",
-            "selectedLabel": "je n'apprécie pas (sélectionné)"
+            "label": "je n’apprécie pas",
+            "selectedLabel": "je n’apprécie pas (sélectionné)"
         },
         "introA": "Avant de découvrir l’identité des modèles, nous avons besoin de votre préférence.",
-        "introB": "Elle permet d'enrichir les jeux de données compar:IA dont l’objectif est d’affiner les futurs modèles d’IA sur le français",
+        "introB": "Elle permet d’enrichir les jeux de données compar:IA dont l’objectif est d’affiner les futurs modèles d’IA sur le français",
         "like": {
-            "label": "j'apprécie",
-            "selectedLabel": "j'apprécie (sélectionné)"
+            "label": "j’apprécie",
+            "selectedLabel": "j’apprécie (sélectionné)"
         },
         "qualify": {
             "addDetails": "Ajouter des détails",
@@ -2245,7 +2260,7 @@
     },
     "welcome": {
         "errors": "Les IA peuvent faire des erreurs : nous vous encourageons à vérifier les informations communiquées.",
-        "go": "C'est parti",
+        "go": "C’est parti",
         "privacy": "Ne communiquez pas d’informations personnelles comme votre nom, prénom ou adresse.",
         "title": "Bienvenue sur compar:IA !",
         "tos": {
