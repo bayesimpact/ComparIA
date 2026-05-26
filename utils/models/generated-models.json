@@ -1,5 +1,5 @@
 {
-  "timestamp": 1779263609.781307,
+  "timestamp": 1779564688.205371,
   "models": {
     "Apertus-70B-Instruct-2509": {
       "active_params": null,
@@ -28,7 +28,7 @@
       "reuse": true,
       "simple_name": "Apertus 70B Instruct",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/swiss-ai/Apertus-70B-Instruct-2509",
       "wh_per_million_token": 657.5289928335044
     },
@@ -189,7 +189,7 @@
       "reuse": true,
       "simple_name": "Command R",
       "specific_portals": null,
-      "status": "disabled",
+      "status": "archived",
       "url": null,
       "wh_per_million_token": 243.82777938658904
     },
@@ -407,7 +407,7 @@
       "reuse": false,
       "simple_name": "Claude 4.6 Sonnet",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": null,
       "wh_per_million_token": 3930.8611235673734
     },
@@ -769,7 +769,7 @@
       "reuse": true,
       "simple_name": "DeepSeek V4 Pro",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/deepseek-ai",
       "wh_per_million_token": 8889.678918356936
     },
@@ -800,7 +800,7 @@
       "reuse": true,
       "simple_name": "EuroLLM 22B Instruct",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512",
       "wh_per_million_token": 106.13992795912138
     },
@@ -864,7 +864,7 @@
       "endpoint": {
         "api_base": null,
         "api_model_id": "gemini-2.5-flash",
-        "api_type": "vertex_ai",
+        "api_type": "gemini",
         "api_version": null
       },
       "friendly_size": "XL",
@@ -883,9 +883,40 @@
       "reuse": false,
       "simple_name": "Gemini 2.5 Flash",
       "specific_portals": null,
-      "status": "archived",
+      "status": "enabled",
       "url": null,
       "wh_per_million_token": 3930.8611235673734
+    },
+    "gemini-2.5-pro": {
+      "active_params": 32,
+      "arch": "moe",
+      "commercial_use": null,
+      "distribution": "api-only",
+      "endpoint": {
+        "api_base": null,
+        "api_model_id": "gemini-2.5-pro",
+        "api_type": "gemini",
+        "api_version": null
+      },
+      "friendly_size": "XL",
+      "fully_open_source": false,
+      "icon_path": "google-color",
+      "id": "gemini-2.5-pro",
+      "license": "proprietary",
+      "new": false,
+      "organisation": "Google",
+      "params": 1000,
+      "pricey": false,
+      "quantization": null,
+      "reasoning": false,
+      "release_date": "05/2025",
+      "required_ram": 1000,
+      "reuse": false,
+      "simple_name": "Gemini 2.5 Pro",
+      "specific_portals": null,
+      "status": "enabled",
+      "url": "https://deepmind.google/technologies/gemini/pro/",
+      "wh_per_million_token": 3784.7598296869155
     },
     "gemini-3-flash-preview": {
       "active_params": 137,
@@ -914,7 +945,7 @@
       "reuse": false,
       "simple_name": "Gemini 3 Flash",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://blog.google/products/gemini/gemini-3-flash/",
       "wh_per_million_token": 3930.8611235673734
     },
@@ -976,7 +1007,7 @@
       "reuse": false,
       "simple_name": "Gemini 3.1 Flash Lite",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/",
       "wh_per_million_token": 878.2405837975983
     },
@@ -1007,7 +1038,7 @@
       "reuse": false,
       "simple_name": "Gemini 3.1 Pro",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": null,
       "wh_per_million_token": 4289.5266051804565
     },
@@ -1038,7 +1069,7 @@
       "reuse": false,
       "simple_name": "Gemini 3.5 Flash",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
       "wh_per_million_token": 9813.335468742105
     },
@@ -1297,7 +1328,7 @@
       "reuse": true,
       "simple_name": "Gemma 4 26B A4B",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/google/gemma-4-26b-a4b-it",
       "wh_per_million_token": 84.29905786565084
     },
@@ -1452,7 +1483,7 @@
       "reuse": true,
       "simple_name": "GLM 5",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/zai-org/GLM-5",
       "wh_per_million_token": 4095.385537682941
     },
@@ -1483,7 +1514,7 @@
       "reuse": true,
       "simple_name": "GLM 5.1",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/zai-org/GLM-5.1",
       "wh_per_million_token": 4095.385537682941
     },
@@ -1510,7 +1541,7 @@
       "simple_name": "GPT-3.5",
       "specific_portals": null,
       "status": "archived",
-      "url": "https://platform.openai.com/docs/models/gp#gpt-3-5-turbo",
+      "url": "ttps://developers.openai.com/api/docs/models/gpt-3-5-turbo",
       "wh_per_million_token": 292.363046260968
     },
     "gpt-4.1-mini": {
@@ -1606,7 +1637,12 @@
       "arch": "maybe-dense",
       "commercial_use": null,
       "distribution": "api-only",
-      "endpoint": null,
+      "endpoint": {
+        "api_base": null,
+        "api_model_id": "openai/gpt-4o-mini",
+        "api_type": "openrouter",
+        "api_version": null
+      },
       "friendly_size": "S",
       "fully_open_source": false,
       "icon_path": "openai",
@@ -1623,8 +1659,8 @@
       "reuse": false,
       "simple_name": "GPT-4o mini",
       "specific_portals": null,
-      "status": "archived",
-      "url": "https://platform.openai.com/docs/models/gp#gpt-4o-mini",
+      "status": "enabled",
+      "url": "https://developers.openai.com/api/docs/models/gpt-4o-mini",
       "wh_per_million_token": 101.28640127168345
     },
     "gpt-5": {
@@ -1840,7 +1876,7 @@
       "reuse": false,
       "simple_name": "GPT 5.4",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://developers.openai.com/api/docs/models/gpt-5.4",
       "wh_per_million_token": 3096.054533328056
     },
@@ -1871,7 +1907,7 @@
       "reuse": false,
       "simple_name": "GPT 5.4 Mini",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
       "wh_per_million_token": 197.71927585592903
     },
@@ -1902,7 +1938,7 @@
       "reuse": false,
       "simple_name": "GPT 5.4 Nano",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://developers.openai.com/api/docs/models/gpt-5.4-nano",
       "wh_per_million_token": 84.29905786565084
     },
@@ -1933,7 +1969,7 @@
       "reuse": false,
       "simple_name": "GPT 5.5",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://openai.com/index/introducing-gpt-5-5/",
       "wh_per_million_token": 3096.054533328056
     },
@@ -1995,7 +2031,7 @@
       "reuse": true,
       "simple_name": "GPT OSS-20B",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": null,
       "wh_per_million_token": 83.08567619379136
     },
@@ -2119,7 +2155,7 @@
       "reuse": false,
       "simple_name": "Grok 4.20",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://x.ai/news",
       "wh_per_million_token": 137100.43989371642
     },
@@ -2150,7 +2186,7 @@
       "reuse": false,
       "simple_name": "Grok 4.3",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://docs.x.ai/developers/models/grok-4.3",
       "wh_per_million_token": 137100.43989371642
     },
@@ -2326,7 +2362,7 @@
       "reuse": true,
       "simple_name": "Kimi K2.5",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://www.kimi.com/blog/kimi-k2-5.html",
       "wh_per_million_token": 3784.7598296869155
     },
@@ -2357,7 +2393,7 @@
       "reuse": true,
       "simple_name": "Kimi K2.6",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/moonshotai/Kimi-K2.6",
       "wh_per_million_token": 3784.7598296869155
     },
@@ -2414,7 +2450,7 @@
       "reuse": true,
       "simple_name": "LFM2 24B A2B",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/LiquidAI/LFM2-24B-A2B",
       "wh_per_million_token": 81.87229452193189
     },
@@ -2533,7 +2569,7 @@
       "reuse": true,
       "simple_name": "Llama 3.1 8B",
       "specific_portals": null,
-      "status": "archived",
+      "status": "enabled",
       "url": "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct",
       "wh_per_million_token": 89.15258455308872
     },
@@ -2626,7 +2662,7 @@
       "reuse": true,
       "simple_name": "Llama 4 Scout",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct",
       "wh_per_million_token": 400.2920783992959
     },
@@ -2657,7 +2693,7 @@
       "reuse": true,
       "simple_name": "Llama 4 Maverick",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": null,
       "wh_per_million_token": 1601.1683135971837
     },
@@ -2833,7 +2869,7 @@
       "reuse": true,
       "simple_name": "MiniMax M2.5",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.5",
       "wh_per_million_token": 732.6347831744614
     },
@@ -2864,7 +2900,7 @@
       "reuse": true,
       "simple_name": "MiniMax M2.7",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.7",
       "wh_per_million_token": 732.6347831744614
     },
@@ -2890,7 +2926,7 @@
       "reuse": true,
       "simple_name": "Ministral",
       "specific_portals": null,
-      "status": "disabled",
+      "status": "archived",
       "url": "https://huggingface.co/mistralai/Ministral-8B-Instruct-2410",
       "wh_per_million_token": 89.15258455308872
     },
@@ -2916,7 +2952,7 @@
       "reuse": true,
       "simple_name": "Mistral Large 2",
       "specific_portals": null,
-      "status": "disabled",
+      "status": "archived",
       "url": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2411",
       "wh_per_million_token": 914.7659072677128
     },
@@ -2947,7 +2983,7 @@
       "reuse": true,
       "simple_name": "Mistral 3 Large",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://mistral.ai/news/mistral-3",
       "wh_per_million_token": 4134.213751182444
     },
@@ -3123,7 +3159,7 @@
       "reuse": true,
       "simple_name": "Mistral Small 4",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/mistralai/Mistral-Small-4-119B-2603",
       "wh_per_million_token": 346.90328483747913
     },
@@ -3158,7 +3194,12 @@
       "arch": "dense",
       "commercial_use": true,
       "distribution": "open-weights",
-      "endpoint": null,
+      "endpoint": {
+        "api_base": null,
+        "api_model_id": "mistralai/mistral-small-3.2-24b-instruct",
+        "api_type": "openrouter",
+        "api_version": null
+      },
       "friendly_size": "S",
       "fully_open_source": false,
       "icon_path": "mistral-color",
@@ -3231,6 +3272,37 @@
       "url": "https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1",
       "wh_per_million_token": 192.86574916849113
     },
+    "nemotron-3-nano-omni-30b-a3b-reasoning": {
+      "active_params": 3,
+      "arch": "moe",
+      "commercial_use": true,
+      "distribution": "open-weights",
+      "endpoint": {
+        "api_base": null,
+        "api_model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+        "api_type": "openrouter",
+        "api_version": null
+      },
+      "friendly_size": "S",
+      "fully_open_source": false,
+      "icon_path": "nvidia-color",
+      "id": "nemotron-3-nano-omni-30b-a3b-reasoning",
+      "license": "Nemotron Open",
+      "new": false,
+      "organisation": "Nvidia",
+      "params": 30,
+      "pricey": false,
+      "quantization": null,
+      "reasoning": true,
+      "release_date": "04/2026",
+      "required_ram": 30,
+      "reuse": true,
+      "simple_name": "Nemotron 3 Nano Omni 30B-A3B",
+      "specific_portals": null,
+      "status": "enabled",
+      "url": "https://huggingface.co/nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+      "wh_per_million_token": 83.08567619379136
+    },
     "nemotron-3-super-120b-a12b": {
       "active_params": 12,
       "arch": "moe",
@@ -3258,7 +3330,7 @@
       "reuse": true,
       "simple_name": "Nemotron 3 Super 120B-A12B",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
       "wh_per_million_token": 376.02444496210654
     },
@@ -3332,7 +3404,7 @@
       },
       "friendly_size": "L",
       "fully_open_source": false,
-      "icon_path": "ordbogen.ai-color.svg",
+      "icon_path": "ordbogen.ai.svg",
       "id": "odin-large",
       "license": "proprietary",
       "new": false,
@@ -3348,7 +3420,7 @@
       "specific_portals": [
         "da"
       ],
-      "status": "enabled",
+      "status": "archived",
       "url": "https://www.ordbogen.ai/",
       "wh_per_million_token": 8221.378715262475
     },
@@ -3365,7 +3437,7 @@
       },
       "friendly_size": "L",
       "fully_open_source": false,
-      "icon_path": "ordbogen.ai-color.svg",
+      "icon_path": "ordbogen.ai.svg",
       "id": "odin-medium",
       "license": "proprietary",
       "new": false,
@@ -3381,7 +3453,7 @@
       "specific_portals": [
         "da"
       ],
-      "status": "enabled",
+      "status": "archived",
       "url": "https://www.ordbogen.ai/",
       "wh_per_million_token": 8221.378715262475
     },
@@ -3441,6 +3513,37 @@
       "status": "archived",
       "url": "https://allenai.org/blog/olmo2-32b",
       "wh_per_million_token": 118.27374467771611
+    },
+    "owl-alpha": {
+      "active_params": 21,
+      "arch": "moe",
+      "commercial_use": false,
+      "distribution": "api-only",
+      "endpoint": {
+        "api_base": null,
+        "api_model_id": "openrouter/owl-alpha",
+        "api_type": "openrouter",
+        "api_version": null
+      },
+      "friendly_size": "L",
+      "fully_open_source": false,
+      "icon_path": "openrouter",
+      "id": "owl-alpha",
+      "license": "proprietary",
+      "new": false,
+      "organisation": "OpenRouter",
+      "params": 295,
+      "pricey": false,
+      "quantization": null,
+      "reasoning": false,
+      "release_date": "04/2026",
+      "required_ram": 295,
+      "reuse": false,
+      "simple_name": "Owl Alpha",
+      "specific_portals": null,
+      "status": "enabled",
+      "url": "https://openrouter.ai/openrouter/owl-alpha",
+      "wh_per_million_token": 1678.8247405961904
     },
     "phi-3-mini-4k": {
       "active_params": null,
@@ -3550,6 +3653,32 @@
       "status": "archived",
       "url": "https://huggingface.co/microsoft/Phi-4",
       "wh_per_million_token": 96.43287458424557
+    },
+    "qwen-2.5-max-0125": {
+      "active_params": 2.7,
+      "arch": "moe",
+      "commercial_use": null,
+      "distribution": "api-only",
+      "endpoint": null,
+      "friendly_size": "L",
+      "fully_open_source": false,
+      "icon_path": "qwen-color",
+      "id": "qwen-2.5-max-0125",
+      "license": "proprietary",
+      "new": false,
+      "organisation": "Alibaba",
+      "params": 325,
+      "pricey": false,
+      "quantization": null,
+      "reasoning": false,
+      "release_date": "01/2025",
+      "required_ram": 325,
+      "reuse": false,
+      "simple_name": "Qwen 2.5 max 0125",
+      "specific_portals": null,
+      "status": "archived",
+      "url": null,
+      "wh_per_million_token": 1309.9567123509103
     },
     "qwen-3-8b": {
       "active_params": null,
@@ -3760,7 +3889,7 @@
       "reuse": true,
       "simple_name": "Qwen 2.5 Coder 32B",
       "specific_portals": null,
-      "status": "disabled",
+      "status": "archived",
       "url": "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct",
       "wh_per_million_token": 118.27374467771611
     },
@@ -3946,7 +4075,7 @@
       "reuse": true,
       "simple_name": "Qwen 3.5 35B A3B",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/Qwen/Qwen3.5-35B-A3B",
       "wh_per_million_token": 166.17135238758271
     },
@@ -3977,7 +4106,7 @@
       "reuse": true,
       "simple_name": "Qwen 3.5 397B",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B",
       "wh_per_million_token": 1601.1683135971837
     },
@@ -4008,7 +4137,7 @@
       "reuse": false,
       "simple_name": "Qwen 3.6 Plus",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://chat.qwen.ai/",
       "wh_per_million_token": 10978.181873727197
     },
@@ -4070,7 +4199,7 @@
       "reuse": true,
       "simple_name": "Trinity Large",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/arcee-ai/Trinity-Large-Preview",
       "wh_per_million_token": 1523.5118865981776
     },
