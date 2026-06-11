@@ -1,5 +1,5 @@
 {
-  "timestamp": 1783083582.740911,
+  "timestamp": 1783088358.579076,
   "models": {
     "Apertus-70B-Instruct-2509": {
       "active_params": null,
@@ -1237,7 +1237,7 @@
       "endpoint": {
         "api_base": null,
         "api_model_id": "gemini-2.5-flash",
-        "api_type": "gemini",
+        "api_type": "vertex_ai",
         "api_version": null
       },
       "eu_hostable": true,
@@ -1283,7 +1283,7 @@
       "endpoint": {
         "api_base": null,
         "api_model_id": "gemini-2.5-pro",
-        "api_type": "gemini",
+        "api_type": "vertex_ai",
         "api_version": null
       },
       "eu_hostable": false,

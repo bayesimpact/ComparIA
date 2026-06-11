@@ -1224,7 +1224,7 @@
         "active_params": 32,
         "url": "https://deepmind.google/technologies/gemini/pro/",
         "endpoint": {
-          "api_type": "gemini",
+          "api_type": "vertex_ai",
           "api_model_id": "gemini-2.5-pro"
         },
         "desc": "Modèle multimodal phare de Google, conçu pour des tâches complexes nécessitant un raisonnement avancé, une compréhension fine et une grande précision.",
@@ -1252,7 +1252,7 @@
         "params": 440,
         "active_params": 137,
         "endpoint": {
-          "api_type": "gemini",
+          "api_type": "vertex_ai",
           "api_model_id": "gemini-2.5-flash"
         },
         "desc": "Grand modèle multimodal et multilingue avec deux modalités de réponses: l’utilisateur peut choisir entre un mode de raisonnement, pour des réponses plus approfondies, ou un mode rapide, pour générer directement à la réponse finale.",
