@@ -1831,7 +1831,7 @@
         "methodo": {
             "desc": {
                 "1": "Since 2024, thousands of users have used the arena to compare the responses of different models, generating hundreds of thousands of votes. Simply counting the number of wins is not enough to establish a ranking. A fair system must be statistically robust, adjust after each matchup, and truly reflect the value of the performances achieved.",
-                "2": "It is with this in mind that a <strong>ranking based on the Bradley-Terry model</strong> was established, developed in collaboration with the <strong>French Center of expertise for digital platform regulation (<a {perenLinkProps}>PEReN</a>) teams</strong>, based on all the votes and reactions collected on the platform. To learn more, see our <a {lnotebookLinkProps}>methodological notebook</a>."
+                "2": "It is with this in mind that a <strong>ranking based on the Bradley-Terry model</strong> was established, developed in collaboration with the <strong>French Center of expertise for digital platform regulation (<a {perenLinkProps}>PEReN</a>) teams</strong>, based on all the votes and reactions collected on the platform. To learn more, see our <a {notebookLinkProps}>methodological notebook</a>."
             },
             "impacts": {
                 "elo": {

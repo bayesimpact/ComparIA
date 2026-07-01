@@ -6,7 +6,7 @@
 
   let { id, text, duration, variant = 'primary' }: ToastItem = $props()
 
-  let timer = $state<number>()
+  let timer = $state<ReturnType<typeof setTimeout>>()
 
   onMount(() => {
     timer = setTimeout(() => onClose(), duration)

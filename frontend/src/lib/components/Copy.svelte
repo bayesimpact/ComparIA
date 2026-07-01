@@ -7,7 +7,7 @@
   let { value }: { value: string } = $props()
 
   let copied = $state(false)
-  let timer: number
+  let timer: ReturnType<typeof setTimeout>
 
   onDestroy(() => {
     if (timer) clearTimeout(timer)

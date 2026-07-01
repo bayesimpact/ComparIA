@@ -57,7 +57,7 @@ export function setI18nContext() {
         'https://www.credoc.fr/publications/barometre-du-numerique-2026-rapport'
     }
   } as const
-  const locale = getLocale() === 'da' ? 'da' : 'fr'
+  const locale = (getLocale() as string) === 'da' ? 'da' : 'fr'
   setContext('i18n', i18nData[locale])
 }
 

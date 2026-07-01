@@ -132,7 +132,7 @@
 
     {#if lastUpdateDate}
       <div class="relative">
-        <Tabs {tabs} noBorders kind="nav">
+        <Tabs {tabs} label={m['ranking.title']()} noBorders kind="nav">
           {#snippet tab({ id })}
           {#if id === 'ranking'}
             <p class="mb-12! text-dark-grey text-[14px]!">

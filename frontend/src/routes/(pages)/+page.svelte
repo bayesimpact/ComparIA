@@ -109,18 +109,15 @@
   // FIXME i18n specific logos
   const localizedLogos = (
     {
-      da: [],
       en: [],
       fr: [
         {
-        class: 'max-h-[95px] dark:invert',
+          class: 'max-h-[95px] dark:invert',
           src: '/orgs/bi-colors.svg',
           alt: 'Bayes Impact',
           title: 'Bayes Impact'
         }
-      ],
-      lt: [],
-      sv: []
+      ]
     } satisfies Record<Locale, HTMLImgAttributes[]>
   )[locale === 'en' ? 'fr' : locale]
 
