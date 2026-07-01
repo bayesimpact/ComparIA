@@ -16,14 +16,16 @@
         "home": "Pagrindinis puslapis",
         "returnHome": "Grįžti į pagrindinį puslapį",
         "seeMore": "Matyti daugiau",
-        "selectLanguage": "Pasirinkite kalbą",
-        "vote": "Pateikti savo nuomonę"
+        "selectLanguage": "Pasirinkite kalbą"
     },
     "arenaHome": {
         "compareModels": {
             "count": "{count}/2 modeliai",
             "help": "Jei pasirinksite tik vieną, antrasis bus pasirinktas atsitiktinai",
             "question": "Kuriuos modelius norėtumėte palyginti?"
+        },
+        "errors": {
+            "rateLimitCustomSelection": "Modelių pasirinkimas yra ribotas, kad būtų užtikrinta vienoda prieiga visiems. Galite toliau naudoti atsitiktinį režimą arba bandyti vėliau."
         },
         "modelSelection": "Modelių pasirinkimas",
         "prompt": {
@@ -39,8 +41,11 @@
             "title": "Siūlomos užklausos"
         },
         "title": "Kaip galime Jums padėti?",
-        "errors": {
-            "rateLimitCustomSelection": "Modelių pasirinkimas yra ribotas, kad būtų užtikrinta vienoda prieiga visiems. Galite toliau naudoti atsitiktinį režimą arba bandyti vėliau."
+        "webSearch": {
+            "disabled": "Paieška internete išjungta",
+            "enabled": "Paieška internete įjungta",
+            "label": "Paieška internete",
+            "tooltip": "Įjunkite paiešką internete, kad modeliai galėtų naudoti internetinius šaltinius ir cituoti naujesnę informaciją.<br><strong>Be paieškos internete</strong> modeliai atsako remdamiesi tuo, ką išmoko mokymo metu (savo mokymo duomenimis). Jie negali patikrinti informacijos internete, todėl labai nauji ar labai specifiniai faktai gali būti neišsamūs."
         }
     },
     "chatbot": {
@@ -50,14 +55,12 @@
             "other": {
                 "message": "Įvyko laikina klaida.",
                 "retry": "Galite pabandyti dar kartą kreiptis į modelius.",
-                "title": "Oi, laikina klaida",
-                "vote": "Arba baigkite patirtį, nurodydami savo pasirinkimą iš šių modelių."
+                "title": "Oi, laikina klaida"
             },
             "tooLong": {
                 "message": "Kiekvienas modelis turi ribotą pokalbių, kuriuos jis gali apdoroti, skaičių.",
                 "retry": "Galite pradėti pokalbį su dviem naujais modeliais.",
-                "title": "Oi, pokalbis yra per ilgas vienam iš modelių.",
-                "vote": "Dar galite pareikšti savo nuomonę apie šiuos modelius arba pradėti pokalbį su dviem naujais."
+                "title": "Oi, pokalbis yra per ilgas vienam iš modelių."
             }
         },
         "loading": "Įkeliami atsakymai",
@@ -65,7 +68,10 @@
             "finished": "Mąstymas baigtas",
             "inProgress": "Mąstoma…"
         },
-        "revealButton": "Atskleisti modelius"
+        "revealButton": "Atskleisti modelius",
+        "webSearch": {
+            "label": "Susiję paieškos internete rezultatai."
+        }
     },
     "closeModal": "Uždaryti iškylantį langą",
     "components": {
@@ -98,17 +104,9 @@
             "catch": "Modelio leidėjai, tyrėjai, įmonės, dabar jūsų eilė!",
             "desc": "Platformos klausimai ir pageidavimai yra pateikiami daugiausia prancūzų, danų, švedų ir lietuvių kalbomis, atspindintys natūralų, realaus naudojimo kontekstą, o ne dirbtinius užklausimus. Šie duomenų rinkiniai yra viešai prieinami <a {linkProps}>data.gouv.fr</a> ir Hugging Face.",
             "repos": {
-                "conversations": {
-                    "desc": "Visi klausimai ir atsakymai",
-                    "title": "/pokalbiai"
-                },
-                "reactions": {
-                    "desc": "Visos reakcijos į žinutes",
-                    "title": "/reakcijos"
-                },
-                "votes": {
-                    "desc": "Visi išreikšti pasirinkimai",
-                    "title": "/balsai"
+                "arena": {
+                    "desc": "Pokalbiai, atsakymai, reakcijos ir pasirinkimai viename duomenų rinkinyje",
+                    "title": "/comparia-fr-arena"
                 }
             },
             "share": "Parodyk mums, kaip panaudoji duomenis",

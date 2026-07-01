@@ -27,8 +27,6 @@ from pydantic import (
     field_validator,
 )
 
-from backend.config import CountryPortal
-
 # Type definitions for model categorization
 FriendlySize = Literal["XS", "S", "M", "L", "XL"]  # Human-readable size categories
 Distribution = Literal[
@@ -60,12 +58,14 @@ RoundInt = Annotated[int | float, AfterValidator(lambda n: round(n))]
 
 
 # TODO could be moved to 'utils/ranking'
-class DatasetData(BaseModel):
+class RankingVariant(BaseModel):
     """
-    Ranking/evaluation data from benchmark datasets.
+    A single Bradley-Terry ranking view (one set of Elo scores and ranks).
 
-    Contains Elo ratings and confidence intervals from model comparison datasets
-    (e.g., LMSYS arena, ComparIA own data).
+    The leaderboard ships two of these per model: the style-controlled view
+    (shown by default) and the plain view used when the user turns Style Control
+    off. They share the raw vote count but differ in Elo, ranks and win
+    probabilities once presentation features are regressed out.
 
     Attributes:
         elo: Estimated Elo rating (median/central estimate)
@@ -95,6 +95,21 @@ class DatasetData(BaseModel):
             self.rank - self.rank_p2_5,
             self.rank_p97_5 - self.rank,
         ]
+
+
+# TODO could be moved to 'utils/ranking'
+class DatasetData(RankingVariant):
+    """
+    Ranking/evaluation data exposed for a model.
+
+    The top-level fields are the style-controlled ranking (Style Control on,
+    the default). ``uncontrolled`` carries the plain Bradley-Terry ranking the
+    frontend swaps in when Style Control is toggled off, so the leaderboard can
+    switch views without a recompute. It is ``None`` for models that are
+    degenerate (never won or never lost) in the plain fit.
+    """
+
+    uncontrolled: RankingVariant | None = None
 
 
 # TODO could be moved to 'utils/ranking'
@@ -158,7 +173,7 @@ class LLMDataBase(BaseModel):
     url: str | None
     endpoint: Endpoint | None
     pricey: bool
-    specific_portals: list[CountryPortal] | None
+    specific_portals: list[str] | None
 
 
 class LLMDataEnhanced(BaseModel):
@@ -188,7 +203,7 @@ class LLMData(LLMDataBase, LLMDataEnhanced):
     See `utils/models/llms.py`.
     """
 
-    model_config = ConfigDict(frozen=True, extra="forbid")
+    model_config = ConfigDict(frozen=True, extra="ignore")
 
     status: Literal["archived", "enabled"]
     friendly_size: FriendlySize
@@ -212,8 +227,8 @@ class LLMData(LLMDataBase, LLMDataEnhanced):
             str: French system prompt, or None for no custom system prompt
 
         Note:
-            The system prompt is included in conversations when provided.
-            This ensures consistent behavior across multiple conversations.
+            The system prompt is included in the Comparison when provided.
+            This ensures consistent behavior across multiple comparisons.
         """
         return None
 

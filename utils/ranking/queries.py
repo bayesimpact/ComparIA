@@ -1,100 +1,54 @@
 """
-Database queries for fetching vote and reaction data for ranking computation.
-
-Uses psycopg2 with RealDictCursor, matching the existing pattern
-from backend/arena/persistence.py and backend/utils/countries.py.
+Database queries for fetching turns vote data for ranking computation.
 """
 
 import logging
 
-from psycopg2.extras import RealDictCursor
+from sqlalchemy.orm import aliased
+from sqlmodel import col, select
 
-from utils.storage.db import db_cursor
-from utils.storage.queries import get_reactions_db_query, get_votes_db_query
+from utils.database.models import Comparison, LLMMessage, Turn
+from utils.database.session import get_session
 from utils.utils import configure_logger
 
 logger = configure_logger(logging.getLogger("ranking.queries"))
 
 
-def fetch_votes() -> list[dict]:
+async def fetch_votes() -> list[dict]:
     """
-    Fetch all non-archived votes joined with conversations for country_portal.
+    Fetch all non-archived Turn's votes joined with Comparison data.
+
+    The two assistant answers (content + token count) are joined in as well so
+    the ranking can control for answer style (length, markdown formatting); see
+    ``utils.ranking.style_control``.
 
     Returns:
-        List of dicts with keys: model_a_name, model_b_name, chosen_model_name,
-        both_equal, conv_{accuracy,completeness,actionable,safety}_{a,b},
-        conv_{discordance,reasoning_error,clinical_risk}_{a,b}, country_portal.
+        List of dicts with keys: choice, keyword_annotations_a,
+        keyword_annotations_b, llm_id_a, llm_id_b, content_a, content_b,
+        tokens_a, tokens_b.
     """
-    with db_cursor("get votes", logger, cursor_factory=RealDictCursor) as cursor:
-        cursor.execute(
-            get_votes_db_query(
-                columns={
-                    "v": (
-                        "chosen_model_name",
-                        "both_equal",
-                        "conv_accuracy_a",
-                        "conv_accuracy_b",
-                        "conv_completeness_a",
-                        "conv_completeness_b",
-                        "conv_actionable_a",
-                        "conv_actionable_b",
-                        "conv_safety_a",
-                        "conv_safety_b",
-                        "conv_discordance_a",
-                        "conv_discordance_b",
-                        "conv_reasoning_error_a",
-                        "conv_reasoning_error_b",
-                        "conv_clinical_risk_a",
-                        "conv_clinical_risk_b",
-                    ),
-                    "c": (
-                        "model_a_name",
-                        "model_b_name",
-                        "country_portal",
-                    ),
-                },
-                exclude_pii=False,
+    msg_a = aliased(LLMMessage)
+    msg_b = aliased(LLMMessage)
+    async with get_session() as session:
+        results = await session.exec(
+            select(
+                Turn.choice,
+                Turn.keyword_annotations_a,
+                Turn.keyword_annotations_b,
+                Comparison.llm_id_a,
+                Comparison.llm_id_b,
+                col(msg_a.content).label("content_a"),
+                col(msg_b.content).label("content_b"),
+                col(msg_a.tokens).label("tokens_a"),
+                col(msg_b.tokens).label("tokens_b"),
             )
-        )
-        return [dict(row) for row in cursor.fetchall()]
-
-    return []
-
-
-def fetch_reactions() -> list[dict]:
-    """
-    Fetch all non-archived reactions joined with conversations for country_portal.
-
-    Returns:
-        List of dicts with keys: model_a_name, model_b_name, refers_to_model,
-        liked, disliked, country_portal.
-    """
-    with db_cursor("get reactions", logger, cursor_factory=RealDictCursor) as cursor:
-        cursor.execute(
-            get_reactions_db_query(
-                columns={
-                    "r": (
-                        "refers_to_model",
-                        "liked",
-                        "disliked",
-                        "accuracy",
-                        "completeness",
-                        "actionable",
-                        "safety",
-                        "discordance",
-                        "reasoning_error",
-                        "clinical_risk",
-                    ),
-                    "c": (
-                        "model_a_name",
-                        "model_b_name",
-                        "country_portal",
-                    ),
-                },
-                exclude_pii=False,
+            .join(Comparison, col(Turn.comparison_id) == col(Comparison.id))
+            .join(msg_a, col(Turn.llm_msg_a_id) == col(msg_a.id), isouter=True)
+            .join(msg_b, col(Turn.llm_msg_b_id) == col(msg_b.id), isouter=True)
+            .where(col(Comparison.archived).is_not(True))
+            .where(
+                col(Turn.choice).in_(["both_good", "both_bad", "a_better", "b_better"])
             )
         )
 
-        return [dict(row) for row in cursor.fetchall()]
-
-    return []
+        return results.mappings().all()

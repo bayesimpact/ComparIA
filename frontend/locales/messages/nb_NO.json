@@ -21,8 +21,7 @@
         "scrollRight": "Bla til høyre",
         "searchModel": "Søk etter en modell",
         "seeMore": "Se mer",
-        "selectLanguage": "Velg språk",
-        "vote": "Send tilbakemelding"
+        "selectLanguage": "Velg språk"
     },
     "arenaHome": {
         "compareModels": {
@@ -46,7 +45,13 @@
             "generateAnother": "Generer et nytt prompt",
             "title": "Foreslått prompt"
         },
-        "title": "Hva kan jeg hjelpe deg med i dag?"
+        "title": "Hva kan jeg hjelpe deg med i dag?",
+        "webSearch": {
+            "disabled": "Nettsøk deaktivert",
+            "enabled": "Nettsøk aktivert",
+            "label": "Nettsøk",
+            "tooltip": "Aktiver nettsøk for å la modellene bruke nettkilder og sitere mer oppdatert informasjon.<br><strong>Uten nettsøk</strong> svarer modellene basert på det de lærte under trening (treningsdataene sine). De kan ikke verifisere informasjon på nettet, så svært nye eller svært spesifikke fakta kan være ufullstendige."
+        }
     },
     "chatbot": {
         "continuePrompt": "Fortsett samtalen med KI-modellene",
@@ -55,14 +60,12 @@
             "other": {
                 "message": "Det har oppstått en midlertidig feil.",
                 "retry": "Du kan prøve å spørre modellene på nytt.",
-                "title": "Oops, midlertidig feil",
-                "vote": "Eller avslutt ved å oppgi hvilken modell du foretrekker."
+                "title": "Oops, midlertidig feil"
             },
             "tooLong": {
                 "message": "Hver modell har begrensninger på hvor lange samtaler de kan håndtere.",
                 "retry": "Du kan gjenoppta samtalen med to nye modeller.",
-                "title": "Oops, samtalen er for lang for en av modellene.",
-                "vote": "Du kan fremdeles oppgi hvilken modell du foretrekker eller starte en samtale med to nye modeller."
+                "title": "Oops, samtalen er for lang for en av modellene."
             }
         },
         "loading": "Laster inn svar",
@@ -70,7 +73,10 @@
             "finished": "Resonnement ferdig",
             "inProgress": "Resonnerer…"
         },
-        "revealButton": "Avslør modellene"
+        "revealButton": "Avslør modellene",
+        "webSearch": {
+            "label": "Tilknyttede nettsøkresultater."
+        }
     },
     "closeModal": "Lukk popup-vinduet",
     "components": {
@@ -103,17 +109,9 @@
             "catch": "Modellutgivere, forskere, selskaper, nå er det deres tur!",
             "desc": "Plattformens spørsmål og preferanser er hovedsakelig på fransk, dansk, svensk og litauisk, på vanlig, dagligdags språk - ikke kunstige spørsmål. Datasettene er offentlig tilgjengelige på <a {linkProps}>data.gouv</a> og Hugging Face.",
             "repos": {
-                "conversations": {
-                    "desc": "Alle spørsmål og svar",
-                    "title": "/samtaler"
-                },
-                "reactions": {
-                    "desc": "Alle reaksjoner på meldinger",
-                    "title": "/reaksjoner"
-                },
-                "votes": {
-                    "desc": "Alle uttrykte preferanser",
-                    "title": "/stemmer"
+                "arena": {
+                    "desc": "Samtaler, svar, reaksjoner og preferanser samlet i ett datasett",
+                    "title": "/comparia-fr-arena"
                 }
             },
             "share": "Vis oss hvordan du bruker dataene",
@@ -1258,16 +1256,7 @@
     "header": {
         "banner": "🏆 Modellrangeringene er nå tilgjengelige! Se rangeringene.",
         "chatbot": {
-            "newDiscussion": "Ny chat",
-            "step": "Steg",
-            "stepOne": {
-                "description": "Ta både form og innhold i betraktning, og vurder deretter hvert svar",
-                "title": "Hva synes du om svarene?"
-            },
-            "stepTwo": {
-                "description": "Se klimaavtrykket av samtalene dine med hver enkelt modell",
-                "title": "Modellene har blitt avslørt!"
-            }
+            "newDiscussion": "Ny chat"
         },
         "help": {
             "link": {
@@ -2049,16 +2038,13 @@
         }
     },
     "vote": {
-        "bothEqual": "Begge er like gode",
         "choices": {
-            "altText": "{choice} for modellen {model}",
             "negative": {
                 "incorrect": "Uriktig",
                 "instructions_not_followed": "Instruksjoner ikke fulgt",
                 "question": "Hvorfor passer ikke svaret?",
                 "superficial": "Overfladisk"
             },
-            "other": "Annet…",
             "positive": {
                 "clear_formatting": "Fjern formatering",
                 "complete": "Fullstendig",
@@ -2066,25 +2052,6 @@
                 "question": "Hva likte du med dette svaret?",
                 "useful": "Nyttig"
             }
-        },
-        "comment": {
-            "add": "Legg til kommentarer",
-            "placeholder": "Du kan legge til detaljer om dette svaret fra {model}-modellen"
-        },
-        "dislike": {
-            "label": "Jeg liker det ikke",
-            "selectedLabel": "Jeg liker ikke (valgt)"
-        },
-        "introA": "Før vi avslører modellenes identitet, trenger vi din stemme.",
-        "introB": "Det gjør at vi kan videreutvikle compar:IA-datasettene, som har som mål å forbedre fremtidige KI-modeller på språk med færre tilgjengelige språkressurser",
-        "like": {
-            "label": "Jeg liker det",
-            "selectedLabel": "Jeg liker (valgt)"
-        },
-        "qualify": {
-            "addDetails": "Legg til detaljer",
-            "placeholder": "Svarene fra modellen {model} er...",
-            "question": "Hvordan ville du beskrevet modellens svar?"
         },
         "title": "Hvilken KI-modell foretrekker du?",
         "yours": "Din stemme"

@@ -1,21 +1,25 @@
 """
-Arena session management for conversation state in Redis.
+Arena session management for comparisons state in Redis.
 
-Handles storing and retrieving conversation pairs during active arena sessions.
+Handles storing and retrieving some comparison metadata not saved in db during
+active arena sessions.
 """
 
-import json
 import logging
+import uuid
 from typing import Awaitable
-from uuid import uuid4
+
+from pydantic import BaseModel, ValidationError
 
 from backend.config import (
+    RATELIMIT_BLOCKED_PROMPTS_PER_HOUR,
     RATELIMIT_CUSTOM_SELECTION_PER_DAY,
     RATELIMIT_CUSTOM_SELECTION_PER_HOUR,
     RATELIMIT_PRICEY_MODELS_INPUT,
 )
 from utils.storage.redis import (
-    REDIS_CONVERSATIONS_KEY,
+    REDIS_BLOCKED_COUNT_KEY,
+    REDIS_COMPARISON_KEY,
     REDIS_CUSTOM_DAILY_KEY,
     REDIS_CUSTOM_HOURLY_KEY,
     REDIS_USER_CHAR_COUNT,
@@ -25,98 +29,66 @@ from utils.storage.redis import (
 logger = logging.getLogger("languia")
 
 
-def create_session() -> str:
-    """
-    Generate a new unique session hash.
-
-    Returns:
-        str: UUID-based session identifier
-    """
-    return str(uuid4())
+class ComparisonMetadata(BaseModel):
+    id: uuid.UUID
+    is_streaming: bool
 
 
-def store_session_conversations(session_hash: str, data: dict) -> None:
-    """
-    Store conversation pair with metadata in Redis for an active session.
-
-    Args:
-        session_hash: Unique session identifier
-        data: serialized conversations data (see Conversations.store_to_session)
-
-    Note:
-        Session expires after 24 hours
-    """
+def store_comparison_metadata(id: uuid.UUID, is_streaming: bool) -> None:
     expire_time = 86400  # 24 hours
 
     try:
         client = get_redis_client()
         client.setex(
-            REDIS_CONVERSATIONS_KEY.format(session_hash=session_hash),
+            REDIS_COMPARISON_KEY.format(id=id),
             expire_time,
-            json.dumps(data),
+            ComparisonMetadata(id=id, is_streaming=is_streaming).model_dump_json(),
         )
-        logger.info(f"[SESSION] Stored conversations for {session_hash}")
+        logger.info(f"[SESSION] Stored comparison '{id}' metadata.")
     except Exception as e:
-        logger.error(f"[SESSION] Error storing session: {e}")
+        logger.error(f"[SESSION] Error storing comparison '{id}' metadata: {e}")
         raise
 
 
-def retrieve_session_conversations(
-    session_hash: str,
-) -> dict:
-    """
-    Retrieve conversation pair and metadata from Redis.
-
-    Args:
-        session_hash: Unique session identifier
-
-    Returns:
-        Conversations serialized data
-
-    Raises:
-        ValueError: If session not found or expired
-    """
+def retreive_comparison_metadata(id: uuid.UUID) -> ComparisonMetadata:
     try:
         client = get_redis_client()
-        data = client.get(REDIS_CONVERSATIONS_KEY.format(session_hash=session_hash))
+        data = client.get(REDIS_COMPARISON_KEY.format(id=id))
         assert not isinstance(data, Awaitable)
         if not data:
-            logger.warning(f"[SESSION] Session not found: {session_hash}")
-            raise ValueError(f"Session not found: {session_hash}")
+            logger.warning(f"[SESSION] comparison metadata not found: '{id}'.")
+            raise ValueError(f"Comparison metadata not found: '{id}'.")
 
-        # parsed = json.loads(data)
-        logger.info(f"[SESSION] Retrieved conversations for {session_hash}")
+        logger.info(f"[SESSION] Retrieved comparison '{id}' metadata.")
 
-        return json.loads(data)
+        return ComparisonMetadata.model_validate_json(data)
 
-    except json.JSONDecodeError as e:
-        logger.error(f"[SESSION] Error decoding session data: {e}")
-        raise ValueError(f"Invalid session data for {session_hash}")
+    except ValidationError as e:
+        logger.error(f"[SESSION] Error decoding comparison '{id}' metadata.: {e}")
+        raise ValueError(f"Invalid comparison '{id}' metadata.")
     except Exception as e:
-        logger.error(f"[SESSION] Error retrieving session: {e}")
+        logger.error(f"[SESSION] Error retrieving comparison '{id}' metadata.: {e}")
         raise
 
 
 # FIXME unused?
-def delete_session(session_hash: str) -> bool:
+def delete_session(id: uuid.UUID) -> bool:
     """
-    Delete a session from Redis.
+    Delete comparison metadata from Redis.
 
     Args:
-        session_hash: Unique session identifier
+        id: Unique comparison identifier
 
     Returns:
-        bool: True if session was deleted, False if it didn't exist
+        bool: True if metadata was deleted, False if it didn't exist
     """
     try:
         client = get_redis_client()
-        deleted = client.delete(
-            REDIS_CONVERSATIONS_KEY.format(session_hash=session_hash)
-        )
-        logger.info(f"[SESSION] Deleted session {session_hash}: {bool(deleted)}")
+        deleted = client.delete(REDIS_COMPARISON_KEY.format(id=id))
+        logger.info(f"[SESSION] Deleted comparison '{id}' metadata: {bool(deleted)}")
         return bool(deleted)
     except Exception as e:
-        logger.error(f"[SESSION] Error deleting session: {e}")
+        logger.error(f"[SESSION] Error deleting comparison '{id}' metadata: {e}")
         return False
 
 
@@ -198,4 +170,32 @@ def is_ratelimited(ip: str) -> bool:
     if counter and int(counter) > RATELIMIT_PRICEY_MODELS_INPUT * 2:
         return True
     else:
+        return False
+
+
+def increment_blocked_prompts(ip: str) -> None:
+    """
+    Count guardrail-blocked prompts per IP in a rolling 1h window (cooldown for
+    abuse / jailbreak probing). Fails open: a Redis error must not break the flow.
+    """
+    try:
+        client = get_redis_client()
+        client.incr(REDIS_BLOCKED_COUNT_KEY.format(ip=ip))
+        client.expire(REDIS_BLOCKED_COUNT_KEY.format(ip=ip), 3600)
+    except Exception as e:
+        logger.error(f"[SESSION] Error incrementing blocked count for '{ip}': {e}")
+
+
+def is_block_cooldown(ip: str) -> bool:
+    """
+    True if an IP has had too many guardrail-blocked prompts in the window.
+    Fails open (returns False) on Redis error so a hiccup can't lock users out.
+    """
+    try:
+        client = get_redis_client()
+        counter = client.get(REDIS_BLOCKED_COUNT_KEY.format(ip=ip))
+        assert not isinstance(counter, Awaitable)
+        return bool(counter and int(counter) >= RATELIMIT_BLOCKED_PROMPTS_PER_HOUR)
+    except Exception as e:
+        logger.error(f"[SESSION] Error checking block cooldown for '{ip}': {e}")
         return False

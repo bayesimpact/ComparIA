@@ -2,287 +2,525 @@
 Export ComparIA datasets from PostgreSQL to HuggingFace Hub.
 
 This script:
-1. Fetches conversations, votes, and reactions from the database
-2. Applies transformations (hashing visitor_id, adding model metadata, calculating energy consumption)
-3. Filters out PII, archived data, and specific cohorts (Pix, do-not-track)
-4. Exports to multiple formats (parquet, jsonl, tsv samples)
+1. Fetches Comparisons from the database
+2. Validate data with Dataset* models
+3. Filters out archived, errored, not analyzed and specific cohorts (Pix, do-not-track) for the public dataset
+4. Exports to parquet (+ a small sample tsv/jsonl preview)
 5. Uploads to HuggingFace Hub repositories
 
 Usage:
-    python export_dataset.py ./exports conversations
-    python export_dataset.py --dry-run
-    python export_dataset.py ./exports --dry-run
-    python export_dataset.py --count # only count db rows that would be exported exported
+    see `./comparia-cli generate datasets --help`
 
 Required env vars: COMPARIA_DB_URI, HF_PUSH_DATASET_KEY (if not --dry-run)
 """
 
-import hashlib
+import json
 import logging
-import os
+from datetime import datetime
 from functools import lru_cache
+from pathlib import Path
 
-import pandas as pd
+from sqlalchemy.dialects.postgresql import JSONB
+from sqlmodel import and_, col
 
-from backend.config import CountryPortal, settings
-from backend.llms.utils import get_active_params, get_total_params
-from utils.utils import db_connection
+from backend.arena.web_search import merge_web_search_with_content
+from backend.config import settings
+from backend.llms.models import LLMData
+from utils.database.models import Comparison
+from utils.database.models.messages import LLMMessage
+from utils.database.utils import get_db_comparisons_counts, get_db_comparisons_stream
+from utils.utils import LLMS_GENERATED_DATA_FILE, read_json
 
-from .export import commit_and_push, export_data
-from .queries import get_dataset_queries, get_llms_data
+from .export import StreamingDatasetExporter, commit_and_push
+from .models import (
+    DatasetComparisonBaseMetadata,
+    DatasetComparisonExtraMetadata,
+    Datasets,
+)
 
-# TODO: apply add token ecologits + topics pii + ip_map just before export
-
-logger = logging.getLogger("dataset")
-
-COMPARIA_DB_URI = settings.COMPARIA_DB_URI
+logger = logging.getLogger("comparia.dataset")
 
 
 @lru_cache
-def get_session_hash_to_ip_map():
-    """Load session hash to IP map from database for visitor_id fallback."""
+def get_raw_llms_data() -> dict[str, LLMData]:
+    """
+    Load the generated LLMs JSON data.
+    Used to enrich datasets with metadata (params count, energy consumption).
+    """
     try:
-        with db_connection(stream=True) as conn:
-            df = pd.read_sql_query(
-                "SELECT ip_map, session_hash FROM conversations", conn
-            )
-            # Convert DataFrame to dictionary for efficient lookup when visitor_id is missing
-            return dict(zip(df["session_hash"], df["ip_map"]))
-        return True
-
-    except Exception as e:
-        logger.error(f"Failed to load session hash IP mapping: {e}")
-        return False
-
-
-def hash_md5(value):
-    """Hash a value using MD5 for anonymization."""
-    if not value:
-        return None
-    return hashlib.md5(value.encode("utf-8")).hexdigest()
+        llms_data = read_json(LLMS_GENERATED_DATA_FILE)
+        return {
+            k: LLMData.model_validate(v)
+            for k, v in llms_data["models"].items()
+            if v.get("status") in ("enabled", "archived")
+        }
+    except FileNotFoundError:
+        logger.error(f"LLMs JSON file not found at: {LLMS_GENERATED_DATA_FILE}")
+        raise
+    except json.JSONDecodeError:
+        logger.error(f"Error decoding JSON from: {LLMS_GENERATED_DATA_FILE}")
+        raise
 
 
-def calculate_kwh(model_name, tokens):
-    """
-    Calculate energy consumption in kWh for a model based on token output.
-    Formula: (wh_per_million_token / 1M) * tokens / 1000 = kWh
-    """
-    llm_data = get_llms_data().get(model_name)
-
-    if tokens is None or not llm_data:
-        # FIXME llm can be disabled and therefore excluded from get_llms_data
-        return None
-
-    return (llm_data.wh_per_million_token / 1_000_000) * tokens / 1_000
-
-
-def fetch_and_transform_data(conn, table_name, query=None):
-    """
-    Fetch data from a database table and apply transformations.
-
-    Transformations include:
-    - Hash visitor_id with MD5 for anonymization
-    - Fallback to hashed IP map when visitor_id is missing
-    - Add model metadata (params count, energy consumption) for conversations
-    - Drop sensitive/internal columns (IP, PII flags, cohorts, etc.)
-    """
-
-    try:
-        logger.info(f"Fetching data for table: {table_name}")
-
-        # Execute SQL query and load all results into a pandas DataFrame
-        dataframe = pd.read_sql_query(query, conn)
-        logger.info(f"Retrieved {len(dataframe):,} rows for {table_name}")
-
-        if dataframe.empty:
-            logger.warning("DataFrame vide - no data to export")
-            return dataframe
-
-        # Anonymize visitor_id using MD5 hash
-        if "visitor_id" in dataframe.columns:
-            logger.info("Hashing visitor_id with MD5...")
-            dataframe["visitor_id"] = dataframe["visitor_id"].apply(
-                lambda x: hash_md5(x) if pd.notnull(x) else None
-            )
-            # Fallback: use hashed IP map for rows without visitor_id
-            logger.info("Replacing missing visitor_id with hashed IP map ID...")
-            session_hash_to_ip_map = get_session_hash_to_ip_map()
-            dataframe["visitor_id"] = dataframe.apply(
-                lambda row: (
-                    hash_md5(f"ip-{session_hash_to_ip_map.get(row['session_hash'])}")
-                    if pd.isnull(row["visitor_id"])
-                    and session_hash_to_ip_map.get(row["session_hash"])
-                    else row["visitor_id"]
-                ),
-                axis=1,
-            )
-
-        # Add model metadata for conversations dataset
-        if table_name == "conversations":
-            logger.info("Adding model infos...")
-            llms_data = get_llms_data()
-
-            # Add parameter counts (total and active) - only for models that exist in MODELS_DATA
-            dataframe["model_a_total_params"] = dataframe["model_a_name"].apply(
-                lambda x: (
-                    get_total_params(llms_data[x.lower()])
-                    if x.lower() in llms_data
-                    else None
-                )
-            )
-            dataframe["model_b_total_params"] = dataframe["model_b_name"].apply(
-                lambda x: (
-                    get_total_params(llms_data[x.lower()])
-                    if x.lower() in llms_data
-                    else None
-                )
-            )
-            dataframe["model_a_active_params"] = dataframe["model_a_name"].apply(
-                lambda x: (
-                    get_active_params(llms_data[x.lower()])
-                    if x.lower() in llms_data
-                    else None
-                )
-            )
-            dataframe["model_b_active_params"] = dataframe["model_b_name"].apply(
-                lambda x: (
-                    get_active_params(llms_data[x.lower()])
-                    if x.lower() in llms_data
-                    else None
-                )
-            )
-
-            # Calculate energy consumption with vectorized operations
-            dataframe["total_conv_a_kwh"] = None
-            dataframe["total_conv_b_kwh"] = None
-
-            for idx, row in dataframe.iterrows():
-                dataframe.at[idx, "total_conv_a_kwh"] = calculate_kwh(
-                    row["model_a_name"], row["total_conv_a_output_tokens"]
-                )
-                dataframe.at[idx, "total_conv_b_kwh"] = calculate_kwh(
-                    row["model_b_name"], row["total_conv_b_output_tokens"]
-                )
-
-        # Drop sensitive columns before export
-        # List of sensitive columns :
-
-        columns_to_drop = [
-            "archived",
-            "pii_analyzed",
-            "ip",
-            "conversation_a_pii_removed",
-            "conversation_b_pii_removed",
-            "opening_msg_pii_removed",
-            "ip_map",
-            "cohorts",
-            "country_portal",
-        ]
-        dataframe = dataframe.drop(
-            columns=[col for col in columns_to_drop if col in dataframe.columns],
-            errors="ignore",
-        )
-        return dataframe
-
-    except Exception as e:
-        logger.error(f"Failed to fetch data from {table_name}: {e}")
-        # Return None instead of empty DataFrame to indicate failure
-        return None
-
-
-def count_dataset_rows(country_portal: CountryPortal):
+async def count_dataset_rows(datasets: list[Datasets]):
     """Display row counts for each dataset without performing export."""
     try:
-        with db_connection(stream=True) as conn:
-            logger.info("Counting rows for each dataset...")
-            print("\n" + "=" * 60)
-            print("Dataset Row Counts")
-            print("=" * 60)
+        logger.info("Counting rows for each dataset...")
+        counts = await get_db_comparisons_counts(
+            {
+                "normal": and_(
+                    col(Comparison.archived) == False,
+                    col(Comparison.llm_analyzed) == True,
+                    col(Comparison.contains_pii) != True,
+                    col(Comparison.contains_spam) != True,
+                    col(Comparison.error) == JSONB.NULL,
+                    col(Comparison.cohorts).in_((None, "")),
+                ),
+                "raw": col(Comparison.id) != None,
+            }
+        )
 
-            dataset_queries = get_dataset_queries(country_portal)
-
-            for dataset_name, query in dataset_queries.items():
-                if not query:
-                    logger.warning(f"No query defined for {dataset_name}")
-                    continue
-
-                # Remove trailing semicolon and wrap the original query with COUNT(*)
-                clean_query = query.rstrip().rstrip(";")
-                count_query = (
-                    f"SELECT COUNT(*) as count FROM ({clean_query}) AS subquery"
-                )
-
-                try:
-                    result = pd.read_sql_query(count_query, conn)
-                    count = result["count"].iloc[0]
-                    print(f"{dataset_name:30} {count:>10,} rows")
-                except Exception as e:
-                    logger.error(f"Failed to count rows for {dataset_name}: {e}")
-                    print(f"{dataset_name:30} {'ERROR':>10}")
-
-            print("=" * 60 + "\n")
-            return True
-
+        for dataset, count in counts.items():
+            logger.info(f"{dataset:15} {count:>10,} rows")
     except Exception as e:
-        logger.error(f"An error occurred while counting rows: {e}")
-        return False
+        logger.error(f"An error occurred while counting rows.")
+        raise
 
 
-def process_dataset(
-    dataset_name,
-    query,
-    country_portal: CountryPortal,
-    export_base_path,
-    dry_run=False,
+def _conso(llm: LLMData | None, msg: LLMMessage | None) -> float | None:
+    # None for legacy comparisons with empty/unknown llm_id, or no answer.
+    if llm is None or msg is None:
+        return None
+    return (llm.wh_per_million_token / 1_000_000) * msg.tokens / 1_000
+
+
+def _latency(msg: LLMMessage | None) -> float | None:
+    return (msg.responded_at - msg.created_at).total_seconds() if msg else None
+
+
+def _duration(msg: LLMMessage | None) -> float | None:
+    return (msg.updated_at - msg.responded_at).total_seconds() if msg else None
+
+
+def _time_to_vote(
+    voted_at: datetime | None, msg_a: LLMMessage | None, msg_b: LLMMessage | None
+) -> float | None:
+    # Seconds between both models finishing (the later of the two) and the vote.
+    # Requires both answers: a one-sided turn has no "both finished" moment, so
+    # we return None rather than a misleading value (legacy/corrupt rows can have
+    # voted_at set with a side missing, even though the live route forbids it).
+    if voted_at is None or msg_a is None or msg_b is None:
+        return None
+    return (voted_at - max(msg_a.updated_at, msg_b.updated_at)).total_seconds()
+
+
+def _total(turns_metadata: list[dict], key: str) -> float | int | None:
+    # Sum across turns, but only when every turn has the value.
+    values = [meta[key] for meta in turns_metadata]
+    return sum(values) if all(v is not None for v in values) else None
+
+
+def _llm_response_entry(msg: LLMMessage) -> dict:
+    # Raw values on purpose: the ORM LLMMessage is already an LLMMessageFinal
+    # instance, so the old pipeline's nested validation never re-ran (Pydantic
+    # revalidate_instances="never"): no stripping, no constraint checks. The
+    # only comparisons it dropped were those that hit a TypeError in the
+    # tokens/latency/duration math below, which we reproduce by construction.
+    return {
+        "content": msg.content,
+        "reasoning_content": msg.reasoning_content,
+        "role": msg.role,
+    }
+
+
+def comparison_to_turns(db_comparison: Comparison) -> list[dict]:
+    """
+    Flatten a Comparison into one row per turn.
+
+    Reads ORM attributes directly instead of routing the whole nested object
+    graph (turns, user/assistant/system messages, full conversations) through
+    Pydantic validate+dump, which was the dominant cost on large exports. The
+    flat metadata blocks still go through their Pydantic models so their
+    serialization stays byte-for-byte identical. The equivalence with the old
+    pipeline is pinned by tests/dataset/test_comparison_to_turns.py.
+    """
+    comp = db_comparison
+    llms = get_raw_llms_data()
+    llm_a = llms.get(comp.llm_id_a)  # .get() tolerates empty/unknown llm_id
+    llm_b = llms.get(comp.llm_id_b)
+
+    # A side's full conversation opens with its system prompt (when present),
+    # then alternates user / assistant for every turn.
+    if comp.system_msg_a and comp.system_msg_a.content is None:
+        raise ValueError("System message A has no content")
+    if comp.system_msg_b and comp.system_msg_b.content is None:
+        raise ValueError("System message B has no content")
+
+    full_conversation_a: list[dict] = (
+        [{"role": comp.system_msg_a.role, "content": comp.system_msg_a.content}]
+        if comp.system_msg_a
+        else []
+    )
+    full_conversation_b: list[dict] = (
+        [{"role": comp.system_msg_b.role, "content": comp.system_msg_b.content}]
+        if comp.system_msg_b
+        else []
+    )
+
+    partial_rows: list[dict] = []
+    turns_metadata: list[dict] = []
+
+    for turn in comp.turns:
+        if turn.user_msg is None or turn.user_msg.content is None:
+            raise ValueError("Turn has no user message")
+
+        msg_a, msg_b = turn.llm_msg_a, turn.llm_msg_b
+
+        raw_content = turn.user_msg.content
+        content = (
+            merge_web_search_with_content(raw_content, turn.user_msg.web_search_results)
+            if turn.user_msg.web_search_results
+            else raw_content
+        )
+        user_entry = {
+            "role": turn.user_msg.role,
+            "content": content,
+            "user_content": raw_content,
+        }
+        response_a = [user_entry] + ([_llm_response_entry(msg_a)] if msg_a else [])
+        response_b = [user_entry] + ([_llm_response_entry(msg_b)] if msg_b else [])
+        full_conversation_a.extend(response_a)
+        full_conversation_b.extend(response_b)
+
+        # Keys are emitted in DatasetTurnMetadata field order so the output
+        # matches the old model_dump (the equivalence test pins this).
+        turns_metadata.append(
+            {
+                "tokens_a": msg_a.tokens if msg_a else None,
+                "tokens_b": msg_b.tokens if msg_b else None,
+                "conso_a": _conso(llm_a, msg_a),
+                "conso_b": _conso(llm_b, msg_b),
+                "duration_a": _duration(msg_a),
+                "duration_b": _duration(msg_b),
+                "latency_a": _latency(msg_a),
+                "latency_b": _latency(msg_b),
+                "time_to_vote": _time_to_vote(turn.voted_at, msg_a, msg_b),
+            }
+        )
+        partial_rows.append(
+            {
+                "response_id": str(turn.id),
+                "choice": turn.choice,
+                "response_a": response_a,
+                "response_b": response_b,
+            }
+        )
+
+    if not partial_rows:
+        return []
+
+    # base_meta and extra_meta still go through their models: they read raw ORM
+    # columns that need coercion (e.g. custom_models_selection tuple, error ->
+    # ErrorDetails). The totals are appended in DatasetComparisonMetadata field
+    # order so the merged dict matches the old model_dump output exactly.
+    base_meta = DatasetComparisonBaseMetadata.model_validate(comp).model_dump()
+    comp_meta = {
+        **base_meta,
+        "total_tokens_a": _total(turns_metadata, "tokens_a"),
+        "total_tokens_b": _total(turns_metadata, "tokens_b"),
+        "total_conso_a": _total(turns_metadata, "conso_a"),
+        "total_conso_b": _total(turns_metadata, "conso_b"),
+    }
+    extra_meta = DatasetComparisonExtraMetadata.model_validate(comp).model_dump()
+
+    excluded = bool(
+        extra_meta["cohorts"]
+        or extra_meta["archived"] is not False
+        or extra_meta["contains_pii"]
+        or extra_meta["contains_spam"]
+        or extra_meta["error"] is not None
+        or extra_meta["llm_analyzed"] is not True
+    )
+    comparison_id = str(comp.id)
+
+    return [
+        {
+            **row,
+            "turn": idx,
+            "comparison_id": comparison_id,
+            "model_a": comp.llm_id_a,
+            "model_b": comp.llm_id_b,
+            "timestamp": comp.created_at,
+            "full_conversation_a": full_conversation_a,
+            "full_conversation_b": full_conversation_b,
+            "excluded": excluded,
+            "metadata": {**turn_meta, **comp_meta},
+            "extra_metadata": extra_meta,
+        }
+        for idx, (row, turn_meta) in enumerate(zip(partial_rows, turns_metadata))
+    ]
+
+
+def _reference_rows() -> list[dict]:
+    """
+    One fully-populated row, mirroring `comparison_to_turns` output exactly, used
+    to fix the parquet schema before streaming (see StreamingDatasetExporter).
+    Every nullable field carries a value here so the column types are known up
+    front instead of inferred from a first batch where they may be all-null.
+    The equivalence test pins that this matches real `comparison_to_turns` output.
+    """
+    user = {"role": "user", "content": "x", "user_content": "x"}
+    assistant = {"content": "x", "reasoning_content": "x", "role": "assistant"}
+    system = {"role": "system", "content": "x"}
+    return [
+        {
+            "response_id": "ref",
+            "choice": "a_better",
+            "response_a": [user, assistant],
+            "response_b": [user, assistant],
+            "turn": 0,
+            "comparison_id": "ref",
+            "model_a": "x",
+            "model_b": "x",
+            "timestamp": datetime(2024, 1, 1),
+            "full_conversation_a": [system, user, assistant],
+            "full_conversation_b": [system, user, assistant],
+            "excluded": False,
+            "metadata": {
+                "tokens_a": 1,
+                "tokens_b": 1,
+                "conso_a": 1.0,
+                "conso_b": 1.0,
+                "duration_a": 1.0,
+                "duration_b": 1.0,
+                "latency_a": 1.0,
+                "latency_b": 1.0,
+                "time_to_vote": 1.0,
+                "mode": "random",
+                "custom_models_selection": ["x"],
+                "categories": ["x"],
+                "languages": ["x"],
+                "short_summary": "x",
+                "total_tokens_a": 1,
+                "total_tokens_b": 1,
+                "total_conso_a": 1.0,
+                "total_conso_b": 1.0,
+            },
+            "extra_metadata": {
+                "cohorts": "x",
+                "error": {"message": "x", "pos": "a", "is_timeout": False},
+                "llm_analyzed": True,
+                "contains_pii": False,
+                "contains_spam": False,
+                "archived": False,
+                "archived_reason": "spam",
+                "archived_at": datetime(2024, 1, 1),
+            },
+        }
+    ]
+
+
+def _build_exporters(
+    datasets: list[Datasets], repo_prefix: str, export_base_path: Path
+) -> dict[Datasets, StreamingDatasetExporter]:
+    schema_rows = _reference_rows()
+    exporters: dict[Datasets, StreamingDatasetExporter] = {}
+    for dataset in datasets:
+        repo_name = repo_prefix + ("-raw" if dataset == "raw" else "")
+        if dataset == "normal":
+            exporters[dataset] = StreamingDatasetExporter(
+                repo_name,
+                export_base_path / repo_name,
+                keep=lambda row: not row["excluded"],
+                drop_columns=("excluded", "extra_metadata"),
+                schema_rows=schema_rows,
+            )
+        else:
+            exporters[dataset] = StreamingDatasetExporter(
+                repo_name, export_base_path / repo_name, schema_rows=schema_rows
+            )
+    return exporters
+
+
+async def stream_to_exporters(
+    exporters: dict[Datasets, StreamingDatasetExporter],
+) -> None:
+    """
+    Single pass over the DB: turn each Comparison into rows and feed every
+    exporter (each keeps/drops what it needs). Nothing is accumulated in memory
+    beyond the exporters' batch buffers.
+    """
+    failed_comparison_ids: list[str] = []
+    n_comparisons = 0
+
+    async for db_comp in get_db_comparisons_stream():
+        try:
+            turns = comparison_to_turns(db_comp)
+        except Exception:
+            logger.exception(f"Failed to parse Comparison '{db_comp.id}', skipping...")
+            failed_comparison_ids.append(str(db_comp.id))
+            continue
+
+        for exporter in exporters.values():
+            exporter.add_rows(turns)
+
+        n_comparisons += 1
+        if n_comparisons % 10_000 == 0:
+            written = ", ".join(
+                f"{name}={exp.total_rows:,}" for name, exp in exporters.items()
+            )
+            logger.info(
+                f"Progress: {n_comparisons:,} comparisons processed ({written})."
+            )
+
+    for exporter in exporters.values():
+        exporter.close()
+
+    total_rows = sum(exp.total_rows for exp in exporters.values())
+    logger.info(
+        f"Finished: {n_comparisons:,} comparisons processed, "
+        f"{len(failed_comparison_ids):,} skipped (validation error)."
+    )
+    if failed_comparison_ids:
+        logger.error(
+            f"{len(failed_comparison_ids)} comparisons could not be properly parsed: \n"
+            + "\n".join(f"- '{id_}'" for id_ in failed_comparison_ids)
+        )
+    if total_rows == 0:
+        raise Exception("No rows produced, aborting export")
+
+
+def get_repo_infos() -> tuple[str, str]:
+    if not settings.HF_PUSH_DATASET_PATH:
+        raise Exception("Missing env var 'HF_PUSH_DATASET_PATH'")
+
+    try:
+        org, prefix = settings.HF_PUSH_DATASET_PATH.split("/", 1)
+        assert org
+        assert prefix
+        return org, prefix
+    except Exception as exc:
+        raise Exception(
+            "'HF_PUSH_DATASET_PATH' should match the pattern '{organisation}/{repo_prefix}'"
+        )
+
+
+def _write_normal_from_raw_parquet(
+    raw_parquet_path: Path,
+    repo_name: str,
+    export_dir: Path,
+) -> int:
+    """
+    Regenerate the normal dataset from the raw parquet without hitting the DB.
+    Stays in Arrow throughout (filter + drop + write) to avoid OOM from
+    converting large nested columns to Python objects.
+    Sample files are written from the first 1000 filtered rows (not random,
+    but fast and memory-bounded).
+    """
+    import pyarrow as pa
+    import pyarrow.compute as pc
+    import pyarrow.parquet as pq
+
+    DROP_COLS = ["excluded", "extra_metadata"]
+    SAMPLE_SIZE = 1000
+
+    export_dir.mkdir(exist_ok=True)
+    parquet_path = export_dir / f"{repo_name}.parquet"
+
+    reader = pq.ParquetFile(raw_parquet_path)
+    writer: pq.ParquetWriter | None = None
+    sample_batches: list[pa.Table] = []
+    n_rows = 0
+
+    for batch in reader.iter_batches(batch_size=10_000):
+        table = pa.Table.from_batches([batch])
+        table = table.filter(pc.equal(table.column("excluded"), False))
+        table = table.drop(DROP_COLS)
+
+        if len(table) == 0:
+            continue
+
+        if writer is None:
+            writer = pq.ParquetWriter(parquet_path, table.schema)
+        writer.write_table(table)
+
+        if n_rows < SAMPLE_SIZE:
+            needed = SAMPLE_SIZE - n_rows
+            sample_batches.append(table.slice(0, min(needed, len(table))))
+
+        n_rows += len(table)
+        logger.debug(f"Cache: {n_rows:,} rows written to normal parquet")
+
+    if writer:
+        writer.close()
+
+    if sample_batches:
+        sample_df = pa.concat_tables(sample_batches).to_pandas()
+        sample_df.to_csv(export_dir / f"{repo_name}_samples.tsv", sep="\t", index=False)
+        sample_df.to_json(
+            export_dir / f"{repo_name}_samples.jsonl",
+            orient="records",
+            lines=True,
+            date_format="iso",
+        )
+
+    logger.info(
+        f"Cache mode: {n_rows:,} rows written ({len(sample_df) if sample_batches else 0:,} sampled)."
+    )
+    return n_rows
+
+
+async def process_datasets(
+    datasets: list[Datasets],
+    export_base_path: Path,
+    dry_run: bool = False,
+    use_cache: bool = False,
 ):
     """
     Process a single dataset: fetch from DB, transform (anonymize, add metadata),
-    Export to multiple formats (parquet, jsonl, samples), and push to HF Hub.
+    Export to parquet (+ sample tsv/jsonl preview), and push to HF Hub.
 
     Args:
-        dataset_name: Name of the dataset to process
-        dataset_config: Configuration dict with 'query' and 'repo' keys
+        dataset_names: Names of the datasets to process
         export_base_path: Local directory for export
         dry_run: If True, skip HuggingFace upload
+        use_cache: If True and raw parquet exists, regenerate normal from it (skips DB)
     """
+    logger.info(f"Starting processing datasets…")
 
-    logger.info(f"Starting processing for dataset: {dataset_name}")
-
-    dataset_path = settings.HF_PUSH_DATASET_PATH
-    path_parts = dataset_path.split("/", 1) if dataset_path else []
-    repo_org = path_parts[0] if len(path_parts) == 2 else None
-    repo_base = path_parts[1] if len(path_parts) == 2 else dataset_path
-    repo_name = f"{repo_base}-{dataset_name}"
+    repo_org, repo_prefix = get_repo_infos()
+    raw_parquet_path = (
+        export_base_path / (repo_prefix + "-raw") / (repo_prefix + "-raw.parquet")
+    )
 
     logger.info(f"Folder defined for dataset: {export_base_path}")
 
-    repo_path = os.path.join(export_base_path, repo_name)
+    if use_cache and "normal" in datasets and raw_parquet_path.exists():
+        logger.info(f"Cache mode: reading from {raw_parquet_path}")
+        normal_repo_name = repo_prefix
+        normal_export_dir = export_base_path / normal_repo_name
+        _write_normal_from_raw_parquet(
+            raw_parquet_path, normal_repo_name, normal_export_dir
+        )
+        if dry_run:
+            logger.info(
+                f"[DRY RUN] Skipping HuggingFace upload for '{normal_repo_name}'"
+            )
+        else:
+            commit_and_push(repo_org, normal_repo_name, normal_export_dir)
+    else:
+        if use_cache:
+            logger.warning(
+                f"Cache requested but raw parquet not found at {raw_parquet_path}, running full export"
+            )
+        logger.info(f"Streaming datasets to local files: {', '.join(datasets)}…")
+        exporters = _build_exporters(datasets, repo_prefix, export_base_path)
+        await stream_to_exporters(exporters)
 
-    try:
-        with db_connection(stream=True) as conn:
-            logger.info(f"Database connection established for dataset: {dataset_name}")
-
-            # Fetch and transform data
-            data = fetch_and_transform_data(conn, dataset_name, query)
-
-            # Check if data fetching failed
-            if data is None:
-                logger.error(
-                    f"Failed to fetch data for dataset {dataset_name}, aborting export"
-                )
-                return False
-
-            # Export data to local files
-            export_data(data, dataset_name, repo_path)
-
-            # Upload to HuggingFace Hub (skip if dry_run)
+        for dataset, exporter in exporters.items():
+            repo_name = exporter.dataset_name
+            repo_path = export_base_path / repo_name
             if dry_run:
-                logger.info(f"[DRY RUN] Skipping HuggingFace upload for {dataset_name}")
-                return True
+                logger.info(f"[DRY RUN] Skipping HuggingFace upload for '{repo_name}'")
             else:
-                push_success = commit_and_push(repo_org, repo_name, repo_path)
-                return push_success
-
-    except Exception as e:
-        logger.error(f"An error occurred while processing dataset {dataset_name}: {e}")
-        return False
+                commit_and_push(repo_org, repo_name, repo_path)

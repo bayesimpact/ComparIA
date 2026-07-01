@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from typing import Literal, get_args
+from typing import Final, Literal, get_args
 
 from httpx import Timeout
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -17,13 +17,14 @@ class Settings(BaseSettings):
     LANGUIA_CONTROLLER_URL: str | None = "http://localhost:21001"
     COMPARIA_REDIS_HOST: str = "localhost"
     MOCK_RESPONSE: bool = False
-    LOGDIR: Path = ROOT_DIR / "data"
+    LOGDIR: Path = ROOT_DIR / "logs"
     LOG_FORMAT: Literal["JSON", "RAW"] = "JSON"
     COMPARIA_DB_URI: str | None = None
     GIT_COMMIT: str | None = None
     SENTRY_DSN: str | None = None
     SENTRY_ENVIRONMENT: str = "dev"
-    SENTRY_SAMPLE_RATE: float = 0.2
+    SENTRY_SAMPLE_RATE: float = 1.0
+    LINKUP_API_KEY: str | None = None
     OPENROUTER_API_KEY: str | None = None
     ALBERT_KEY: str | None = None
     HF_INFERENCE_KEY: str | None = None
@@ -35,9 +36,19 @@ class Settings(BaseSettings):
 
     RANKING_INTERVAL_SECONDS: int = 3600  # 1 hour
     REPO_ORG: str = "ministere-culture"
+    VOTES_OBJECTIVE: int = 300_000
     ALTCHA_HMAC_KEY: str = ""
 
-# Response caching
+    # Content-safety guardrail (Nemotron via OpenRouter). No-ops without OPENROUTER_API_KEY.
+    # ENABLED runs the check and records the verdict (shadow mode); ENFORCE must
+    # also be on for an egregious prompt to actually be blocked. Ship in shadow
+    # first, watch the verdicts, then turn ENFORCE on.
+    GUARDRAIL_ENABLED: bool = True
+    GUARDRAIL_ENFORCE: bool = False
+    GUARDRAIL_MODEL: str = "openrouter/nvidia/nemotron-3.5-content-safety:free"
+    GUARDRAIL_TIMEOUT: float = 2.5
+
+    # Response caching
     CACHE_ENABLED: bool = False
     CACHE_PROBABILITY: float = 0.5  # Probability of serving a cached response on hit
     CACHE_TTL: int = 172800  # Cache TTL in seconds (default 48h)
@@ -70,16 +81,22 @@ PositivePref = Literal["accuracy", "completeness", "actionable", "safety"]
 POSITIVE_PREFS: tuple[PositivePref, ...] = get_args(PositivePref)
 NegativePref = Literal["discordance", "reasoning_error", "clinical_risk"]
 NEGATIVE_PREFS: tuple[NegativePref, ...] = get_args(NegativePref)
-ALL_PREFS = POSITIVE_PREFS + NEGATIVE_PREFS
+AllPref = Literal[PositivePref | NegativePref]
+ALL_PREFS: tuple[AllPref, ...] = POSITIVE_PREFS + NEGATIVE_PREFS
+TurnChoice = Literal["both_good", "both_bad", "a_better", "b_better", "idk"]
+TURN_CHOICE: tuple[TurnChoice, ...] = get_args(TurnChoice)
 
-# Available country portals
-CountryPortal = Literal["fr", "da"]
-COUNTRY_PORTALS: tuple[CountryPortal, ...] = get_args(CountryPortal)
-DEFAULT_COUNTRY_PORTAL: CountryPortal = settings.DEFAULT_COUNTRY_PORTAL  # type: ignore[assignment]
-
-# Per-portal objectives for data collection (rows to collect)
-OBJECTIVES: dict[CountryPortal, int] = {"fr": 300_000, "da": 10_000}
-
+# Reference data for scaled equivalences
+# Population using generative AI
+# FIXME make generic (env var or db field)
+CONSUMPTION_SCALE_FACTOR: Final[float] = {
+    # 48% of ppl aged 12 or more in 2026 https://www.credoc.fr/publications/barometre-du-numerique-2026-rapport
+    # population count of 12 or more in 2024 https://www.insee.fr/fr/statistiques/7746192?sommaire=7746197
+    "fr": 59_315_947 * 0.48,
+    # 48.4% of ppl aged 16–74 in 2025 https://ec.europa.eu/eurostat/fr/web/products-eurostat-news/w/ddn-20251216-3
+    # population count of 16-74 https://en.wikipedia.org/wiki/Demographics_of_Denmark
+    "da": 4_350_000 * 0.484,
+}[settings.DEFAULT_COUNTRY_PORTAL]
 
 # Language model selection modes
 SelectionMode = Literal["random", "big-vs-small", "small-models", "custom"]
@@ -100,6 +117,13 @@ RATELIMIT_PRICEY_MODELS_INPUT = 50_000
 RATELIMIT_CUSTOM_SELECTION_PER_HOUR = 3
 RATELIMIT_CUSTOM_SELECTION_PER_DAY = 5
 
+# Cooldown for IPs that hit the content-safety guardrail too often (abuse /
+# jailbreak probing). Counts only enforced blocks in a rolling window; once an
+# IP crosses the threshold it is cooled down for the rest of the window WITHOUT
+# calling the guardrail (protects OpenRouter quota). Kept generous because gov
+# users share NAT IPs (hospitals, ministries) and must not be locked out.
+RATELIMIT_BLOCKED_PROMPTS_PER_HOUR = 15
+
 # Character limit for blind mode (comparison without model names)
 BLIND_MODE_INPUT_CHAR_LEN_LIMIT = 60_000
 
@@ -107,3 +131,6 @@ BLIND_MODE_INPUT_CHAR_LEN_LIMIT = 60_000
 ALTCHA_MAX_NUMBER = 100_000  # Difficulty: ~0.5s on good devices, ~2-3s on low-end
 ALTCHA_CHALLENGE_EXPIRY_SECONDS = 600  # 10 minutes
 ALTCHA_REPLAY_TTL_SECONDS = 3600  # 1 hour Redis TTL for used challenges
+
+# Web search intro for LLM
+WEB_SEARCH_INTRO = "Here is some recent information from a web search. Use it to answer the user's question if it's relevant:\n\n"

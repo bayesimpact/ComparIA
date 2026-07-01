@@ -21,14 +21,16 @@
         "scrollRight": "Desplazar a la derecha",
         "searchModel": "Buscar un modelo",
         "seeMore": "Ver más",
-        "selectLanguage": "Seleccionar idioma",
-        "vote": "Dar retroalimentación"
+        "selectLanguage": "Seleccionar idioma"
     },
     "arenaHome": {
         "compareModels": {
             "count": "{count}/2 modelos",
             "help": "Si elige solo uno, el segundo sera elegido al azar",
             "question": "¿Qué modelo te gustaría elegir?"
+        },
+        "errors": {
+            "rateLimitCustomSelection": "La selección de modelos está limitada para garantizar un acceso equitativo para todos. Puedes continuar usando el modo aleatorio o intentarlo más tarde."
         },
         "modelSelection": "Selección de modelo",
         "prompt": {
@@ -44,19 +46,21 @@
             "title": "Instrucciones sugeridas"
         },
         "title": "¿Cómo puedo ayudarte el día de hoy?",
-        "errors": {
-            "rateLimitCustomSelection": "La selección de modelos está limitada para garantizar un acceso equitativo para todos. Puedes continuar usando el modo aleatorio o intentarlo más tarde."
+        "webSearch": {
+            "disabled": "Búsqueda web desactivada",
+            "enabled": "Búsqueda web activada",
+            "label": "Búsqueda web",
+            "tooltip": "Activa la búsqueda web para que los modelos utilicen fuentes en línea y citen información más actualizada.<br><strong>Sin búsqueda web</strong>, los modelos responden basándose en lo que aprendieron durante su entrenamiento (sus datos de entrenamiento). No pueden verificar información en línea, por lo que los datos muy recientes o muy específicos pueden ser incompletos."
         }
     },
     "chatbot": {
-        "continuePrompt": "Continuar la conversación con los modelos de IA",
+        "continuePrompt": "Continúa la discusión…",
         "conversation": "Conversación",
         "errors": {
             "other": {
                 "message": "Se ha producido un error temporal.",
                 "retry": "Puedes volver a intentar y solicitar los modelos nuevamente.",
-                "title": "Oops, error temporal",
-                "vote": "O finaliza tu experiencia dando preferencia a estos modelos."
+                "title": "Oops, error temporal"
             },
             "tooLong": {
                 "message": "Cada modelo está limitado por el tamaño de conversación que puede manejar.",
@@ -69,7 +73,10 @@
             "finished": "Razonamiento completado",
             "inProgress": "Razonando…"
         },
-        "revealButton": "Revelar modelos"
+        "revealButton": "Revelar modelos",
+        "webSearch": {
+            "label": "Resultados de búsqueda web asociados."
+        }
     },
     "closeModal": "Cerrar ventana emergente",
     "components": {
@@ -91,15 +98,19 @@
             "options": {
                 "dark": "Tema oscuro",
                 "light": "Tema claro",
-                "system": "Sistema"
-            }
+                "system": "Sistema",
+                "systemSub": "Utilice los ajustes del sistema"
+            },
+            "title": "Ajustes de pantalla"
         }
     },
     "datasets": {
         "access": {
+            "catch": "Modelo publicado, investigación, compañías, ¡ahora es tu turno!",
             "repos": {
-                "votes": {
-                    "title": "/votos"
+                "arena": {
+                    "desc": "Conversaciones, respuestas, reacciones y preferencias reunidas en un solo conjunto de datos",
+                    "title": "/comparia-fr-arena"
                 }
             },
             "share": "Comparte con nosotros como usas los datos",
@@ -108,11 +119,54 @@
     },
     "errors": {
         "404": {
+            "desc": "Si tecleaste la URL en tu navegador, verifica que sea correcta. Es posible que la página ya no esté disponible. <br />Puedes continuar visitando nuestra página de inicio. <br />De lo contrario, póngase en contacto con nosotros para que podamos redirigirle a la información correcta.",
             "error": "Error 404",
+            "sorry": "No se pudo encontrar la página que buscaba. Disculpe las molestias.",
             "title": "Página no encontrada"
         },
         "unexpected": {
-            "error": "Error {code}"
+            "desc": "Intenta actualizar la página o inténtalo de nuevo más tarde.",
+            "error": "Error {code}",
+            "sorry": "Lo sentimos, el servicio está experimentando un problema, estamos trabajando para solucionarlo lo antes posible.",
+            "title": "Error inesperado"
+        },
+        "unknown": "Ha sucedido un error"
+    },
+    "faq": {
+        "datasets": {
+            "questions": {
+                "1": {
+                    "title": "¿Los datos de preferencias tienen un efecto inmediato en la mejora de los modelos?"
+                },
+                "2": {
+                    "title": "¿Por qué son valiosos los datos de preferencias recopilados en compar:IA?"
+                },
+                "3": {
+                    "title": "¿Qué hace que compar:IA sea única en comparación con otras iniciativas similares?"
+                }
+            },
+            "title": "Conjunto de datos"
+        },
+        "ecology": {
+            "questions": {
+                "1": {
+                    "title": "¿Cómo se calculan los indicadores ecológicos?"
+                },
+                "2": {
+                    "title": "¿Los indicadores ambientales tienen en cuenta la matriz energética de los diferentes países?"
+                },
+                "3": {
+                    "title": "¿Los indicadores de impacto ambiental tienen en cuenta los recursos utilizados para entrenar los modelos?"
+                }
+            },
+            "title": "Indicadores ecológicos"
+        },
+        "i18n": {
+            "questions": {
+                "1": {
+                    "title": "compar:AI se centró inicialmente en el francés: ¿hay planes para otros idiomas europeos?"
+                }
+            }
         }
     }
 }

@@ -1,32 +1,75 @@
 <script lang="ts">
-  import type { ChatRound, OnReactionFn } from '$lib/chatService.svelte'
+  import Pending from '$components/Pending.svelte'
+  import SideSwitcher from '$components/SideSwitcher.svelte'
+  import type { AnyAPIVote, ComparisonTurn } from '$lib/chatService.svelte'
   import { scrollTo } from '$lib/helpers/attachments'
-  import { MessageBot, MessageUser } from '.'
+  import { m } from '$lib/i18n/messages'
+  import { type Snippet } from 'svelte'
+  import { ErrorDisplay, MessageBot, MessageUser, VoteSelect } from '.'
 
   let {
-    round,
+    turn,
     disabled,
-    onReactionChange
+    error,
+    onVote,
+    onRetry,
+    children
   }: {
-    round: ChatRound
+    turn: ComparisonTurn
     disabled: boolean
-    onReactionChange: OnReactionFn
+    error?: string
+    onVote: (data: AnyAPIVote) => void
+    onRetry: () => void
+    children: Snippet<[]> | undefined
   } = $props()
-
-  let userMessageSize = $state(0)
 </script>
 
-<div
-  class="grouped-messages not-last:mb-15 px-4 md:px-8 xl:px-16"
-  style="--message-size: {userMessageSize}px;"
-  {@attach scrollTo}
->
-  <MessageUser bind:size={userMessageSize} message={round.user} />
+<div class="grouped-messages px-4 py-2 md:py-5 md:px-8 xl:px-16 gap-2 md:gap-5 flex flex-col">
+  <div class="md:flex">
+    {@render children?.()}
 
-  <div class="gap-10 md:grid-cols-2 md:gap-6 grid">
-    {#if round.a && round.b && round.showMessages}
-      <MessageBot message={round.a} index={round.index} {disabled} {onReactionChange} />
-      <MessageBot message={round.b} index={round.index} {disabled} {onReactionChange} />
+    <MessageUser id={`user-${turn.id}`} message={turn.user_msg} />
+  </div>
+  <div
+    class="grouped-responses flex flex-col"
+    class:generating={turn.status === 'pending' || turn.status === 'generating'}
+    {@attach scrollTo}
+  >
+    {#if turn.status === 'pending'}
+      <Pending message={m['chatbot.loading']()} class="m-auto" />
+    {:else if turn.status === 'error' && error}
+      <ErrorDisplay {error} class="mt-10" {onRetry} />
+    {:else}
+      <SideSwitcher>
+        <div class="gap-4 sm:gap-6 md:w-full flex">
+          {#if turn.a.llm_msg && turn.b.llm_msg}
+            <MessageBot
+              id="{turn.id}-a"
+              turnSide={turn.a}
+              bot="a"
+              choice={turn.choice}
+              {disabled}
+              onVoteAnnotate={(data) => onVote({ turn_id: turn.id, ...data })}
+            />
+
+            <MessageBot
+              id="{turn.id}-b"
+              turnSide={turn.b}
+              bot="b"
+              choice={turn.choice}
+              {disabled}
+              onVoteAnnotate={(data) => onVote({ turn_id: turn.id, ...data })}
+            />
+          {/if}
+        </div>
+      </SideSwitcher>
+    {/if}
+
+    {#if turn.status === 'complete' && !turn.choice}
+      <VoteSelect
+        id="vote-select-{turn.id}"
+        onVote={(choice) => onVote({ turn_id: turn.id, choice })}
+      />
     {/if}
   </div>
 </div>

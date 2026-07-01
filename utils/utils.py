@@ -1,15 +1,12 @@
 import json
 import logging
-from contextlib import contextmanager
+from datetime import date
 from pathlib import Path
-from typing import Any, Generator
+from typing import Any
 
 import markdown
 from pydantic import FieldSerializationInfo, PlainSerializer
-from sqlalchemy import Connection, create_engine
-from sqlalchemy.exc import OperationalError
 
-from backend.config import settings
 from utils.logger import configure_logger
 
 Obj = dict[str, Any]
@@ -44,9 +41,18 @@ def read_json(path: Path) -> Any:
     return data
 
 
+def _json_default(o):
+    if isinstance(o, date):  # also matches datetime
+        return o.isoformat()
+    raise TypeError(f"Object of type {o.__class__.__name__} is not JSON serializable")
+
+
 def write_json(path: Path, data, indent: int = 2) -> None:
     logger.debug(f"Saving '{path.relative_to(ROOT_DIR)}'...")
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=indent) + "\n")
+    path.write_text(
+        json.dumps(data, ensure_ascii=False, indent=indent, default=_json_default)
+        + "\n"
+    )
     logger.info(f"Successfully saved '{path.relative_to(ROOT_DIR)}'!")
 
 
@@ -61,27 +67,3 @@ def sort_dict(data: Obj, deep: bool = True) -> Obj:
     ]
 
     return dict(sorted(items, key=lambda i: i[0].lower()))
-
-
-@contextmanager
-def db_connection(stream: bool = False) -> Generator[Connection]:
-    if not settings.COMPARIA_DB_URI:
-        raise Exception(
-            "Cannot connect to the database: no $COMPARIA_DB_URI configuration provided."
-        )
-
-    engine = None
-    try:
-        engine = create_engine(
-            settings.COMPARIA_DB_URI, execution_options={"stream_results": stream}
-        )
-        with engine.connect() as conn:
-            logger.debug(f"Database connection established.")
-            yield conn
-
-    except OperationalError as e:
-        raise Exception(f"Database connection error: {e}")
-    finally:
-        if engine:
-            engine.dispose()
-            logger.debug(f"Database connection closed.")

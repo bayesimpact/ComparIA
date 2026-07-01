@@ -5,10 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "ecologits==0.10.1",
+    "ecologits==0.10.2",
     "fastapi>=0.128.0",
     "json5>=0.13.0",
-    "litellm==1.83.14",
+    "litellm==1.88.0",
     "google-auth>=2.38.0",
     "markdown>=3.10.1",
     "numpy>=2.4.1",
@@ -24,6 +24,10 @@ dependencies = [
     "sentry-sdk>=2.50.0",
     "uvicorn>=0.40.0",
     "altcha>=1.0.0",
+    "sqlmodel>=0.0.38",
+    "psycopg[binary]>=3.3.3",
+    "alembic>=1.18.4",
+    "linkup-sdk>=0.13.0",
 ]
 
 [dependency-groups]
@@ -66,15 +70,16 @@ remove-all-unused-imports = true
 exclude= [
     "./**/__init__.py",
     "./utils/ranking_methods",
-    "./utils/database/actions/__init__.py"
+    "./utils/database/actions/__init__.py",
+    "./utils/database/alembic"
 ]
 
 [tool.isort]
 profile = "black"
-extend_skip = ["utils/ranking_methods"]
+extend_skip = ["utils/ranking_methods", "utils/database/alembic"]
 
 [tool.black]
-extend-exclude = "utils/ranking_methods"
+extend-exclude = "utils/ranking_methods|utils/database/alembic"
 
 [tool.setuptools.packages.find]
 where = ["."]
