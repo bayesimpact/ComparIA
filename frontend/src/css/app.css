@@ -3,14 +3,27 @@
 @import './icons.css';
 
 :root {
-  /* Bayes Impact / Impulse Healthtech — primary action color replaces DSFR violet */
-  --blue-france-main-525: #1067FE;
+  /* compar:IA santé — the DSFR blue-france palette is overridden with a medical
+     green (#2E8A5A) so every `primary`/blue-france token renders green.
+     Hover/active/sun shades are derived darker for WCAG AA contrast. */
+  --blue-france-main-525: #2e8a5a;
+  --blue-france-main-525-hover: #277a4f;
+  --blue-france-main-525-active: #206841;
+  --blue-france-sun-113-625: #1d6b44;
+  --blue-france-975-75: #eef7f2;
+  --blue-france-950-100: #e3f1e9;
   --text-inverted-blue-france: #ffffff;
 
+  /* DSFR "info" family is blue, retint green so chat bubbles / vote panels
+     (bg-light-info) match the brand. */
+  --info-950-100: #e3f1e9;
+  --info-975-75: #eef7f2;
+  --info-425-625: #2e8a5a;
+
   /* CUSTOM DSFR LIKE ADDITION */
-  --cg-blue-france-main-525-hover: #0050d8;
-  --cg-blue-france-main-525-active: #003fad;
-  --outline-color: #1067FE;
+  --cg-blue-france-main-525-hover: #277a4f;
+  --cg-blue-france-main-525-active: #206841;
+  --outline-color: #1a8c52;
 
   /* Bayes Impact palette — accents */
   --accent-orange: #FF8400;
@@ -34,7 +47,7 @@
   /* CUSTOM */
   --cg-very-light-grey: #fcfcfd;
   --cg-light-grey: #f3f5f9;
-  --cg-very-light-blue: #f9fbff;
+  --cg-very-light-blue: #f6fbf8;
   --cg-green: #58b77d;
   --cg-purple: #a96afe;
   --cg-orange: #FF8400;
@@ -47,13 +60,28 @@
 }
 
 :root[data-fr-theme='dark'] {
-  --blue-france-main-525: #6464f3;
+  --blue-france-main-525: #2e8a5a;
+  --blue-france-main-525-hover: #3fa06d;
+  --blue-france-main-525-active: #54b07f;
+  --blue-france-sun-113-625: #5bc98e;
+  --blue-france-975-75: #14241c;
+  --blue-france-950-100: #1c3328;
+  --info-950-100: #1c3328;
+  --info-975-75: #14241c;
+  --info-425-625: #5bc98e;
+  --outline-color: #5bc98e;
   --text-inverted-blue-france: #ffffff;
 
   --cg-very-light-grey: #0a0a0b;
   --cg-light-grey: #1c1e22;
   /* FIXME need equivalent in dark */
   --cg-very-light-blue: #0a0a0b;
+}
+
+/* compar:IA santé: DSFR hardcodes the keyboard-focus ring to #0a76f6 on form
+   controls/links/buttons; recolor it to the brand green (theme-aware var). */
+:focus {
+  outline-color: var(--outline-color) !important;
 }
 
 @media (min-width: 36em) {

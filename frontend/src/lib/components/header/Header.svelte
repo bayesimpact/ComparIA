@@ -60,7 +60,7 @@
               />
             </div>
             <div>
-              <p class="fr-header__service-title mb-0! leading-normal!">
+              <p class="fr-header__service-title mb-0! leading-normal! flex items-center gap-2">
                 <a
                   href="/"
                   target={page.url.pathname.includes('arene') ? '_blank' : undefined}
@@ -68,6 +68,11 @@
                 >
                   {m['header.title']()}
                 </a>
+                <span
+                  class="text-primary border-primary rounded border px-1.5 py-0.5 text-[10px]! font-bold uppercase leading-none tracking-wide"
+                >
+                  Bêta
+                </span>
               </p>
 
               <p

@@ -152,6 +152,18 @@
         "unknown": "Une erreur est survenue"
     },
     "faq": {
+        "sante": {
+            "questions": {
+                "1": {
+                    "title": "Puis-je utiliser les réponses des IA pour une décision médicale ?",
+                    "desc": "<p><strong>Non.</strong> compar:IA santé est un outil expérimental d’évaluation et de comparaison. Les réponses générées par les modèles peuvent être incomplètes, erronées ou périmées : elles ne constituent pas un avis médical et ne remplacent ni l’expertise d’un professionnel de santé, ni les recommandations en vigueur. Toute information doit être vérifiée au regard des sources de référence et de votre jugement clinique avant tout usage.</p>"
+                },
+                "2": {
+                    "title": "Puis-je saisir des données de patients ou des informations sensibles ?",
+                    "desc": "<p><strong>Non.</strong> Ne saisissez aucune donnée sensible ni aucune information permettant d’identifier un patient (nom, date de naissance, numéro de sécurité sociale, etc.). Les échanges sont partagés à des fins de recherche et publiés sous forme de jeux de données après anonymisation : ils ne doivent jamais contenir de données personnelles de santé.</p>"
+                }
+            }
+        },
         "datasets": {
             "questions": {
                 "1": {
@@ -2237,6 +2249,16 @@
             "graphAlt": "Aperçu du graphique représentant le score et la consommation d’électricité des modèles",
             "rankingAlt": "Aperçu du classement sous forme de tableau",
             "title": "Merci pour votre contribution !"
+        }
+    },
+    "sante": {
+        "beta": "🧪 Version bêta : cet outil est en cours de test et d’évaluation. Les modèles, les fonctionnalités et les réponses peuvent évoluer.",
+        "disclaimer": {
+            "title": "Outil expérimental : ne remplace pas un avis médical",
+            "banner": "Les réponses générées par l’IA peuvent être incomplètes, erronées ou périmées. Elles ne constituent pas un avis médical et n’engagent pas la responsabilité du service. Vérifiez systématiquement les informations au regard des recommandations en vigueur et de votre jugement clinique.",
+            "short": "Les réponses des IA ne constituent pas un avis médical et peuvent comporter des erreurs. Vérifiez toujours auprès de sources fiables.",
+            "vote": "Rappel : ces réponses ne constituent pas un avis médical. Évaluez-les avec votre expertise clinique et ne les utilisez jamais telles quelles en situation de soin.",
+            "noPatientData": "Ne saisissez aucune donnée permettant d’identifier un patient (nom, date de naissance, identifiants…)."
         }
     },
     "seo": {

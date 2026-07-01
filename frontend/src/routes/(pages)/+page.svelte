@@ -126,14 +126,14 @@
 
   const reducedFAQ = (
     [
-      { id: 'usage', index: '2' },
+      { id: 'sante', index: '1' },
+      { id: 'sante', index: '2' },
       { id: 'models', index: '1' },
       { id: 'datasets', index: '2' },
-      { id: 'ecology', index: '1' },
-      { id: 'i18n', index: '1' }
+      { id: 'ecology', index: '1' }
     ] as const
   ).map(({ id, index }) => ({
-    id,
+    key: `${id}-${index}`,
     title: m[`faq.${id}.questions.${index}.title`](),
     desc: m[`faq.${id}.questions.${index}.desc`]()
   }))
@@ -145,7 +145,7 @@
       class="fr-container gap-20 md:flex-row md:items-center md:gap-0 flex max-w-[1070px]! flex-col"
     >
       <div class="">
-        <div class="mb-15 px-4 md:px-0">
+        <div class="mb-15 px-4 md:px-0 md:max-w-[355px]">
           <div class="mb-10 md:w-[320px] md:max-w-[320px] max-w-[280px]">
             <h1 class="mb-5!">
               {@html sanitize(m['home.intro.title']({ props: 'class="text-primary"' }))}
@@ -299,7 +299,7 @@
   <section class="fr-container--fluid bg-light-grey py-10 lg:py-20">
     <div class="fr-container">
       <h3 class="mb-2! text-center">{m['home.usage.title']()}</h3>
-      <p class="fr-mb-4w text-grey text-center">{m['home.vote.desc']()}</p>
+      <p class="fr-mb-4w text-grey text-center">{m['home.usage.desc']()}</p>
 
       <div class="gap-8 md:grid-cols-3 grid">
         {#each usageCards as card, i (i)}
@@ -362,8 +362,8 @@
       <h3 class="mb-8! lg:mb-10! text-center">{m['home.faq.title']()}</h3>
 
       <AccordionGroup>
-        {#each reducedFAQ as q (q.id)}
-          <Accordion id={q.id} label={q.title}>
+        {#each reducedFAQ as q (q.key)}
+          <Accordion id={q.key} label={q.title}>
             {@html sanitize(q.desc)}
           </Accordion>
         {/each}

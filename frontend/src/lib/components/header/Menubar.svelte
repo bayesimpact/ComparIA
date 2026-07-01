@@ -2,13 +2,11 @@
   import { page } from '$app/state'
   import { m } from '$lib/i18n/messages'
 
-  // Bayes Impact / Impulse Healthtech: /datasets and /news entries are
-  // beta.gouv-specific (HuggingFace dataset dumps + ComparIA blog/press)
-  // and not relevant to the clinical evaluation context.
+  // Bayes Impact / Impulse Healthtech — beta santé: /ranking, /datasets, /news
+  // and /product (now just the FAQ, reachable from the homepage) are hidden for
+  // now. See the corresponding +page.server.ts redirects.
   const navLinks = [
     { href: '/', label: m['seo.titles.home']() },
-    { href: '/product', label: m['seo.titles.product']() },
-    { href: '/ranking', label: m['seo.titles.ranking']() },
     { href: '/modeles', label: m['seo.titles.modeles']() }
   ]
 
