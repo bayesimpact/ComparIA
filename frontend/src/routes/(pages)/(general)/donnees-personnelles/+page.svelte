@@ -2,8 +2,8 @@
   import SeoHead from '$components/SEOHead.svelte'
   import { m } from '$lib/i18n/messages'
 
-  // Bayes Impact / Impulse Healthtech override: RGPD notice rewritten for the
-  // medical/clinical evaluation context. Upstream i18n keys are intentionally
+  // Bayes Impact override: RGPD notice rewritten for the medical/clinical
+  // evaluation context of this platform. Upstream i18n keys are intentionally
   // unused here.
 </script>
 
@@ -15,10 +15,19 @@
 
     <p>
       Cette politique décrit la manière dont Bayes Impact traite les données
-      personnelles dans le cadre du programme <em>Impulse Healthtech</em>,
-      lequel met cette plateforme à disposition de professionnels de santé
-      pour évaluer la pertinence et la fiabilité de grands modèles de langage
-      (LLM) appliqués à l'information médicale.
+      personnelles dans le cadre de cette plateforme, qui met à disposition des
+      professionnels de santé un outil pour évaluer la pertinence et la fiabilité
+      de grands modèles de langage (LLM) appliqués à l'information médicale.
+    </p>
+
+    <h2 id="responsable">Responsable de traitement</h2>
+    <p>
+      Le responsable de traitement est <strong>Bayes Impact France</strong>,
+      association à but non lucratif régie par la loi du 1<sup>er</sup> juillet
+      1901 (SIREN 813&nbsp;821&nbsp;279), dont le siège est situé à Paris. Pour
+      toute question relative au traitement de vos données, vous pouvez contacter
+      le délégué à la protection des données à l'adresse
+      <a href="mailto:dpo@bayesimpact.org">dpo@bayesimpact.org</a>.
     </p>
 
     <h2 id="finalite">Finalité du traitement</h2>
@@ -54,6 +63,15 @@
       fictionnels.
     </p>
 
+    <h2 id="destinataires">Destinataires et sous-traitants</h2>
+    <p>
+      Pour générer les réponses comparées, les prompts saisis et les réponses
+      produites sont transmis aux fournisseurs tiers des modèles de langage
+      évalués, agissant en qualité de sous-traitants. Bayes Impact
+      <strong>ne vend ni ne partage vos données avec des tiers à des fins
+      commerciales ou marketing</strong>.
+    </p>
+
     <h2 id="duree">Durée de conservation</h2>
     <p>
       Les données collectées sont conservées pendant une durée maximale de
@@ -68,6 +86,8 @@
       <li><strong>Droit d'accès</strong> : connaître les données vous concernant traitées par Bayes Impact ;</li>
       <li><strong>Droit de rectification</strong> : demander la correction de données inexactes ;</li>
       <li><strong>Droit à l'effacement</strong> : demander la suppression de vos données ;</li>
+      <li><strong>Droit à la limitation</strong> : demander la limitation du traitement de vos données ;</li>
+      <li><strong>Droit à la portabilité</strong> : recevoir vos données dans un format structuré et lisible par machine ;</li>
       <li><strong>Droit d'opposition</strong> : vous opposer au traitement de vos données ;</li>
       <li><strong>Droit au retrait du consentement</strong> : à tout moment, sans justification.</li>
     </ul>
@@ -88,7 +108,7 @@
     <p>
       Les données sont stockées sur des serveurs situés en Union européenne,
       sous administration directe de Bayes Impact. Les accès sont restreints
-      aux personnes habilitées dans le cadre du programme Impulse Healthtech.
+      aux personnes habilitées.
     </p>
   </div>
 </main>
