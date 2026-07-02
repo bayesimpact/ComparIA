@@ -28,6 +28,9 @@ COPY backend /app/backend
 COPY utils /app/utils
 COPY templates /app/templates
 COPY comparia-cli /app/
+# Alembic config (script_location -> utils/database/alembic) so migrations can be
+# applied from inside the container (e.g. `alembic upgrade head`).
+COPY alembic.ini /app/
 
 VOLUME /data
 EXPOSE 80

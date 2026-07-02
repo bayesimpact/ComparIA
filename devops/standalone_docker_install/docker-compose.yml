@@ -8,7 +8,6 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-comparia}
     volumes:
       - postgres-data:/var/lib/postgresql/data
-      - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-comparia}"]
       interval: 5s
@@ -44,6 +43,13 @@ services:
       CACHE_MAX_RESPONSES: ${CACHE_MAX_RESPONSES:-5}
       LOG_FORMAT: JSON
       LOGDIR: /data
+    # Apply pending Alembic migrations on startup so a fresh database (empty
+    # volume) is provisioned automatically, then serve the app. Idempotent.
+    entrypoint: ["sh", "-c"]
+    command:
+      - |
+        uv run alembic upgrade head
+        exec uv run uvicorn backend.main:app --host 0.0.0.0 --port 80
     ports:
       - "8008:80"        # backend accessible sur http://MAC:8008
 

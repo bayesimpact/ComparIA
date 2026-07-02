@@ -52,26 +52,20 @@ Caddy will automatically obtain a TLS certificate for your domain on first start
 
 ## Database configuration
 
+The database schema is managed by **Alembic**. The `backend` container runs
+`alembic upgrade head` automatically on every startup, so the schema is created
+on the first boot and kept up to date on upgrades — no manual init step is
+required.
+
 ### Option A: containerized PostgreSQL (default)
 
-The stack includes a PostgreSQL container. Before starting it, generate the schema init file:
-
-```bash
-set -a && source devops/standalone_docker_install/.env && set +ao
-bash devops/generate-init-db.sh
-```
-
-`POSTGRES_USER` must be exported so the init script replaces the hardcoded dev role with your actual database user.
-
-Then start the database first and wait for it to be healthy before starting the rest:
+The stack includes a PostgreSQL container (empty on first boot). Just start the
+stack; the backend provisions the schema automatically:
 
 ```bash
 cd devops/standalone_docker_install/
-docker compose --env-file .env up -d postgres
-docker compose logs -f # to check for correct init or error
+docker compose --env-file .env up -d
 ```
-
-Continue to start the full stack part...
 
 ### Option B: external PostgreSQL
 
@@ -81,15 +75,9 @@ If you have an existing PostgreSQL instance, set `COMPARIA_DB_URI` in your `.env
 COMPARIA_DB_URI=postgresql://user:password@host:5432/dbname
 ```
 
-Initialize the schema against your external database:
-
-```bash
-set -a && source devops/standalone_docker_install/.env && set +a
-bash devops/generate-init-db.sh
-psql "$COMPARIA_DB_URI" -f devops/data/init-db.sql
-```
-
-Then comment out the `postgres` service and its volume in `docker-compose.yml`:
+The backend runs the Alembic migrations against it on startup (idempotent), so
+no manual schema step is needed. Then comment out the `postgres` service and its
+volume in `docker-compose.yml`:
 
 ```yaml
 # postgres:
@@ -97,9 +85,8 @@ Then comment out the `postgres` service and its volume in `docker-compose.yml`:
 #   ...
 ```
 
-Also remove the `postgres` healthcheck dependency from the `backend` service `depends_on` block.
-
-Then start the stack normally:
+Also remove the `postgres` dependency from the `backend` and `ranking-cron`
+services' `depends_on` block, then start the stack normally:
 
 ```bash
 cd devops/standalone_docker_install/
