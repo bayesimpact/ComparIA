@@ -44,7 +44,7 @@
         >
           <div class="fr-header__brand-top w-auto!">
             <div class="fr-header__logo">
-              <!-- Bayes Impact / Impulse Healthtech: DSFR République Française mark removed;
+              <!-- Bayes Impact: DSFR République Française mark removed;
                    the bi-colors logo below is the only branding for this deploy. -->
             </div>
           </div>

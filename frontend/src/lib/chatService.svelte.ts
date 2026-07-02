@@ -102,7 +102,7 @@ export interface Comparison extends BaseComparison {
 
 // ANNOTATIONS
 
-// Bayes Impact / Impulse Healthtech clinical criteria (from bayes-bench).
+// Bayes Impact clinical criteria (from bayes-bench).
 // Diverges from upstream betagouv/ComparIA: generic prefs replaced with
 // clinical ones — keep in sync with backend/config.py `POSITIVE_PREFS` /
 // `NEGATIVE_PREFS`.

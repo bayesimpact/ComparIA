@@ -37,7 +37,7 @@ interface DatasetData extends RankingVariant {
 interface PreferencesData {
   positive_prefs_ratio: number
   total_prefs: number
-  // Positive clinical criteria (Bayes Impact / Impulse Healthtech)
+  // Positive clinical criteria (Bayes Impact)
   accuracy: number
   completeness: number
   actionable: number

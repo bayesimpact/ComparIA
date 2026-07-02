@@ -2,7 +2,7 @@
   import { page } from '$app/state'
   import { m } from '$lib/i18n/messages'
 
-  // Bayes Impact / Impulse Healthtech — beta santé: /ranking, /datasets, /news
+  // Bayes Impact — beta santé: /ranking, /datasets, /news
   // and /product (now just the FAQ, reachable from the homepage) are hidden for
   // now. See the corresponding +page.server.ts redirects.
   const navLinks = [

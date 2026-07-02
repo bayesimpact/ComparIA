@@ -128,7 +128,7 @@ class PreferencesData(BaseModel):
 
     positive_prefs_ratio: float
     total_prefs: int
-    # Positive clinical quality indicators (Bayes Impact / Impulse Healthtech)
+    # Positive clinical quality indicators (Bayes Impact)
     accuracy: int
     completeness: int
     actionable: int

@@ -18,7 +18,7 @@ export const HOST_TO_LOCALE = dev
       'ai-arenaen.dk': 'da',
       'aiarenaen.dk': 'da'
     }
-// Bayes Impact / Impulse Healthtech: deploy is restricted to fr/en. The
+// Bayes Impact: deploy is restricted to fr/en. The
 // other upstream locales (da/lt/sv) are removed so the language selector
 // never offers them. Keep in sync with `locales` in comparia.inlang/settings.json.
 const ALL_LOCALES = [
