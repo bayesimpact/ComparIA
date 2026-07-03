@@ -2,11 +2,12 @@
   import { page } from '$app/state'
   import { m } from '$lib/i18n/messages'
 
-  // Bayes Impact — beta santé: /ranking, /datasets, /news
-  // and /product (now just the FAQ, reachable from the homepage) are hidden for
-  // now. See the corresponding +page.server.ts redirects.
+  // Bayes Impact — beta santé: /datasets, /news and /product (now just the FAQ,
+  // reachable from the homepage) are hidden for now. See the corresponding
+  // +page.server.ts redirects.
   const navLinks = [
     { href: '/', label: m['seo.titles.home']() },
+    { href: '/ranking', label: m['seo.titles.ranking']() },
     { href: '/modeles', label: m['seo.titles.modeles']() }
   ]
 
