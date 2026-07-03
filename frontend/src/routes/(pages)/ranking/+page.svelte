@@ -83,7 +83,7 @@
         })
     ].join('\n')
 
-    downloadTextFile(data, `comparia_model-${kind}-${lastUpdateDate}-license_Etalab_2_0`)
+    downloadTextFile(data, `comparia_model-${kind}-${lastUpdateDate}-license_CC_BY_4_0`)
   }
 
   // function onDownloadPrefsData() {

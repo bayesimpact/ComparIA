@@ -312,7 +312,6 @@
 
   <section class="fr-container--fluid bg-very-light-grey lg:pb-38 py-12 lg:pt-20">
     <div class="fr-container gap-10 lg:grid-cols-2 lg:gap-6 grid">
-      <!-- i18n: specific to locales -->
       <div class="cg-border bg-white px-5 py-10 md:px-8">
         <h5>{m['home.origin.team.title']()}</h5>
         <p>{m['home.origin.team.desc']()}</p>
@@ -328,28 +327,11 @@
         <h5>{m['home.origin.project.title']()}</h5>
         <p>
           {@html sanitize(
-            m['home.origin.project.desc']({ linkProps: externalLinkProps('https://beta.gouv.fr') })
+            m['home.origin.project.desc']({
+              linkProps: externalLinkProps('https://comparia.beta.gouv.fr')
+            })
           )}
         </p>
-
-        <div class="mt-12 gap-8 flex flex-wrap">
-          <img
-            src="/orgs/betagouv.svg"
-            alt="beta.gouv.fr"
-            title="beta.gouv.fr"
-            class="max-w-[178px] dark:invert"
-            width="191px"
-            height="65px"
-          />
-          <img
-            src="/orgs/dinum.png"
-            class="max-w-[254px] dark:invert"
-            alt="DINUM"
-            title="DINUM"
-            width="278px"
-            height="59px"
-          />
-        </div>
       </div>
     </div>
   </section>

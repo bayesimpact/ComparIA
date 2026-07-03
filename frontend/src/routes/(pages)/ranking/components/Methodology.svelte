@@ -64,7 +64,7 @@
         )
     ].join('\n')
 
-    downloadTextFile(csvData, `comparia_model-winrate-${lastUpdateDate}-license_Etalab_2_0`)
+    downloadTextFile(csvData, `comparia_model-winrate-${lastUpdateDate}-license_CC_BY_4_0`)
   }
 </script>
 

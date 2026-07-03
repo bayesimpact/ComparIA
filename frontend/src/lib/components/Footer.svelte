@@ -62,7 +62,7 @@
           {@html sanitize(
             m['footer.license.mention']({
               linkProps: externalLinkProps({
-                href: 'https://github.com/etalab/licence-ouverte/blob/master/LO.md',
+                href: 'https://creativecommons.org/licenses/by/4.0/',
                 title: m['footer.license.linkTitle']()
               })
             })

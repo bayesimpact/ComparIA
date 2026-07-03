@@ -53,12 +53,17 @@
       nécessite une autorisation écrite préalable de l'éditeur.
     </p>
 
-    <h2 id="code-source" class="fr-h5">Code source</h2>
+    <h2 id="code-source" class="fr-h5">Code source et crédits</h2>
     <p>
-      Ce service est un fork du projet <em>compar:IA</em> (betagouv) adapté
-      au contexte de l'évaluation clinique. Le code source de compar:IA est
-      publié sous licence Etalab 2.0 ; le code de ce fork est disponible sur
+      Ce service est un fork de
+      <a href="https://comparia.beta.gouv.fr" target="_blank" rel="noopener external">compar:IA</a>,
+      projet initialement développé par le <strong>Ministère de la Culture</strong>
+      et la <strong>DINUM</strong>, adapté ici au contexte de l'évaluation clinique.
+      Le code source est publié sous licence Apache 2.0 ; le code de ce fork est
+      disponible sur
       <a href="https://github.com/bayesimpact/ComparIA" target="_blank" rel="noopener external">GitHub</a>.
+      Les contenus du site et les jeux de données sont diffusés sous licence
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener external">CC BY 4.0</a>.
     </p>
 
     <h2 id="responsabilite" class="fr-h5">Responsabilité</h2>

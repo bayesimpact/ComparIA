@@ -9,7 +9,7 @@ const disabledLocaleCodes = env.PUBLIC_DISABLED_LOCALES
 
 export type LocaleOption = { code: Locale; short: string; long: string; host: string }
 
-const DEFAULT_HOST = dev ? 'localhost:5173' : 'comparia.beta.gouv.fr'
+const DEFAULT_HOST = dev ? 'localhost:5173' : 'arena-sante.vercamer.net'
 export const HOST_TO_LOCALE = dev
   ? {
       '127.0.0.1:8080': 'da'
@@ -52,7 +52,7 @@ export function setI18nContext() {
         'https://ec.europa.eu/eurostat/fr/web/products-eurostat-news/w/ddn-20251216-3'
     },
     fr: {
-      contact: 'contact@comparia.beta.gouv.fr',
+      contact: 'hello@bayesimpact.org',
       peopleUsingAIDataLink:
         'https://www.credoc.fr/publications/barometre-du-numerique-2026-rapport'
     }

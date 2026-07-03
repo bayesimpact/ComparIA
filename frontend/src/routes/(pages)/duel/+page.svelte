@@ -236,7 +236,7 @@
           <Link
             button
             size="lg"
-            href="mailto:simonas.zilinskas@beta.gouv.fr"
+            href="mailto:hello@bayesimpact.org"
             text="Nous contacter pour en savoir plus"
           />
         </div>
