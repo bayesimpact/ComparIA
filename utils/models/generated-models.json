@@ -1,5 +1,5 @@
 {
-  "timestamp": 1782894334.590417,
+  "timestamp": 1783083582.740911,
   "models": {
     "Apertus-70B-Instruct-2509": {
       "active_params": null,
@@ -3724,9 +3724,9 @@
       "db_id": "ecd66295-d2b8-40b1-b278-40c638264dbb",
       "distribution": "open-weights",
       "endpoint": {
-        "api_base": "https://albert.api.etalab.gouv.fr/v1/",
-        "api_model_id": "meta-llama/Llama-3.1-8B-Instruct",
-        "api_type": "openai",
+        "api_base": null,
+        "api_model_id": "meta-llama/llama-3.1-8b-instruct",
+        "api_type": "openrouter",
         "api_version": null
       },
       "eu_hostable": true,
@@ -4837,7 +4837,7 @@
       "reuse": true,
       "simple_name": "Nemotron 3 Nano Omni 30B-A3B",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://huggingface.co/nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
       "wh_per_million_token": 83.08567619379136
     },
@@ -5176,7 +5176,7 @@
       "reuse": false,
       "simple_name": "Owl Alpha",
       "specific_portals": null,
-      "status": "enabled",
+      "status": "archived",
       "url": "https://openrouter.ai/openrouter/owl-alpha",
       "wh_per_million_token": 1678.8247405961904
     },
