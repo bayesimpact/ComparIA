@@ -171,7 +171,7 @@
                     "title": "Les données de préférence ont-elles un effet immédiat pour améliorer les modèles?"
                 },
                 "2": {
-                    "desc": "<p>La spécificité des données collectées sur la plateforme compar:IA est qu’elles sont en français et qu’elles correspondent à des tâches réelles des utilisateurs. Ces données reflètent des préférences humaines dans un contexte linguistique et culturel précis. Elles permettent dans un second temps d’ajuster les modèles pour qu’ils soient plus pertinents, précis et adaptés aux usages des utilisateurs, tout en comblant les éventuels biais ou lacunes des modèles actuels.</p>",
+                    "desc": "<p>La spécificité des données collectées sur la plateforme compar:IA est qu’elles sont en français et qu’elles correspondent à des tâches réelles des utilisateurs. Ces données reflètent des préférences humaines dans le contexte du système de santé français. Elles permettent dans un second temps d’ajuster les modèles pour qu’ils soient plus pertinents, précis et adaptés aux usages des utilisateurs, tout en comblant les éventuels biais ou lacunes des modèles actuels.</p>",
                     "title": "Pourquoi les données de préférence collectées sur compar:IA ont-elles de la valeur ?"
                 },
                 "3": {
@@ -1426,12 +1426,12 @@
                 "title": "Donner mon avis sur le comparateur - ouvre une nouvelle fenêtre"
             }
         },
-        "homeTitle": "Accueil - Arène IA Santé",
+        "homeTitle": "Accueil - compar:IA santé by Bayes Impact",
         "logoAlt": "Bayes Impact",
         "menu": "Menu",
         "startDiscussion": "Commencer à discuter",
-        "subtitle": "Évaluez les IA sur vos cas cliniques",
-        "title": "Arène IA Santé",
+        "subtitle": "Le comparateur d’IA pour les soignants",
+        "title": "compar:IA santé by Bayes Impact",
         "votes": {
             "count": "{count} votes",
             "legend": "Légende",
@@ -1473,7 +1473,7 @@
                     "title": "J’évalue les réponses"
                 }
             },
-            "title": "Testez <span {props}>connaissances en santé</span> des IA",
+            "title": "Testez les <span {props}>connaissances en santé</span> des IA",
             "tos": {
                 "accept": "J’accepte les <a {linkProps}>conditions générales d’utilisation</a>",
                 "error": "Vous devez accepter les modalités d’utilisation pour continuer",

@@ -1209,12 +1209,12 @@
                 "title": "Give feedback on the arena – opens a new window"
             }
         },
-        "homeTitle": "Home - compar:IA",
+        "homeTitle": "Home - compar:IA santé by Bayes Impact",
         "logoAlt": "French Republic",
         "menu": "Menu",
         "startDiscussion": "New chat",
-        "subtitle": "The chatbot arena",
-        "title": "compar:AI",
+        "subtitle": "The AI comparator for healthcare professionals",
+        "title": "compar:IA santé by Bayes Impact",
         "votes": {
             "count": "{count} votes",
             "legend": "Legend",

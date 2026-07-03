@@ -66,7 +66,9 @@
                   target={page.url.pathname.includes('arene') ? '_blank' : undefined}
                   title={m['header.homeTitle']()}
                 >
-                  {m['header.title']()}
+                  <span class="font-bold">compar:IA <span class="text-primary">santé</span></span>
+                  <span class="font-normal">by</span>
+                  <span class="font-bold">Bayes Impact</span>
                 </a>
                 <span
                   class="text-primary border-primary rounded border px-1.5 py-0.5 text-[10px]! font-bold uppercase leading-none tracking-wide"
