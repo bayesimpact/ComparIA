@@ -2,7 +2,6 @@
   import { page } from '$app/state'
   import { Button, Link } from '$components/dsfr'
   import { m } from '$lib/i18n/messages'
-  import { getLocale } from '$lib/i18n/runtime'
   import { LanguageSelector, Menubar, VoteGauge } from '.'
 
   let {
@@ -20,8 +19,6 @@
     showHelpLink?: boolean
     small?: boolean
   } = $props()
-
-  const locale = getLocale()
 </script>
 
 {#snippet helpLink()}
@@ -47,49 +44,37 @@
         >
           <div class="fr-header__brand-top w-auto!">
             <div class="fr-header__logo">
-              {#if locale === 'fr' || locale === 'en'}
-                <p class="fr-logo">
-                  République<br />Française
-                </p>
-              {:else if locale === 'da'}
-                <img
-                  src="/orgs/countries/da-light.png"
-                  alt={m['header.logoAlt']()}
-                  class="max-h-[55px] dark:hidden"
-                />
-                <img
-                  src="/orgs/countries/da-dark.png"
-                  alt={m['header.logoAlt']()}
-                  class="hidden max-h-[55px] dark:block"
-                />
-              {:else}
-                <img
-                  src={`/orgs/countries/${locale}.png`}
-                  alt={m['header.logoAlt']()}
-                  class="max-h-[68px]"
-                />
-              {/if}
+              <!-- Bayes Impact: DSFR République Française mark removed;
+                   the bi-colors logo below is the only branding for this deploy. -->
             </div>
           </div>
           <div
-            class="fr-header__service mx-1! sm:mx-3! sm:w-auto md:px-3! flex w-1/2 grow items-center before:content-none!"
+            class="fr-header__service mx-1! sm:mx-3! md:px-3! flex w-auto grow items-center before:content-none!"
           >
-            <img
-              src="/orgs/comparia.png"
-              aria-hidden="true"
-              alt=""
-              width="46"
-              class="me-4 sm:block hidden h-max"
-            />
+            <div class="me-4 sm:block hidden overflow-hidden shrink-0" style="height: 36px; width: auto;">
+              <img
+                src="/orgs/bi-colors.svg"
+                aria-hidden="true"
+                alt=""
+                style="height: 36px; width: auto;"
+              />
+            </div>
             <div>
-              <p class="fr-header__service-title mb-0! leading-normal!">
+              <p class="fr-header__service-title mb-0! leading-normal! flex items-center gap-2">
                 <a
                   href="/"
                   target={page.url.pathname.includes('arene') ? '_blank' : undefined}
                   title={m['header.homeTitle']()}
                 >
-                  {m['header.title']()}
+                  <span class="font-bold">compar:IA <span class="text-primary">santé</span></span>
+                  <span class="font-normal">by</span>
+                  <span class="font-bold">Bayes Impact</span>
                 </a>
+                <span
+                  class="text-primary border-primary rounded border px-1.5 py-0.5 text-[10px]! font-bold uppercase leading-none tracking-wide"
+                >
+                  Bêta
+                </span>
               </p>
 
               <p

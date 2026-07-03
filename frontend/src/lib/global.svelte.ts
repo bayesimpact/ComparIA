@@ -9,7 +9,7 @@ const disabledLocaleCodes = env.PUBLIC_DISABLED_LOCALES
 
 export type LocaleOption = { code: Locale; short: string; long: string; host: string }
 
-const DEFAULT_HOST = dev ? 'localhost:5173' : 'comparia.beta.gouv.fr'
+const DEFAULT_HOST = dev ? 'localhost:5173' : 'comparia.health.bayes.org'
 export const HOST_TO_LOCALE = dev
   ? {
       '127.0.0.1:8080': 'da'
@@ -18,12 +18,11 @@ export const HOST_TO_LOCALE = dev
       'ai-arenaen.dk': 'da',
       'aiarenaen.dk': 'da'
     }
+// Bayes Impact: deploy is restricted to fr/en. The
+// other upstream locales (da/lt/sv) are removed so the language selector
+// never offers them. Keep in sync with `locales` in comparia.inlang/settings.json.
 const ALL_LOCALES = [
-  { code: 'da', short: 'DA', long: 'DA - Dansk', host: dev ? '127.0.0.1:8080' : 'ai-arenaen.dk' },
-  { code: 'fr', short: 'FR', long: 'FR - Français', host: DEFAULT_HOST },
-  { code: 'en', short: 'EN', long: 'EN - English', host: DEFAULT_HOST },
-  { code: 'lt', short: 'LT', long: 'LT - Lietuvių', host: DEFAULT_HOST },
-  { code: 'sv', short: 'SV', long: 'SV - Svensk', host: DEFAULT_HOST }
+  { code: 'fr', short: 'FR', long: 'FR - Français', host: DEFAULT_HOST }
 ] satisfies LocaleOption[]
 
 export const LOCALES = ALL_LOCALES.filter((locale) => {
@@ -53,12 +52,12 @@ export function setI18nContext() {
         'https://ec.europa.eu/eurostat/fr/web/products-eurostat-news/w/ddn-20251216-3'
     },
     fr: {
-      contact: 'contact@comparia.beta.gouv.fr',
+      contact: 'hello@bayesimpact.org',
       peopleUsingAIDataLink:
         'https://www.credoc.fr/publications/barometre-du-numerique-2026-rapport'
     }
   } as const
-  const locale = getLocale() === 'da' ? 'da' : 'fr'
+  const locale = (getLocale() as string) === 'da' ? 'da' : 'fr'
   setContext('i18n', i18nData[locale])
 }
 

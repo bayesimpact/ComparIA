@@ -37,15 +37,15 @@ interface DatasetData extends RankingVariant {
 interface PreferencesData {
   positive_prefs_ratio: number
   total_prefs: number
-  // Positive count
-  useful: number
-  clear_formatting: number
-  complete: number
-  creative: number
-  // Negative count
-  incorrect: number
-  instructions_not_followed: number
-  superficial: number
+  // Positive clinical criteria (Bayes Impact)
+  accuracy: number
+  completeness: number
+  actionable: number
+  safety: number
+  // Negative clinical criteria
+  discordance: number
+  reasoning_error: number
+  clinical_risk: number
 }
 
 export interface APIBotModel {

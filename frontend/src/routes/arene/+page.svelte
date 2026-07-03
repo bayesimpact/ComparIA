@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Link } from '$components/dsfr'
   import Header from '$components/header/Header.svelte'
+  import MedicalDisclaimer from '$components/MedicalDisclaimer.svelte'
   import SeoHead from '$components/SEOHead.svelte'
   import { fetchAndSolveSilently } from '$lib/captcha.svelte'
   import { getComparison, initComparisonsContext } from '$lib/chatService.svelte'
@@ -38,6 +39,8 @@
   showHelpLink={showInitialPrompt}
   small
 />
+
+<MedicalDisclaimer kind="banner" />
 
 {#if comparator.status === 'revealed'}
   <div

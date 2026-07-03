@@ -3,22 +3,13 @@
   import { Tabs } from '$components/dsfr'
   import { m } from '$lib/i18n/messages'
   import { getLocale } from '$lib/i18n/runtime'
-  import { Community, Comparator, FAQ, History, Partners, Problem } from './components'
+  import { FAQ } from './components'
 
   const { data } = $props()
   const locale = getLocale()
   const isFr = $derived(['fr', 'en'].includes(locale))
 
-  const tabs = (
-    [
-      { id: 'comparator' },
-      { id: 'problem' },
-      { id: 'community' },
-      { id: 'history' },
-      { id: 'faq' },
-      { id: 'partners' }
-    ] as const
-  ).map((tab) => ({
+  const tabs = ([{ id: 'faq' }] as const).map((tab) => ({
     ...tab,
     href: `/product/${tab.id}`,
     label: m[`product.${tab.id}.tabLabel`]()
@@ -38,31 +29,10 @@
       panelClass="bg-white px-4! md:p-10!"
     >
       {#snippet tab({ id })}
-        {#if id === 'comparator'}
-          <Comparator />
-        {:else if id === 'problem'}
-          <Problem />
-        {:else if id === 'community'}
-          <Community />
-        {:else if id === 'history'}
-          <History />
-        {:else if id === 'faq'}
+        {#if id === 'faq'}
           <FAQ />
-        {:else if id === 'partners'}
-          <Partners />
         {/if}
       {/snippet}
     </Tabs>
   </div>
 </main>
-
-<style>
-  /* FIXME remove when avaible */
-  :global(main.prev #tab-community, main.prev #tab-history) {
-    display: none;
-  }
-
-  :global(main.next #tab-partners) {
-    display: none;
-  }
-</style>

@@ -258,8 +258,8 @@
         "dpg": "The service is recognized as a digital public good by the Digital Public Goods Alliance",
         "helpUs": "Help us improve the product!",
         "license": {
-            "linkTitle": "Etalab license - new window",
-            "mention": "Unless otherwise explicitly stated as third-party intellectual property, the contents of this site are offered under the <a {linkProps}>Etalab 2.0 license</a>"
+            "linkTitle": "CC BY 4.0 license - new window",
+            "mention": "Unless otherwise explicitly stated as third-party intellectual property, the contents of this site are offered under the <a {linkProps}>CC BY 4.0 license</a>"
         },
         "links": {
             "accessibility": "Accessibility: non-compliant",
@@ -273,12 +273,12 @@
     },
     "general": {
         "a11y": {
-            "desc": "This accessibility statement applies to the website <strong> comparia.beta.gouv.fr </strong> .",
-            "disclaimer": "<strong> compar:IA </strong> is committed to making its digital services accessible, in accordance with Article 47 of Law No. 2005-102 of February 11, 2005.",
-            "improveAdress": "Address: DINUM, 20 avenue de Ségur 75007 Paris",
+            "desc": "This accessibility statement applies to the website <strong>comparia.health.bayes.org</strong>.",
+            "disclaimer": "<strong>Bayes Impact</strong> is committed to making its digital services accessible, in accordance with Article 47 of Law No. 2005-102 of 11 February 2005.",
+            "improveAdress": "Address: Bayes Impact, 146 rue de Rivoli, 75001 Paris",
             "improveDelay": "We try to respond within 2 business days.",
-            "improveDesc": "If you are unable to access any content or service, you can contact the manager of beta.gouv.fr to be directed to an accessible alternative or obtain the content in another format.",
-            "improveMail": "E-mail: <a {linkProps}>contact@beta.gouv.fr</a>",
+            "improveDesc": "If you are unable to access any content or service, you can contact the website manager to be directed to an accessible alternative or to obtain the content in another form.",
+            "improveMail": "E-mail: <a {linkProps}>hello@bayesimpact.org</a>",
             "improveTitle": "Improvement and contact",
             "remedyAdvocate": "Write a message to the <a {linkProps}>Defender of Rights</a>",
             "remedyAdvocateAdress": "Send a letter by post (free, do not put a stamp): Defender of Rights - Free response 71120 75342 Paris CEDEX 07",
@@ -286,71 +286,16 @@
             "remedyDesc": "This procedure is to be used in the following case: you have reported to the website manager an accessibility defect which prevents you from accessing content or one of the portal's services and you have not received a satisfactory response.",
             "remedyList": "You can :",
             "remedyTitle": "Appeal",
-            "stateDesc": "The comparia.beta.gouv.fr website is non-compliant with RGAA 4.1. The site has not yet been audited <strong>. However, it has been designed to be accessible to as many people as possible </strong> . You should therefore be able to:",
+            "stateDesc": "The comparia.health.bayes.org website is non-compliant with RGAA 4.1. The site has <strong>not yet been audited</strong>. However, it has been designed to be accessible to as many people as possible. You should therefore be able to:",
             "stateNavigate": "navigate all pages of the site using a keyboard",
             "statePrefs": "adapt the site to your preferences (font size, screen zoom, change of typography, etc.) without loss of content",
             "stateScreenReader": "view the website with a screen reader.",
             "stateTitle": "Compliance Status",
             "title": "Accessibility statement"
         },
-        "legal": {
-            "a11yDesc": "Compliance with digital accessibility standards is a future goal, but we strive to make this site accessible to everyone.",
-            "a11yTitle": "Accessibility",
-            "directorDesc": "Mr. Romain Delassus, Head of the Digital Department at the Ministry of Culture",
-            "directorTitle": "Director of the publication",
-            "editorDesc": "This site is published by the French Ministry of Culture, 182 Rue Saint-Honoré, 75001 Paris",
-            "editorTitle": "Published",
-            "hostingDesc": "This site is hosted by OVH SAS (<a {linkProps}>https://www.ovh.com</a>), whose registered office is located at 2 Rue Kellermann, 59100 Roubaix, France.",
-            "hostingTitle": "Hosting of the site",
-            "reportA11y": "If you encounter an accessibility issue preventing you from accessing any content or functionality on the site, please let us know.",
-            "reportA11yDesc": "To learn more about the State’s digital accessibility policy: <a {linkProps}>references.modernisation.gouv.fr/accessibilite-numerique</a>",
-            "reportDesc": "If you do not receive a prompt response from us, you have the right to submit your complaint or a request for referral to the Defender of Rights.",
-            "reportTitle": "Report a problem",
-            "securityCertif": "The site is protected by an electronic certificate, represented in most browsers by a padlock. This protection helps ensure the confidentiality of exchanges.",
-            "securityNoMail": "Under no circumstances will the services associated with the platform be the source of emails asking for the input of personal information.",
-            "securityTitle": "Security",
-            "sources": "Unless otherwise stated, all texts on this site are under the <a {etalabLinkProps}>Etalab Open 2.0 license</a>. The source code of this application is freely reusable and accessible on <a {githubLinkProps}>GitHub</a>.",
-            "title": "Legal notice"
-        },
-        "privacy": {
-            "cookiesBannerDesc": "It's true, you didn't have to click on a block covering half of the page to say that you agree to the use of cookies -even if you don't know what that means!",
-            "cookiesBannerNoNeed": "Nothing exceptional, no special treatment related to a .gouv.fr domain. We simply respect the law, which states that certain audience tracking tools, properly configured to respect privacy, are exempt from prior authorization.",
-            "cookiesBannerTitle": "Why doesn't this site display a cookie consent banner?",
-            "cookiesBannerTools": "We use <a {matomoLinkProps}>Matomo</a>, a <a {libreLinkProps}>free</a> tool, configured to comply with the CNIL's \"Cookies\" <a {cnilLinkProps}>recommendation</a>. This means that your IP address, for example, is anonymized before being recorded. It is therefore impossible to associate your visits to this site with your person.",
-            "cookiesDesc": "This website places a small text file (a \"cookie\") on your computer when you visit it. This allows us to measure the number of visits and understand which pages are the most viewed.",
-            "cookiesDescMore": "You can opt out of tracking your browsing on this website. This will protect your privacy, but it will also prevent the owner from learning from your actions and creating a better experience for you and other users.",
-            "cookiesTitle": "Cookies and Consent",
-            "dataAccessDatasets": "User dialogue and preference data are distributed under Etalab's Open License 2.0 on the Hugging Face platform as well as on Data.gouv.fr through the Ministry of Culture's account (<a {linkProps}>https://huggingface.co/ministere-culture</a>).",
-            "dataAccessDesc": "Of course! The site's usage statistics are freely accessible at <a {linkProps}>stats.beta.gouv.fr</a>.",
-            "dataAccessTitle": "I contribute to enriching your data, can I access it?",
-            "dataExtraCountry": "Destination country: France",
-            "dataExtraHost": "Subcontractor: OVH",
-            "dataExtraTitle": "Who helps us process the data?",
-            "dataExtraWarranty": "Guarantees: <a {linkProps}>https://storage.gra.cloud.ovh.net/v1/AUTH_325716a587c64897acbef9a4a4726e38/contracts/9e74492-OVH_Data_Protection_Agreement-FR-6.0.pdf</a>",
-            "dataExtraWhat": "Processing carried out: Accommodation",
-            "dataRespDesc": "The French Ministry of Culture's digital department is responsible for processing your personal data.",
-            "dataRespTitle": "Who is responsible for data processing?",
-            "dataTimeDesc": "Data relating to users and their conversations with models are retained from the time the preference vote is recorded.",
-            "dataTimeTitle": "How long do we keep this data?",
-            "dataUseDesc": "In any case, the publisher commits to implementing means to ensure the anonymization of dialogue data before making it publicly available.",
-            "dataUseTitle": "What processing is done on the conversation data?",
-            "desc": "The service is published by the Digital Department of the French Ministry of Culture.",
-            "privacyData": "The data collected on the site are as follows:",
-            "privacyDataArena": "Data related to user conversations with the models: questions asked by users, model responses, and user preferences expressed between the two models",
-            "privacyDataForm": "Data related to the questionnaire \"Help us improve compar:IA\".",
-            "privacyDesc": "The service does not process personal data as defined by the CNIL, meaning any information relating to an identifiable natural person, directly or indirectly.",
-            "privacyResp": "The user is responsible for the data or content they enter in the prompt provided by the platform. By accepting the <a {linkProps}>terms of use</a>, the user agrees not to transmit any information that could identify themselves or a third party.",
-            "privacyTitle": "Do we process personal data?",
-            "tallyData": "When you fill out one of these forms, the data you enter is transmitted to and hosted by Tally (Tally BV, Belgium). Tally is committed to not using your data for commercial purposes and to complying with the GDPR. For more information, please see Tally's <a {tallyPrivacyLinkProps}>Privacy Policy</a>.",
-            "tallyDesc": "This site uses <a {tallyLinkProps}>Tally</a>, an online form creation service, for two features:",
-            "tallyFeedback": "The \"Your opinion\" form allows us to collect your feedback on the service",
-            "tallyNewsletter": "The newsletter (newsletter) subscription form compar:IA",
-            "tallyTitle": "Tally Forms",
-            "title": "Privacy policy"
-        },
         "rgesn": {
             "1": {
-                "1": "The compar:IA website provides easy and free access to a wide variety of conversational AI models, raising public awareness of the various challenges of generative AI: diversity, bias, and environmental impact. Furthermore, the datasets of questions and preferences compiled are shared as open source under the MIT/Etalab 2.0 license.",
+                "1": "The compar:IA website provides easy and free access to a wide variety of conversational AI models, raising public awareness of the various challenges of generative AI: diversity, bias, and environmental impact. Furthermore, the datasets of questions and preferences compiled are shared as open source under the CC BY 4.0 license.",
                 "2": "The target users of the Compar:IA service were identified by conducting user interviews and a preliminary phase of needs investigation.",
                 "3": "Thus, all citizens are concerned as potential users, but particularly teachers, pupils, students, workshop facilitators, AI trainers, as well as researchers (computer science, AI, humanities and social sciences) and companies interested in analyzing or using open-source shared datasets. Accordingly, the digital service meets their needs through the following features: testing and comparing models for free, and using open-source shared data.",
                 "4": "The compar:IA service is part of an eco-design approach aimed at reducing environmental impacts. To this end, this declaration was drafted within the framework of the implementation of the General Eco-design Framework for Digital Services (RGESN, version 2024). The RGESN, produced by Arcep and Arcom, in collaboration with ADEME, DINUM, CNIL, and Inria, is available on the <a {linkProps}>Arcep website</a>.",
@@ -442,14 +387,14 @@
         "tos": {
             "contactDesc": "For any questions about the service, you can write to <a {linkProps}>{contactLink}</a>.",
             "contactTitle": "9. Contact",
-            "defsEditor": "“Publisher” refers to the Digital Department of the Ministry of Culture.",
+            "defsEditor": "“Publisher” refers to Bayes Impact France, a non-profit association governed by the French law of 1 July 1901.",
             "defsModels": "\"Models\" refers to the large language models (LLMs) reused under their usage license by the platform to fulfill its purposes.",
             "defsPlatform": "“Platform” refers to the website that makes the services accessible.",
             "defsServices": "\"Services\" refers to the features offered by the platform to fulfill its purposes.",
             "defsTitle": "2. Definitions",
             "defsUser": "“User” refers to any natural person consulting the platform and benefiting from its services.",
-            "descDatasets": "These datasets will be made accessible under an open license, particularly to encourage research uses.",
-            "descEditor": "Published by the Digital Department of the French Ministry of Culture, the arena is a platform for comparing conversational models aimed at the general public with the goal of (1) raising citizens' awareness of large language models (LLMs), and (2) collecting user preferences to create alignment datasets.",
+            "descDatasets": "These datasets will be made accessible under the CC BY 4.0 license, particularly to encourage research uses.",
+            "descEditor": "Published by Bayes Impact, the arena is a platform for comparing conversational models applied to medical information, in order to (1) assess their clinical reliability, safety and decision-making usefulness, and (2) collect health professionals’ preferences to build evaluation datasets.",
             "descTitle": "3. Platform description",
             "descUse": "The user asks a question in a given language and receives answers from two anonymous large language models (LLMs). They vote for the model that provides their preferred response and are then shown the identities of the models. This participatory production system, inspired by the \"<a {linkProps}>chatbot arena</a>\" platform (LMarena), allows for the creation of datasets of human preferences for real-world tasks in French, which can be used for model alignment.",
             "dispoDesc": "The platform is accessible, except in cases of force majeure or events beyond the control of its publisher.",
@@ -461,7 +406,7 @@
             "evoDescMore": "These modifications and updates are binding on the user, who should therefore regularly refer to this section to check the current general terms.",
             "evoTitle": "8. Changes to the Terms of Use",
             "featuresDatasets": "The service collects conversation data (questions, responses from both models) and user preferences (votes, associated metadata). This data is used both to create public datasets and to build a ranking of AI models displayed on the platform, based on the votes cast by the users.",
-            "featuresDatasetsMore": "The publisher reserves the right to distribute the user's dialogue and preference data under an etalab 2.0 license. The dataset is disseminated on Data.gouv and the Hugging Face platform through the French Ministry of Culture's account (<a {linkProps}>https://huggingface.co/ministere-culture</a>).",
+            "featuresDatasetsMore": "The publisher reserves the right to distribute the user’s dialogue and preference data under the CC BY 4.0 license. The dataset may be distributed on the Hugging Face platform, via the <a {linkProps}>Bayes Impact</a> account.",
             "featuresDesc": "To meet the dual objective of raising citizen awareness about large language models and collecting user preferences, the platform provides the following services without access restrictions:",
             "featuresDescMore": "A human-machine interface that allows users to dialogue simultaneously with two conversational models and vote for the preferred response.",
             "featuresModels": "The models integrated into the platform are deployed on the inference servers of the various hosting providers and model publishers. Requests are handled primarily by the Open Router service. Inference conditions are defined on the platform to ensure transparent model usage.",
@@ -469,7 +414,7 @@
             "featuresTitle": "4. Features",
             "featuresVote": "The user can view the list of models on the arena and access more information on these models.",
             "featuresVoteMore": "Sharing, providing access and reuse of datasets generated by user preferences.",
-            "licenceCode": "The platform's source code is open and available here: <a {linkProps}>https://github.com/betagouv/ComparIA</a>",
+            "licenceCode": "The platform’s source code is open and available here: <a {linkProps}>https://github.com/bayesimpact/ComparIA</a>",
             "licenceLLM": "The LLMs used to power the services are governed by the following licenses:",
             "licenceLLMEvolution": "The list of language models integrated into the platform is subject to change over time and is updated with each modification.",
             "licenceLLMLicence": "License",
@@ -1264,12 +1209,12 @@
                 "title": "Give feedback on the arena – opens a new window"
             }
         },
-        "homeTitle": "Home - compar:IA",
+        "homeTitle": "Home - compar:IA santé by Bayes Impact",
         "logoAlt": "French Republic",
         "menu": "Menu",
         "startDiscussion": "New chat",
-        "subtitle": "The chatbot arena",
-        "title": "compar:AI",
+        "subtitle": "The AI comparator for healthcare professionals",
+        "title": "compar:IA santé by Bayes Impact",
         "votes": {
             "count": "{count} votes",
             "legend": "Legend",
@@ -1319,13 +1264,13 @@
             }
         },
         "origin": {
-            "project": {
-                "desc": "The chatbot arena was designed and developed as part of a government startup led by the French Ministry of Culture, integrated into the <a {linkProps}>Beta.gouv.fr</a> program by the Interministerial Digital Directorate (DINUM). This initiative supports French public administrations in building useful, simple, and user-friendly digital services.",
-                "title": "Who initiated the project?"
-            },
             "team": {
-                "desc": "The chatbot arena is led within the French Ministry of Culture by a multidisciplinary team - AI experts, developers, deployment specialists, and designers - with a mission to make conversational AI more transparent and accessible to everyone.",
+                "desc": "Bayes Impact is an NGO specialising in the use of data science and AI for the public good. It supports public hospitals in the evaluation and responsible adoption of generative AI.",
                 "title": "Who are we?"
+            },
+            "project": {
+                "title": "Original project",
+                "desc": "This platform is a fork of <a {linkProps}>compar:IA</a>, a project originally developed by the French Ministry of Culture and DINUM."
             }
         },
         "usage": {
@@ -1831,7 +1776,7 @@
         "methodo": {
             "desc": {
                 "1": "Since 2024, thousands of users have used the arena to compare the responses of different models, generating hundreds of thousands of votes. Simply counting the number of wins is not enough to establish a ranking. A fair system must be statistically robust, adjust after each matchup, and truly reflect the value of the performances achieved.",
-                "2": "It is with this in mind that a <strong>ranking based on the Bradley-Terry model</strong> was established, developed in collaboration with the <strong>French Center of expertise for digital platform regulation (<a {perenLinkProps}>PEReN</a>) teams</strong>, based on all the votes and reactions collected on the platform. To learn more, see our <a {lnotebookLinkProps}>methodological notebook</a>."
+                "2": "It is with this in mind that a <strong>ranking based on the Bradley-Terry model</strong> was established, developed in collaboration with the <strong>French Center of expertise for digital platform regulation (<a {perenLinkProps}>PEReN</a>) teams</strong>, based on all the votes and reactions collected on the platform. To learn more, see our <a {notebookLinkProps}>methodological notebook</a>."
             },
             "impacts": {
                 "elo": {
@@ -1885,18 +1830,18 @@
             "tabLabel": "Preference focused view",
             "table": {
                 "cols": {
-                    "clear_formatting": "Clear formatting<br>",
-                    "complete": "Complete",
-                    "creative": "Creative",
-                    "incorrect": "Incorrect",
-                    "instructions_not_followed": "Instructions<br> not followed",
+                    "accuracy": "Clinical<br> accuracy",
+                    "completeness": "Completeness",
+                    "actionable": "Decisional<br> helpfulness",
+                    "safety": "Safety",
+                    "discordance": "Guideline<br> discordance",
+                    "reasoning_error": "Reasoning<br> error",
+                    "clinical_risk": "Clinical<br> risk",
                     "n_match": "Total matches",
                     "name": "Model",
                     "positive_prefs_ratio": "Distribution of preferences",
-                    "superficial": "Superficial",
                     "total_negative_prefs": "Total preferences<br> Negative",
-                    "total_positive_prefs": "Total preferences<br> Positive",
-                    "useful": "Useful"
+                    "total_positive_prefs": "Total preferences<br> Positive"
                 },
                 "percentLabel": "Preferences in percentage",
                 "tooltips": {
@@ -2040,17 +1985,17 @@
     "vote": {
         "choices": {
             "negative": {
-                "incorrect": "Incorrect",
-                "instructions_not_followed": "Instructions not followed",
-                "question": "Why did you not like the answer",
-                "superficial": "Superficial"
+                "discordance": "Guideline discordance",
+                "reasoning_error": "Reasoning error / hallucination",
+                "clinical_risk": "Severe clinical risk",
+                "question": "Why did this answer not meet clinical expectations?"
             },
             "positive": {
-                "clear_formatting": "Clear formatting",
-                "complete": "Complete",
-                "creative": "Creative",
-                "question": "What did you like about the answer?",
-                "useful": "Useful"
+                "accuracy": "Clinical accuracy",
+                "completeness": "Completeness",
+                "actionable": "Decisional helpfulness",
+                "safety": "Safety",
+                "question": "What did you like about this answer clinically?"
             }
         },
         "title": "Which AI model do you prefer",

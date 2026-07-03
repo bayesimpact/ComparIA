@@ -52,7 +52,7 @@
     <p>
       {@html sanitize(
         m['general.tos.featuresDatasetsMore']({
-          linkProps: externalLinkProps('https://huggingface.co/ministere-culture')
+          linkProps: externalLinkProps('https://huggingface.co/bayesimpact')
         })
       )}
     </p>
@@ -69,7 +69,7 @@
     <p>
       {@html sanitize(
         m['general.tos.licenceCode']({
-          linkProps: externalLinkProps('https://github.com/betagouv/languia')
+          linkProps: externalLinkProps('https://github.com/bayesimpact/ComparIA')
         })
       )}
     </p>

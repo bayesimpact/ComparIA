@@ -1,12 +1,7 @@
 <script lang="ts">
   import ThemeSelector from '$components/ThemeSelector.svelte'
-  import { getI18nContext } from '$lib/global.svelte'
   import { m } from '$lib/i18n/messages'
-  import { getLocale } from '$lib/i18n/runtime'
   import { externalLinkProps, sanitize } from '$lib/utils/commons'
-
-  const locale = getLocale()
-  const i18nData = getI18nContext()
 
   const links = (
     [
@@ -15,7 +10,7 @@
       { href: '/donnees-personnelles', labelKey: 'privacy' },
       { href: '/accessibilite', labelKey: 'accessibility' },
       { href: '/ecoconception', labelKey: 'rgesn' },
-      { href: 'https://github.com/betagouv/languia', labelKey: 'sources' }
+      { href: 'https://github.com/bayesimpact/ComparIA', labelKey: 'sources' }
     ] as const
   ).map(({ href, labelKey }) => {
     return {
@@ -34,28 +29,7 @@
         <div class="fr-footer__brand fr-enlarge-link">
           <div class="">
             <a href="/" title={m['footer.backHome']()}>
-              {#if locale === 'fr' || locale === 'en'}
-                <p class="fr-logo">
-                  Ministère<br />de la culture
-                </p>
-              {:else if locale === 'da'}
-                <img
-                  src="/orgs/countries/da-light.png"
-                  alt={m['header.logoAlt']()}
-                  class="max-h-[70px] dark:hidden"
-                />
-                <img
-                  src="/orgs/countries/da-dark.png"
-                  alt={m['header.logoAlt']()}
-                  class="hidden max-h-[70px] dark:block"
-                />
-              {:else}
-                <img
-                  src={`/orgs/countries/${locale}.png`}
-                  alt={m['header.logoAlt']()}
-                  class="max-h-[100px]"
-                />
-              {/if}
+              <img src="/orgs/bi-colors.svg" alt={m['header.logoAlt']()} class="max-h-[70px]" />
             </a>
           </div>
         </div>
@@ -71,17 +45,6 @@
           <p class="mb-0! leading-normal! text-[11px]!">{m['footer.dpg']()}</p>
         </div>
       </div>
-      <div class="fr-footer__content">
-        <p class="fr-footer__content-desc">
-          <strong>{m['footer.helpUs']()}</strong><br />
-          {@html sanitize(
-            m['footer.writeUs']({
-              formLinkProps: externalLinkProps('https://adtk8x51mbw.eu.typeform.com/to/duuGRyEX'),
-              contactLinkProps: externalLinkProps(`mailto:${i18nData.contact}`)
-            })
-          )}
-        </p>
-      </div>
     </div>
     <div class="fr-footer__bottom">
       <ul class="fr-footer__bottom-list">
@@ -91,16 +54,6 @@
           </li>
         {/each}
         <li class="fr-footer__bottom-item">
-          <a
-            class="fr-footer__bottom-link"
-            href="http://metabase.comparia.beta.gouv.fr/public/dashboard/8d5418a6-40cb-4cdb-8384-101ee6cca0be"
-            target="_blank"
-            rel="noopener external"
-          >
-            Matrice d'impact
-          </a>
-        </li>
-        <li class="fr-footer__bottom-item">
           <ThemeSelector />
         </li>
       </ul>
@@ -109,7 +62,7 @@
           {@html sanitize(
             m['footer.license.mention']({
               linkProps: externalLinkProps({
-                href: 'https://github.com/etalab/licence-ouverte/blob/master/LO.md',
+                href: 'https://creativecommons.org/licenses/by/4.0/',
                 title: m['footer.license.linkTitle']()
               })
             })

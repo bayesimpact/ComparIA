@@ -1,9 +1,7 @@
 <script lang="ts">
-  import { Tooltip } from '$components/dsfr'
   import { getVotesContext } from '$lib/global.svelte'
   import { m } from '$lib/i18n/messages'
   import { getLocale } from '$lib/i18n/runtime'
-  import { sanitize } from '$lib/utils/commons'
 
   let { id }: { id: string } = $props()
 
@@ -28,15 +26,6 @@
         </span>
       </div>
     </div>
-    <span class="objective font-medium">
-      {m['header.votes.objective']({ count: votes.objective })}&nbsp;<Tooltip
-        {id}
-        size="xs"
-        label={m['header.votes.legend']()}
-      >
-        {@html sanitize(m['header.votes.tooltip']())}
-      </Tooltip>
-    </span>
   </div>
 {/if}
 

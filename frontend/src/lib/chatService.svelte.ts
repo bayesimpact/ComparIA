@@ -102,16 +102,20 @@ export interface Comparison extends BaseComparison {
 
 // ANNOTATIONS
 
-export const APIPositivePrefs = ['useful', 'complete', 'creative', 'clear_formatting'] as const
-export const APINegativePrefs = ['incorrect', 'superficial', 'instructions_not_followed'] as const
+// Bayes Impact clinical criteria (from bayes-bench).
+// Diverges from upstream betagouv/ComparIA: generic prefs replaced with
+// clinical ones — keep in sync with backend/config.py `POSITIVE_PREFS` /
+// `NEGATIVE_PREFS`.
+export const APIPositivePrefs = ['accuracy', 'completeness', 'actionable', 'safety'] as const
+export const APINegativePrefs = ['discordance', 'reasoning_error', 'clinical_risk'] as const
 export const PREFS_EMOJIS: Record<APIReactionPref, string> = {
-  useful: '🙌',
-  complete: '💯',
-  creative: '🌀',
-  clear_formatting: '🎨',
-  incorrect: '❌',
-  superficial: '🚩',
-  instructions_not_followed: '🚫'
+  accuracy: '🎯',
+  completeness: '💯',
+  actionable: '🩺',
+  safety: '🛡️',
+  discordance: '⚠️',
+  reasoning_error: '❌',
+  clinical_risk: '🚨'
 }
 export type APIPositivePref = (typeof APIPositivePrefs)[number]
 export type APINegativePref = (typeof APINegativePrefs)[number]
@@ -328,7 +332,10 @@ export function getComparison<Id extends string | undefined>(comparisonId: Id) {
       }
     } catch (err) {
       if (err instanceof ValidationError) {
-        promptError = err.message in ERROR_MESSAGES ? m[ERROR_MESSAGES[err.message]]() : err.message
+        promptError =
+          err.message in ERROR_MESSAGES
+            ? m[ERROR_MESSAGES[err.message as keyof typeof ERROR_MESSAGES]]()
+            : err.message
       } else if (err instanceof CaptchaError) {
         promptError = 'Vérification anti-robot indisponible, veuillez réessayer.'
       } else {

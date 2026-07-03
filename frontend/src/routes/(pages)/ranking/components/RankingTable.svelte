@@ -182,7 +182,7 @@
 
     <div class="fr-table__detail mb-0! gap-3 md:flex-row md:gap-5 flex flex-col">
       <p class="mb-0! text-[14px]!">
-        {m['ranking.table.lastUpdate']({ date: lastUpdateDate })}
+        {m['ranking.table.lastUpdate']({ date: lastUpdateDate ?? '' })}
       </p>
 
       <Link

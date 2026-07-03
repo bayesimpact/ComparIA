@@ -83,7 +83,7 @@
         })
     ].join('\n')
 
-    downloadTextFile(data, `comparia_model-${kind}-${lastUpdateDate}-license_Etalab_2_0`)
+    downloadTextFile(data, `comparia_model-${kind}-${lastUpdateDate}-license_CC_BY_4_0`)
   }
 
   // function onDownloadPrefsData() {
@@ -132,7 +132,7 @@
 
     {#if lastUpdateDate}
       <div class="relative">
-        <Tabs {tabs} noBorders kind="nav">
+        <Tabs {tabs} label={m['ranking.title']()} noBorders kind="nav">
           {#snippet tab({ id })}
           {#if id === 'ranking'}
             <p class="mb-12! text-dark-grey text-[14px]!">

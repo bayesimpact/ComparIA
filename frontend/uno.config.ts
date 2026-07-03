@@ -75,15 +75,12 @@ export default defineConfig({
     'i-ri-leaf-line',
     'i-ri-ruler-line',
     'i-ri-brain-2-line',
-    // suggestions
-    'i-ri-draft-line',
-    'i-ri-clipboard-line',
+    // suggestions (clinical categories)
+    'i-ri-heart-pulse-line',
+    'i-ri-first-aid-kit-line',
+    'i-ri-file-list-3-line',
+    'i-ri-medicine-bottle-line',
     'i-ri-chat-3-line',
-    'i-ri-lightbulb-line',
-    'i-ri-translate-2',
-    'i-ri-bowl-line',
-    'i-ri-music-2-line',
-    'i-ri-book-open-line',
     ...ICONS.map((icon) => 'i-ai-' + icon)
   ]
 })

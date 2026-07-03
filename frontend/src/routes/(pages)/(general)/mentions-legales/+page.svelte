@@ -1,60 +1,83 @@
 <script lang="ts">
   import SeoHead from '$components/SEOHead.svelte'
   import { m } from '$lib/i18n/messages'
-  import { externalLinkProps, sanitize } from '$lib/utils/commons'
+
+  // Bayes Impact override: content is hardcoded in French (FR-first deploy
+  // targeting hospital professionals). Upstream i18n keys are intentionally
+  // unused here.
 </script>
 
 <SeoHead title={m['seo.titles.mentions-legales']()} />
 
 <main class="py-10 lg:py-15">
   <div class="fr-container">
-    <h1 id="mentions-legales" class="fr-h2">{m['general.legal.title']()}</h1>
+    <h1 id="mentions-legales" class="fr-h2">Mentions légales</h1>
 
-    <h2 id="editeur" class="fr-h5">{m['general.legal.editorTitle']()}</h2>
-    <p>{m['general.legal.editorDesc']()}</p>
-
-    <h2 id="directeur-de-la-publication" class="fr-h5">{m['general.legal.directorTitle']()}</h2>
-    <p>{m['general.legal.directorDesc']()}</p>
-
-    <h2 id="hebergement-du-site" class="fr-h5">{m['general.legal.hostingTitle']()}</h2>
+    <h2 id="editeur" class="fr-h5">Éditeur</h2>
     <p>
-      {@html sanitize(
-        m['general.legal.hostingDesc']({
-          linkProps: externalLinkProps('https://www.ovh.com/')
-        })
-      )}
+      Le présent site est édité par <strong>Bayes Impact France</strong>,
+      association à but non lucratif régie par la loi du 1<sup>er</sup> juillet
+      1901 (SIREN 813&nbsp;821&nbsp;279), dont le siège est situé au
+      146 rue de Rivoli, 75001 Paris, France.
+    </p>
+    <p>Directeur de la publication : Paul Duan.</p>
+    <p>
+      Contact : <a href="mailto:hello@bayesimpact.org">hello@bayesimpact.org</a>
     </p>
 
-    <h2 id="accessibilite" class="fr-h5">{m['general.legal.a11yTitle']()}</h2>
-    <p>{m['general.legal.a11yDesc']()}</p>
-
-    <h2 id="signaler-un-dysfonctionnement" class="fr-h5">{m['general.legal.reportTitle']()}</h2>
-    <p>{m['general.legal.reportA11y']()}</p>
-    <p>{m['general.legal.reportDesc']()}</p>
+    <h2 id="hebergement" class="fr-h5">Hébergement</h2>
     <p>
-      {@html sanitize(
-        m['general.legal.reportA11yDesc']({
-          linkProps: externalLinkProps(
-            'http://references.modernisation.gouv.fr/accessibilite-numerique'
-          )
-        })
-      )}
+      Ce service est hébergé sur des infrastructures situées en France, sous
+      administration directe de l'éditeur. Aucune donnée n'est transférée en
+      dehors de l'Union européenne sans base légale appropriée.
     </p>
 
-    <h2 id="securite" class="fr-h5">{m['general.legal.securityTitle']()}</h2>
-    <p>{m['general.legal.securityCertif']()}</p>
-    <p>{m['general.legal.securityNoMail']()}</p>
+    <h2 id="responsable-traitement" class="fr-h5">Responsable de traitement</h2>
     <p>
-      <strong>
-        {@html sanitize(
-          m['general.legal.sources']({
-            etalabLinkProps: externalLinkProps(
-              'https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf'
-            ),
-            githubLinkProps: externalLinkProps('https://github.com/betagouv/ComparIA')
-          })
-        )}
-      </strong>
+      Bayes Impact agit en tant que responsable de traitement au sens du RGPD
+      pour les données collectées via ce site. Pour en savoir plus, consultez
+      notre <a href="/donnees-personnelles">politique de confidentialité</a>.
+    </p>
+
+    <h2 id="dpo" class="fr-h5">Délégué à la protection des données</h2>
+    <p>
+      Pour toute question relative aux données personnelles, contactez le
+      DPO de Bayes Impact :
+      <a href="mailto:dpo@bayesimpact.org">dpo@bayesimpact.org</a>
+    </p>
+
+    <h2 id="propriete-intellectuelle" class="fr-h5">Propriété intellectuelle</h2>
+    <p>
+      Sauf mention contraire, les contenus de ce site sont protégés par le droit
+      d'auteur. Toute reproduction, distribution, modification ou adaptation
+      nécessite une autorisation écrite préalable de l'éditeur.
+    </p>
+
+    <h2 id="code-source" class="fr-h5">Code source et crédits</h2>
+    <p>
+      Ce service est un fork de
+      <a href="https://comparia.beta.gouv.fr" target="_blank" rel="noopener external">compar:IA</a>,
+      projet initialement développé par le <strong>Ministère de la Culture</strong>
+      et la <strong>DINUM</strong>, adapté ici au contexte de l'évaluation clinique.
+      Le code source est publié sous licence Apache 2.0 ; le code de ce fork est
+      disponible sur
+      <a href="https://github.com/bayesimpact/ComparIA" target="_blank" rel="noopener external">GitHub</a>.
+      Les contenus du site et les jeux de données sont diffusés sous licence
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener external">CC BY 4.0</a>.
+    </p>
+
+    <h2 id="responsabilite" class="fr-h5">Responsabilité</h2>
+    <p>
+      L'éditeur décline toute responsabilité quant à la disponibilité continue
+      du service ainsi qu'au contenu des sites tiers accessibles via des liens
+      externes.
+    </p>
+
+    <h2 id="droit-applicable" class="fr-h5">Droit applicable</h2>
+    <p>
+      Les présentes mentions légales sont régies par le droit français. Tout
+      litige relatif à leur interprétation ou à leur exécution relève de la
+      compétence des tribunaux français.
     </p>
   </div>
 </main>

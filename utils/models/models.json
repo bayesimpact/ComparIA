@@ -1,9 +1,7 @@
 [
   {
-    "db_id": "7c0843bd-0a95-40fc-888e-95dc5f81f60f",
     "name": "Meta",
     "icon_path": "meta-color",
-    "origin_country": "US",
     "models": [
       {
         "db_id": "bd34cdaf-ceb0-4230-8bf3-0ec2492c0d18",
@@ -33,7 +31,8 @@
         ],
         "knowledge_cutoff": "2024-08-31T00:00:00",
         "price_in": 0.0867,
-        "price_out": 0.2601
+        "price_out": 0.2601,
+        "status": "archived"
       },
       {
         "db_id": "255379e9-d8a3-45d0-8505-67e5dbc77844",
@@ -62,7 +61,8 @@
         ],
         "knowledge_cutoff": "2024-08-31T00:00:00",
         "price_in": 0.1301,
-        "price_out": 0.5202
+        "price_out": 0.5202,
+        "status": "archived"
       },
       {
         "db_id": "2c1d03bb-c089-4e04-ab70-59a029a63eef",
@@ -124,7 +124,7 @@
       },
       {
         "db_id": "824e121d-eae8-456d-a4f5-e212100972d2",
-        "status": "archived",
+        "status": "enabled",
         "id": "llama-3.1-8b",
         "simple_name": "Llama 3.1 8B",
         "license": "Llama 3.1",
@@ -133,8 +133,8 @@
         "params": 8,
         "url": "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct",
         "endpoint": {
-          "api_base": "https://albert.api.etalab.gouv.fr/v1/",
-          "api_model_id": "meta-llama/Llama-3.1-8B-Instruct"
+          "api_type": "openrouter",
+          "api_model_id": "meta-llama/llama-3.1-8b-instruct"
         },
         "desc": "Petit modèle conçu pour un usage local sur ordinateur portable, tout en offrant de bonnes capacités pour la synthèse de texte et les réponses simples.",
         "size_desc": "Avec 8 milliards de paramètres, ce modèle fait partie des petits modèles. Il peut être utilisé localement sur un ordinateur puissant, garantissant la confidentialité des données, ou hébergé sur un serveur équipé d’une seule carte graphique, ce qui limite les coûts d’infrastructure. Sa fenêtre de contexte de 128 000 jetons permet de traiter de longs documents.",
@@ -224,13 +224,13 @@
         "price_in": 0.1214,
         "price_out": 0.1214
       }
-    ]
+    ],
+    "db_id": "7c0843bd-0a95-40fc-888e-95dc5f81f60f",
+    "origin_country": "US"
   },
   {
-    "db_id": "e482da65-2276-4c7d-b31c-997ad2375b0e",
     "name": "DeepSeek",
     "icon_path": "deepseek-color",
-    "origin_country": "CN",
     "models": [
       {
         "db_id": "4794b719-1e33-431a-9f91-b7f1a0c92cb5",
@@ -260,7 +260,9 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.3772,
-        "price_out": 0.7544
+        "price_out": 0.7544,
+        "new": true,
+        "status": "archived"
       },
       {
         "db_id": "68187ff3-5165-4120-96c1-aa126edb0fff",
@@ -290,7 +292,9 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.0852,
-        "price_out": 0.1705
+        "price_out": 0.1705,
+        "new": true,
+        "status": "enabled"
       },
       {
         "db_id": "4d927e83-41c8-4edc-89b4-da4d3ac8ad49",
@@ -501,13 +505,13 @@
         "price_in": 0.1736,
         "price_out": 0.6937
       }
-    ]
+    ],
+    "db_id": "e482da65-2276-4c7d-b31c-997ad2375b0e",
+    "origin_country": "CN"
   },
   {
-    "db_id": "ce78aec5-5198-40e1-b931-f3dea77eeaca",
     "name": "Cohere",
     "icon_path": "cohere-color",
-    "origin_country": "CA",
     "models": [
       {
         "db_id": "b88528ab-e321-405b-aa27-1394f450110c",
@@ -593,7 +597,7 @@
       },
       {
         "db_id": "1caeff05-76d1-4cbb-9ecb-780176c76e72",
-        "status": "disabled",
+        "status": "archived",
         "id": "c4ai-command-r-08-2024",
         "simple_name": "Command R",
         "license": "CC-BY-NC-4.0",
@@ -687,13 +691,13 @@
         "price_in": 2.1677,
         "price_out": 8.6707
       }
-    ]
+    ],
+    "db_id": "ce78aec5-5198-40e1-b931-f3dea77eeaca",
+    "origin_country": "CA"
   },
   {
-    "db_id": "c5fe23a5-f21c-4115-8a02-40702ad5cbe7",
     "name": "Arcee",
     "icon_path": "arcee",
-    "origin_country": "US",
     "models": [
       {
         "db_id": "c674ffc4-4ded-4dec-a4cd-533a18a4c740",
@@ -753,15 +757,16 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.1908,
-        "price_out": 0.737
+        "price_out": 0.737,
+        "status": "archived"
       }
-    ]
+    ],
+    "db_id": "c5fe23a5-f21c-4115-8a02-40702ad5cbe7",
+    "origin_country": "US"
   },
   {
-    "db_id": "44459698-ecaf-4e8b-b656-c728aee8b692",
     "name": "xAI",
     "icon_path": "xai",
-    "origin_country": "US",
     "proprietary_license_desc": "Le modèle est disponible sous licence payante et accessible via X et xAI, nécessitant un paiement à l'utilisation basé sur le nombre de jetons traités ou sur l’infrastructure réservée.",
     "models": [
       {
@@ -824,7 +829,8 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 1.0838,
-        "price_out": 2.1677
+        "price_out": 2.1677,
+        "new": true
       },
       {
         "db_id": "7093da90-2bc9-4b28-b441-905415c8f012",
@@ -919,13 +925,13 @@
         "price_in": 0.2601,
         "price_out": 0.4335
       }
-    ]
+    ],
+    "db_id": "44459698-ecaf-4e8b-b656-c728aee8b692",
+    "origin_country": "US"
   },
   {
-    "db_id": "33cfb910-6299-4bd2-b45a-10fc2502fa62",
     "name": "Microsoft",
     "icon_path": "microsoft-color",
-    "origin_country": "US",
     "models": [
       {
         "db_id": "57f4cb07-2417-4083-963a-a9223480416b",
@@ -1030,13 +1036,13 @@
         "price_in": 0.1301,
         "price_out": 0.1301
       }
-    ]
+    ],
+    "db_id": "33cfb910-6299-4bd2-b45a-10fc2502fa62",
+    "origin_country": "US"
   },
   {
-    "db_id": "e1e30952-2ec5-457d-aeb5-bc93a757835d",
     "name": "Google",
     "icon_path": "google-color",
-    "origin_country": "US",
     "proprietary_license_desc": "Le modèle est disponible sous licence payante et accessible via API sur les plateformes de la société Google, nécessitant un paiement à l'utilisation basé sur le nombre de jetons traités ou sur l’infrastructure réservée de Google.",
     "proprietary_reuse_specificities": "sauf pour entraîner d’autres modèles sur Vertex AI",
     "models": [
@@ -1070,7 +1076,8 @@
         ],
         "knowledge_cutoff": "2025-01-01T00:00:00",
         "price_in": 0.4335,
-        "price_out": 2.6012
+        "price_out": 2.6012,
+        "status": "archived"
       },
       {
         "db_id": "3f5ab165-1b31-4169-99e3-dc789d90e4d3",
@@ -1135,7 +1142,8 @@
         ],
         "knowledge_cutoff": "2025-01-01T00:00:00",
         "price_in": 1.7341,
-        "price_out": 10.4049
+        "price_out": 10.4049,
+        "status": "archived"
       },
       {
         "db_id": "430ecf31-5745-43a9-81c4-47d801e30097",
@@ -1168,7 +1176,8 @@
         ],
         "knowledge_cutoff": "2025-01-01T00:00:00",
         "price_in": 1.3006,
-        "price_out": 7.8037
+        "price_out": 7.8037,
+        "status": "archived"
       },
       {
         "db_id": "35ad99e5-f05d-4858-9811-50c1f13ef91c",
@@ -1201,11 +1210,40 @@
         ],
         "knowledge_cutoff": "2025-01-01T00:00:00",
         "price_in": 0.2168,
-        "price_out": 1.3006
+        "price_out": 1.3006,
+        "status": "archived"
+      },
+      {
+        "status": "enabled",
+        "id": "gemini-2.5-pro",
+        "simple_name": "Gemini 2.5 Pro",
+        "license": "proprietary",
+        "release_date": "05/2025",
+        "arch": "moe",
+        "params": 1000,
+        "active_params": 32,
+        "url": "https://deepmind.google/technologies/gemini/pro/",
+        "endpoint": {
+          "api_type": "vertex_ai",
+          "api_model_id": "gemini-2.5-pro"
+        },
+        "desc": "Modèle multimodal phare de Google, conçu pour des tâches complexes nécessitant un raisonnement avancé, une compréhension fine et une grande précision.",
+        "size_desc": "La taille exacte du modèle n'est pas connue publiquement. L'architecture de mélange d'experts (MoE) lui permet de n'activer qu'une fraction des paramètres à chaque requête, ce qui maintient une latence raisonnable malgré sa taille estimée. Sa fenêtre de contexte atteint 1 million de jetons en entrée.",
+        "fyi": "Gemini 2.5 Pro est le modèle le plus puissant de la famille Gemini 2.5. Il intègre des capacités de raisonnement avancées avec budgets de réflexion ajustables, et accepte en entrée du texte, des images, de l'audio, de la vidéo et des documents PDF. Il est particulièrement performant sur les tâches de code, de mathématiques et d'analyse de documents complexes.",
+        "public_weights": false,
+        "public_training_data": false,
+        "public_training_code": false,
+        "eu_hostable": false,
+        "inputs": [
+          "text"
+        ],
+        "price_in": 0.0,
+        "price_out": 0.0,
+        "db_id": "a1b2c3d4-0001-4e91-9a3c-1a2b3c4d5e6f"
       },
       {
         "db_id": "3342068b-64f4-4e69-85a7-eca5df6d05bc",
-        "status": "archived",
+        "status": "enabled",
         "id": "gemini-2.5-flash",
         "simple_name": "Gemini 2.5 Flash",
         "license": "proprietary",
@@ -1264,7 +1302,9 @@
         ],
         "knowledge_cutoff": "2025-01-01T00:00:00",
         "price_in": 0.104,
-        "price_out": 0.3121
+        "price_out": 0.3121,
+        "new": true,
+        "status": "enabled"
       },
       {
         "db_id": "0875287d-6611-4c4b-92f7-6703e029a341",
@@ -1296,7 +1336,9 @@
         ],
         "knowledge_cutoff": "2025-01-01T00:00:00",
         "price_in": 0.052,
-        "price_out": 0.2861
+        "price_out": 0.2861,
+        "new": true,
+        "status": "archived"
       },
       {
         "db_id": "0eee9982-b955-48bf-886c-63462105ee8a",
@@ -1575,46 +1617,15 @@
         "price_in": 0.1734,
         "price_out": 0.1734
       }
-    ]
+    ],
+    "db_id": "e1e30952-2ec5-457d-aeb5-bc93a757835d",
+    "origin_country": "US"
   },
   {
-    "db_id": "adc9da40-a316-41cd-8dbc-0b04387a6215",
     "name": "Alibaba",
     "icon_path": "qwen-color",
-    "origin_country": "CN",
     "proprietary_license_desc": "Le modèle est disponible sous licence payante et accessible via API sur les plateformes de la société Alibaba, nécessitant un paiement à l'utilisation basé sur le nombre de jetons traités ou sur l’infrastructure réservée.",
     "models": [
-      {
-        "db_id": "a07635a6-e335-426e-9d84-c49777e4ebcc",
-        "id": "qwen3.7-max",
-        "simple_name": "Qwen3.7 Max",
-        "license": "proprietary",
-        "release_date": "05/2026",
-        "arch": "moe",
-        "params": 1000,
-        "active_params": 32,
-        "reasoning": true,
-        "new": true,
-        "url": "https://qwen.ai/blog?id=qwen3.7",
-        "endpoint": {
-          "api_type": "openrouter",
-          "api_model_id": "qwen/qwen3.7-max"
-        },
-        "desc": "Très grand modèle agentique, optimisé pour la génération de code et l'exécution autonome de tâches sur de longs horizons. Modèle phare propriétaire de la série Qwen3.7, ce qui reste rare au sein de cette série majoritairement ouverte. Il intègre une capacité de raisonnement avancée activable à la demande, avec un niveau de raisonnement paramétrable par l'utilisateur ou le développeur.",
-        "size_desc": "La taille exacte du modèle n'est pas communiquée, mais il repose sur une architecture de type mélange d'experts (MoE, Mixture of Experts), comme le reste de la série Qwen3.7. Cette architecture active uniquement un sous-ensemble de paramètres pour chaque jeton, ce qui réduit la puissance de calcul nécessaire. Des indices laissent penser qu'il s'agit d'un modèle de très grande taille, nécessitant des serveurs équipés de plusieurs cartes graphiques très puissantes pour fonctionner.\n\nSa fenêtre de contexte va jusqu'à 1 million de jetons, ce qui permet de traiter de très grands corpus documentaires. Les modèles de raisonnement de ce type fonctionnent plus longtemps pour produire une réponse, ce qui augmente la consommation énergétique. L'architecture de mélange d'experts (MoE, Mixture of Experts) n'active qu'une partie des paramètres à chaque jeton, limitant ainsi son empreinte énergétique.",
-        "fyi": "Développé par l'équipe Qwen d'Alibaba, ce modèle est le fleuron agentique de la série Qwen3.7, présenté comme particulièrement performant en génération de code, en tâches bureautiques et dans l'exécution autonome de tâches sur de longs horizons. Il intègre nativement la prédiction multi-jetons (MTP, Multi-Token Prediction) comme accélérateur d'inférence : le modèle génère en interne des séquences de jetons candidates qui sont vérifiées en une seule passe, ce qui réduit la latence et augmente le débit sans recourir à un modèle brouillon distinct. Il prend également en charge la mise en cache explicite des invites pour réutiliser efficacement un contexte répété.\n\nContrairement à la majorité des modèles Qwen, distribués en accès ouvert, la série Max est propriétaire : la taille du modèle, son architecture détaillée et ses données d'entraînement n'ont pas été communiquées.",
-        "public_weights": false,
-        "public_training_data": false,
-        "public_training_code": false,
-        "context_tokens": 1000000,
-        "eu_hostable": false,
-        "inputs": [
-          "text"
-        ],
-        "knowledge_cutoff": null,
-        "price_in": 1.0838,
-        "price_out": 3.2515
-      },
       {
         "db_id": "cac12454-c986-49ab-b64b-13dd5c140c74",
         "id": "qwen3.6-plus",
@@ -1644,7 +1655,9 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.2818,
-        "price_out": 1.6908
+        "price_out": 1.6908,
+        "new": true,
+        "status": "archived"
       },
       {
         "db_id": "7a65e7f3-0302-4482-9f09-b33c825e2d01",
@@ -1676,7 +1689,8 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.3382,
-        "price_out": 2.029
+        "price_out": 2.029,
+        "status": "archived"
       },
       {
         "db_id": "3f6dad58-23fe-49f6-a58a-22491a21e4bc",
@@ -1708,7 +1722,8 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.1214,
-        "price_out": 0.8671
+        "price_out": 0.8671,
+        "status": "archived"
       },
       {
         "db_id": "5d8f4309-53ba-4d94-b21c-7206b037ad9b",
@@ -1891,7 +1906,7 @@
       },
       {
         "db_id": "ecc228d9-460b-4849-ac69-6119b21cc257",
-        "status": "disabled",
+        "status": "archived",
         "id": "qwen2.5-coder-32b-instruct",
         "simple_name": "Qwen 2.5 Coder 32B",
         "license": "Apache 2.0",
@@ -2097,7 +2112,7 @@
         "db_id": "7d190c04-5a0a-43b1-91d5-c9c78e9a6234",
         "simple_name": "Qwen 2.5 max 0125",
         "license": "proprietary",
-        "status": "missing_data",
+        "status": "archived",
         "id": "qwen-2.5-max-0125",
         "release_date": "01/2025",
         "params": 325,
@@ -2117,14 +2132,46 @@
         "knowledge_cutoff": null,
         "price_in": 1.3873,
         "price_out": 5.5493
+      },
+      {
+        "db_id": "a07635a6-e335-426e-9d84-c49777e4ebcc",
+        "id": "qwen3.7-max",
+        "simple_name": "Qwen3.7 Max",
+        "license": "proprietary",
+        "release_date": "05/2026",
+        "arch": "moe",
+        "params": 1000,
+        "active_params": 32,
+        "reasoning": true,
+        "new": true,
+        "url": "https://qwen.ai/blog?id=qwen3.7",
+        "endpoint": {
+          "api_type": "openrouter",
+          "api_model_id": "qwen/qwen3.7-max"
+        },
+        "desc": "Très grand modèle agentique, optimisé pour la génération de code et l'exécution autonome de tâches sur de longs horizons. Modèle phare propriétaire de la série Qwen3.7, ce qui reste rare au sein de cette série majoritairement ouverte. Il intègre une capacité de raisonnement avancée activable à la demande, avec un niveau de raisonnement paramétrable par l'utilisateur ou le développeur.",
+        "size_desc": "La taille exacte du modèle n'est pas communiquée, mais il repose sur une architecture de type mélange d'experts (MoE, Mixture of Experts), comme le reste de la série Qwen3.7. Cette architecture active uniquement un sous-ensemble de paramètres pour chaque jeton, ce qui réduit la puissance de calcul nécessaire. Des indices laissent penser qu'il s'agit d'un modèle de très grande taille, nécessitant des serveurs équipés de plusieurs cartes graphiques très puissantes pour fonctionner.\n\nSa fenêtre de contexte va jusqu'à 1 million de jetons, ce qui permet de traiter de très grands corpus documentaires. Les modèles de raisonnement de ce type fonctionnent plus longtemps pour produire une réponse, ce qui augmente la consommation énergétique. L'architecture de mélange d'experts (MoE, Mixture of Experts) n'active qu'une partie des paramètres à chaque jeton, limitant ainsi son empreinte énergétique.",
+        "fyi": "Développé par l'équipe Qwen d'Alibaba, ce modèle est le fleuron agentique de la série Qwen3.7, présenté comme particulièrement performant en génération de code, en tâches bureautiques et dans l'exécution autonome de tâches sur de longs horizons. Il intègre nativement la prédiction multi-jetons (MTP, Multi-Token Prediction) comme accélérateur d'inférence : le modèle génère en interne des séquences de jetons candidates qui sont vérifiées en une seule passe, ce qui réduit la latence et augmente le débit sans recourir à un modèle brouillon distinct. Il prend également en charge la mise en cache explicite des invites pour réutiliser efficacement un contexte répété.\n\nContrairement à la majorité des modèles Qwen, distribués en accès ouvert, la série Max est propriétaire : la taille du modèle, son architecture détaillée et ses données d'entraînement n'ont pas été communiquées.",
+        "public_weights": false,
+        "public_training_data": false,
+        "public_training_code": false,
+        "context_tokens": 1000000,
+        "eu_hostable": false,
+        "inputs": [
+          "text"
+        ],
+        "knowledge_cutoff": null,
+        "price_in": 1.0838,
+        "price_out": 3.2515,
+        "status": "archived"
       }
-    ]
+    ],
+    "db_id": "adc9da40-a316-41cd-8dbc-0b04387a6215",
+    "origin_country": "CN"
   },
   {
-    "db_id": "a2e85c01-f8bc-4350-b71c-23fa879aa3e5",
     "name": "Moonshot AI",
     "icon_path": "moonshot",
-    "origin_country": "CN",
     "models": [
       {
         "db_id": "376607c2-0597-4177-8f93-b1157daeb223",
@@ -2155,7 +2202,9 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.5896,
-        "price_out": 2.9567
+        "price_out": 2.9567,
+        "new": true,
+        "status": "archived"
       },
       {
         "db_id": "e886fd81-7b61-4539-8ad7-45f4461d3489",
@@ -2186,7 +2235,8 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.3468,
-        "price_out": 1.6474
+        "price_out": 1.6474,
+        "status": "archived"
       },
       {
         "db_id": "139636ab-b75a-40ad-bc35-ef8cfa0f13ce",
@@ -2250,13 +2300,13 @@
         "price_in": 0.4942,
         "price_out": 1.9943
       }
-    ]
+    ],
+    "db_id": "a2e85c01-f8bc-4350-b71c-23fa879aa3e5",
+    "origin_country": "CN"
   },
   {
-    "db_id": "78779566-e075-453e-a5c0-adda7a14c2d8",
     "name": "Nvidia",
     "icon_path": "nvidia-color",
-    "origin_country": "US",
     "models": [
       {
         "db_id": "d1eed71b-2601-4b40-8c6a-847c24646ad3",
@@ -2315,15 +2365,45 @@
         ],
         "knowledge_cutoff": "2025-06-01T00:00:00",
         "price_in": 0.078,
-        "price_out": 0.3902
+        "price_out": 0.3902,
+        "status": "archived"
+      },
+      {
+        "id": "nemotron-3-nano-omni-30b-a3b-reasoning",
+        "simple_name": "Nemotron 3 Nano Omni 30B-A3B",
+        "license": "Nemotron Open",
+        "release_date": "04/2026",
+        "arch": "moe",
+        "params": 30,
+        "active_params": 3,
+        "reasoning": true,
+        "url": "https://huggingface.co/nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+        "endpoint": {
+          "api_type": "openrouter",
+          "api_model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+        },
+        "desc": "Grand modèle multimodal de Nvidia, le fabricant de cartes graphiques, capable de traiter du texte, des images, des vidéos et de l'audio en une seule inférence. Fondé sur une architecture hybride Mamba-Transformer à mélange d'experts, il est conçu pour fonctionner comme sous-agent de perception dans des systèmes d'agents d'entreprise. Nvidia publie les poids, les recettes d'entraînement et une grande partie des données d'entraînement.",
+        "size_desc": "Avec 30 milliards de paramètres au total dont 3 milliards activés par jeton, ce modèle peut fonctionner sur une seule carte graphique puissante. L'architecture de mélange d'experts (MoE, Mixture of Experts) permet de n'activer qu'une fraction des paramètres, ce qui réduit l'empreinte par rapport à un modèle dense de même taille. La fenêtre de contexte atteint 256 000 jetons. Les modèles de raisonnement de ce type fonctionnent plus longtemps pour produire une réponse, ce qui augmente la consommation énergétique.",
+        "fyi": "Nemotron 3 Nano Omni est une extension multimodale du Nemotron 3 Nano, partageant la même architecture hybride à 29 couches (23 couches Mamba-2/MoE + 6 couches d'attention Transformer). La version Omni y ajoute deux encodeurs spécialisés : CRADIO v4-H pour la vision (images et vidéos) et Parakeet pour la parole, permettant un traitement unifié de quatre modalités dans une seule boucle d'inférence. Le modèle intègre un traitement vidéo efficace via l'échantillonnage adaptatif (jusqu'à 256 images par vidéo) et prend en charge l'audio jusqu'à une heure. Il peut produire des horodatages mot à mot pour la transcription et appeler des outils externes.\n\nL'entraînement multimodal s'appuie sur environ 717 milliards de jetons répartis sur 1 395 jeux de données couvrant texte, images (70 M d'exemples), audio (268 M d'exemples) et vidéo (25 M d'exemples). Le pipeline post-entraînement comprend un affinage supervisé sur 124 millions d'exemples multimodaux et 20 environnements d'apprentissage par renforcement couvrant cinq nouvelles tâches visuelles (ancrage visuel, compréhension de graphiques, STEM visuel, compréhension vidéo, reconnaissance vocale automatique). Comme pour le Super 120B, une part importante des données est synthétique, générée à l'aide de modèles tiers (GPT-OSS 120B, Qwen3-VL, DeepSeek).\n\nCôté performance, le modèle affiche un gain de 76 % sur OSWorld (automatisation d'interface graphique) et de 35 % sur ChartXiv Reasoning par rapport à la génération précédente (Nemotron Nano VL V2). Les variantes quantisées FP8 (32,8 Go) et NVFP4 (20,9 Go) perdent moins de 0,5 point en moyenne sur 9 benchmarks multimodaux par rapport à la version BF16 (61,5 Go), ce qui le rend déployable sur des configurations matérielles accessibles. La disponibilité en tier gratuit sur OpenRouter (avec limite de 50 req/jour) en fait un point d'entrée sans coût pour l'expérimentation.",
+        "status": "archived",
+        "public_weights": false,
+        "public_training_data": false,
+        "public_training_code": false,
+        "eu_hostable": false,
+        "inputs": [
+          "text"
+        ],
+        "price_in": 0.0,
+        "price_out": 0.0,
+        "db_id": "a1b2c3d4-0002-4e91-9a3c-1a2b3c4d5e6f"
       }
-    ]
+    ],
+    "db_id": "78779566-e075-453e-a5c0-adda7a14c2d8",
+    "origin_country": "US"
   },
   {
-    "db_id": "c5cb2ebd-002a-48ad-95ae-ae548d4f8a21",
     "name": "OpenAI",
     "icon_path": "openai",
-    "origin_country": "US",
     "proprietary_license_desc": "Le modèle est disponible sous licence payante et accessible via API sur les plateformes de la société OpenAI ou via les services Microsoft Azure, nécessitant un paiement à l'utilisation basé sur le nombre de jetons traités ou sur l’infrastructure réservée.",
     "models": [
       {
@@ -2355,7 +2435,9 @@
         ],
         "knowledge_cutoff": "2025-12-01T00:00:00",
         "price_in": 4.3354,
-        "price_out": 26.0122
+        "price_out": 26.0122,
+        "new": true,
+        "status": "archived"
       },
       {
         "db_id": "018d56c5-7a5e-4d6a-9996-68e7bcc300fd",
@@ -2418,7 +2500,8 @@
         ],
         "knowledge_cutoff": "2025-08-31T00:00:00",
         "price_in": 0.6503,
-        "price_out": 3.9018
+        "price_out": 3.9018,
+        "status": "archived"
       },
       {
         "db_id": "fdc98225-ffc7-4d0c-b017-d6ecb14fbad3",
@@ -2449,7 +2532,8 @@
         ],
         "knowledge_cutoff": "2025-08-31T00:00:00",
         "price_in": 0.1734,
-        "price_out": 1.0838
+        "price_out": 1.0838,
+        "status": "archived"
       },
       {
         "db_id": "8406113b-993e-4a9f-938f-690788475b18",
@@ -2568,7 +2652,8 @@
         ],
         "knowledge_cutoff": "2024-06-30T00:00:00",
         "price_in": 0.0338,
-        "price_out": 0.1561
+        "price_out": 0.1561,
+        "status": "enabled"
       },
       {
         "db_id": "63bbab35-0625-4db9-a48e-ec09cfc1f0fd",
@@ -2597,7 +2682,8 @@
         ],
         "knowledge_cutoff": "2024-06-30T00:00:00",
         "price_in": 0.0251,
-        "price_out": 0.1214
+        "price_out": 0.1214,
+        "status": "archived"
       },
       {
         "db_id": "15aee6df-2a23-427c-bed6-eb6d45546981",
@@ -2837,14 +2923,14 @@
       },
       {
         "db_id": "f163732e-92b1-49e1-80aa-7956051b40e7",
-        "status": "archived",
+        "status": "enabled",
         "id": "gpt-4o-mini-2024-07-18",
         "simple_name": "GPT-4o mini",
         "license": "proprietary",
         "release_date": "07/2024",
         "arch": "maybe-dense",
         "params": 18,
-        "url": "https://platform.openai.com/docs/models/gp#gpt-4o-mini",
+        "url": "https://developers.openai.com/api/docs/models/gpt-4o-mini",
         "desc": "Le plus petit des deux modèles sur lesquels repose ChatGPT d'OpenAI, lancé en juillet 2024.",
         "size_desc": "Les modèles moyens offrent un bon équilibre entre complexité, coût et performance : ils sont beaucoup moins consommateurs de ressources que les grands modèles tout en étant capables de gérer des tâches complexes telles que l'analyse de sentiment ou le raisonnement.",
         "fyi": "Modèle lancé en juillet 2024 et remplaçant GPT-3.5, GPT-4o mini est une version plus petite de GPT-4, conçue pour diverses tâches de traitement du langage naturel via, par exemple, l'application ChatGPT de l'entreprise américaine OpenIA.",
@@ -2859,7 +2945,11 @@
         ],
         "knowledge_cutoff": "2023-10-31T00:00:00",
         "price_in": 0.1301,
-        "price_out": 0.5202
+        "price_out": 0.5202,
+        "endpoint": {
+          "api_type": "openrouter",
+          "api_model_id": "openai/gpt-4o-mini"
+        }
       },
       {
         "db_id": "fcf90978-eb24-4981-a957-30da1542cbd0",
@@ -2870,7 +2960,7 @@
         "release_date": "03/2023",
         "arch": "maybe-dense",
         "params": 55,
-        "url": "https://platform.openai.com/docs/models/gp#gpt-3-5-turbo",
+        "url": "ttps://developers.openai.com/api/docs/models/gpt-3-5-turbo",
         "desc": "Modèle lancé en mars 2023, GPT-3.5 est un modèle plus petit d'OpenAI suffisant pour diverses tâches de traitement du langage naturel.",
         "size_desc": "Les grands modèles nécessitent des ressources significatives, mais offrent les meilleures performances pour des tâches avancées comme la rédaction créative, la modélisation de dialogues et les applications nécessitant une compréhension fine du contexte.",
         "fyi": "Modèle lancé en mars 2023, GPT-3.5 est un modèle plus petit d'OpenAI suffisant pour diverses tâches de traitement du langage naturel.",
@@ -2886,13 +2976,13 @@
         "price_in": 0.4335,
         "price_out": 1.3006
       }
-    ]
+    ],
+    "db_id": "c5cb2ebd-002a-48ad-95ae-ae548d4f8a21",
+    "origin_country": "US"
   },
   {
-    "db_id": "76fbaca4-c513-4823-aa82-e2732ce59604",
     "name": "Mistral AI",
     "icon_path": "mistral-color",
-    "origin_country": "FR",
     "proprietary_license_desc": "Le modèle est disponible sous licence payante et accessible via l'API Mistral, Amazon Sagemaker et plusieurs autres hébergeurs, nécessitant un paiement à l'utilisation basé sur le nombre de jetons traités ou sur l’infrastructure réservée.",
     "models": [
       {
@@ -2923,7 +3013,8 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.4335,
-        "price_out": 1.3006
+        "price_out": 1.3006,
+        "status": "archived"
       },
       {
         "db_id": "6fbec171-8579-43ba-91aa-e92ed9dee64c",
@@ -2954,7 +3045,8 @@
         ],
         "knowledge_cutoff": "2024-11-01T00:00:00",
         "price_in": 0.1301,
-        "price_out": 0.5202
+        "price_out": 0.5202,
+        "status": "archived"
       },
       {
         "db_id": "580962b7-e600-41ec-8698-618d391298d2",
@@ -2983,7 +3075,8 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.3468,
-        "price_out": 1.7341
+        "price_out": 1.7341,
+        "status": "enabled"
       },
       {
         "db_id": "07c4d773-26fe-4cd1-9599-2437ed7e2a99",
@@ -3120,7 +3213,11 @@
         ],
         "knowledge_cutoff": "2023-10-31T00:00:00",
         "price_in": 0.065,
-        "price_out": 0.1734
+        "price_out": 0.1734,
+        "endpoint": {
+          "api_type": "openrouter",
+          "api_model_id": "mistralai/mistral-small-3.2-24b-instruct"
+        }
       },
       {
         "db_id": "cc3b6b15-fa00-440a-b6a6-d396f98dc341",
@@ -3178,7 +3275,7 @@
       },
       {
         "db_id": "33c02c86-0d8c-4f79-9340-ce0d8b944c43",
-        "status": "disabled",
+        "status": "archived",
         "id": "mistral-large-2411",
         "simple_name": "Mistral Large 2",
         "license": "Mistral AI Research License",
@@ -3203,7 +3300,7 @@
       },
       {
         "db_id": "8aa81281-f4f9-455e-9d3b-704459171233",
-        "status": "disabled",
+        "status": "archived",
         "id": "ministral-8b-instruct-2410",
         "simple_name": "Ministral",
         "license": "Mistral AI Research License",
@@ -3303,13 +3400,13 @@
         "price_in": 0.2081,
         "price_out": 0.2081
       }
-    ]
+    ],
+    "db_id": "76fbaca4-c513-4823-aa82-e2732ce59604",
+    "origin_country": "FR"
   },
   {
-    "db_id": "e3d4aad7-7f36-4b01-a40f-44037eedf921",
     "name": "Amazon",
     "icon_path": "aws-color",
-    "origin_country": "US",
     "proprietary_license_desc": "Le modèle est disponible sous licence payante et accessible via Amazon Bedrock, nécessitant un paiement à l'utilisation basé sur le nombre de jetons traités ou sur l’infrastructure réservée.",
     "proprietary_reuse_specificities": "sauf pour distiller ou entraîner d’autres modèles sur les plateformes d’Amazon.",
     "models": [
@@ -3335,13 +3432,13 @@
         "price_in": 0.052,
         "price_out": 0.2081
       }
-    ]
+    ],
+    "db_id": "e3d4aad7-7f36-4b01-a40f-44037eedf921",
+    "origin_country": "US"
   },
   {
-    "db_id": "427455f2-7a51-4e46-9247-a9a1e91c749d",
     "name": "Anthropic",
     "icon_path": "anthropic",
-    "origin_country": "US",
     "proprietary_license_desc": "Le modèle est disponible sous licence payante et accessible via API sur les plateformes de la société Anthropic ou des sociétés partenaires, nécessitant un paiement à l'utilisation basé sur le nombre de jetons traités ou sur l’infrastructure réservée.",
     "models": [
       {
@@ -3371,7 +3468,8 @@
         ],
         "knowledge_cutoff": "2025-08-01T00:00:00",
         "price_in": 2.6012,
-        "price_out": 13.0061
+        "price_out": 13.0061,
+        "status": "archived"
       },
       {
         "db_id": "aac7fe2a-8a8f-4605-8676-62d7eaf19d6c",
@@ -3488,45 +3586,14 @@
         "price_in": 2.6012,
         "price_out": 13.0061
       }
-    ]
+    ],
+    "db_id": "427455f2-7a51-4e46-9247-a9a1e91c749d",
+    "origin_country": "US"
   },
   {
-    "db_id": "88caf54a-56ab-4dfe-af91-fe6483513144",
     "name": "Zhipu",
     "icon_path": "zhipu-color",
-    "origin_country": "CN",
     "models": [
-      {
-        "db_id": "51e17915-a07b-4a81-a121-ff618d5e6c16",
-        "id": "glm-5.2",
-        "simple_name": "GLM 5.2",
-        "license": "MIT",
-        "release_date": "06/2026",
-        "arch": "moe",
-        "params": 744,
-        "active_params": 40,
-        "reasoning": true,
-        "new": true,
-        "url": "https://huggingface.co/zai-org/GLM-5.2",
-        "endpoint": {
-          "api_type": "openrouter",
-          "api_model_id": "z-ai/glm-5.2"
-        },
-        "desc": "Très grand modèle conçu pour des tâches complexes : génération de code, orchestration agentique et analyse de documents longs. Il est particulièrement optimisé pour les tâches de programmation au long cours (long-horizon), comme la réalisation de projets logiciels complets en une seule session. Il intègre une capacité de raisonnement avancée activable à la demande, avec un niveau de raisonnement paramétrable par l'utilisateur ou le développeur.",
-        "size_desc": "Avec 744 milliards de paramètres, ce modèle se place dans la catégorie des très grands modèles. Grâce à une architecture de mélange d'experts (MoE, Mixture of Experts), il n'active qu'environ 40 milliards de paramètres par jeton généré, ce qui le rend plus efficace que des modèles denses de taille similaire. Il nécessite néanmoins un serveur doté de plusieurs cartes graphiques très puissantes pour être hébergé.\n\nSa fenêtre de contexte va jusqu'à 1 million de jetons, ce qui permet de traiter de très grands corpus documentaires. Les modèles de raisonnement de ce type fonctionnent plus longtemps pour produire une réponse, ce qui augmente la consommation énergétique. L'architecture de mélange d'experts (MoE) permet néanmoins de n'activer qu'une fraction des paramètres, ce qui réduit l'empreinte par rapport à un modèle dense de même taille.",
-        "fyi": "Développé par Z.ai (anciennement Zhipu AI), GLM 5.2 prolonge la lignée GLM en se concentrant sur les usages de programmation et les tâches agentiques de longue durée. Son architecture combine un mélange d'experts (MoE, Mixture of Experts) comptant 256 experts, dont 8 activés par jeton, et un mécanisme d'attention éparse (sparse attention) qui rend exploitable sa fenêtre de contexte d'un million de jetons. Il propose deux niveaux d'effort de raisonnement (High et Max), l'éditeur recommandant le mode Max pour les tâches de code.\n\nLes poids du modèle sont publiés en accès ouvert sous licence MIT, ce qui autorise une utilisation, une modification et un déploiement commercial sans restriction.",
-        "public_weights": true,
-        "public_training_data": false,
-        "public_training_code": false,
-        "context_tokens": 1048576,
-        "eu_hostable": true,
-        "inputs": [
-          "text"
-        ],
-        "knowledge_cutoff": null,
-        "price_in": 0.98,
-        "price_out": 3.08
-      },
       {
         "db_id": "fc09ff20-4de4-4667-b678-2e34405482a0",
         "id": "glm-5.1",
@@ -3555,7 +3622,9 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.8497,
-        "price_out": 2.6706
+        "price_out": 2.6706,
+        "new": true,
+        "status": "archived"
       },
       {
         "db_id": "0203a7bb-be76-4b6b-8c7a-5573e4c53bb7",
@@ -3675,14 +3744,46 @@
         "knowledge_cutoff": "2024-12-31T00:00:00",
         "price_in": 0.5202,
         "price_out": 1.9076
+      },
+      {
+        "db_id": "51e17915-a07b-4a81-a121-ff618d5e6c16",
+        "id": "glm-5.2",
+        "simple_name": "GLM 5.2",
+        "license": "MIT",
+        "release_date": "06/2026",
+        "arch": "moe",
+        "params": 744,
+        "active_params": 40,
+        "reasoning": true,
+        "new": true,
+        "url": "https://huggingface.co/zai-org/GLM-5.2",
+        "endpoint": {
+          "api_type": "openrouter",
+          "api_model_id": "z-ai/glm-5.2"
+        },
+        "desc": "Très grand modèle conçu pour des tâches complexes : génération de code, orchestration agentique et analyse de documents longs. Il est particulièrement optimisé pour les tâches de programmation au long cours (long-horizon), comme la réalisation de projets logiciels complets en une seule session. Il intègre une capacité de raisonnement avancée activable à la demande, avec un niveau de raisonnement paramétrable par l'utilisateur ou le développeur.",
+        "size_desc": "Avec 744 milliards de paramètres, ce modèle se place dans la catégorie des très grands modèles. Grâce à une architecture de mélange d'experts (MoE, Mixture of Experts), il n'active qu'environ 40 milliards de paramètres par jeton généré, ce qui le rend plus efficace que des modèles denses de taille similaire. Il nécessite néanmoins un serveur doté de plusieurs cartes graphiques très puissantes pour être hébergé.\n\nSa fenêtre de contexte va jusqu'à 1 million de jetons, ce qui permet de traiter de très grands corpus documentaires. Les modèles de raisonnement de ce type fonctionnent plus longtemps pour produire une réponse, ce qui augmente la consommation énergétique. L'architecture de mélange d'experts (MoE) permet néanmoins de n'activer qu'une fraction des paramètres, ce qui réduit l'empreinte par rapport à un modèle dense de même taille.",
+        "fyi": "Développé par Z.ai (anciennement Zhipu AI), GLM 5.2 prolonge la lignée GLM en se concentrant sur les usages de programmation et les tâches agentiques de longue durée. Son architecture combine un mélange d'experts (MoE, Mixture of Experts) comptant 256 experts, dont 8 activés par jeton, et un mécanisme d'attention éparse (sparse attention) qui rend exploitable sa fenêtre de contexte d'un million de jetons. Il propose deux niveaux d'effort de raisonnement (High et Max), l'éditeur recommandant le mode Max pour les tâches de code.\n\nLes poids du modèle sont publiés en accès ouvert sous licence MIT, ce qui autorise une utilisation, une modification et un déploiement commercial sans restriction.",
+        "public_weights": true,
+        "public_training_data": false,
+        "public_training_code": false,
+        "context_tokens": 1048576,
+        "eu_hostable": true,
+        "inputs": [
+          "text"
+        ],
+        "knowledge_cutoff": null,
+        "price_in": 0.98,
+        "price_out": 3.08,
+        "status": "archived"
       }
-    ]
+    ],
+    "db_id": "88caf54a-56ab-4dfe-af91-fe6483513144",
+    "origin_country": "CN"
   },
   {
-    "db_id": "004c6e14-dd85-4256-9233-c1ea006a40da",
     "name": "Nous",
     "icon_path": "nousresearch",
-    "origin_country": "US",
     "models": [
       {
         "db_id": "b808426b-5fc0-46c4-8e02-90478271a58f",
@@ -3737,13 +3838,13 @@
         "price_in": 0.8671,
         "price_out": 0.8671
       }
-    ]
+    ],
+    "db_id": "004c6e14-dd85-4256-9233-c1ea006a40da",
+    "origin_country": "US"
   },
   {
-    "db_id": "3e382388-c48c-48dc-be8f-49e3686ab76c",
     "name": "jpacifico",
     "icon_path": "huggingface-color",
-    "origin_country": "FR",
     "models": [
       {
         "db_id": "07ad1469-b505-4f29-9571-a5d6ea045d8b",
@@ -3847,13 +3948,13 @@
         "price_in": 0.2168,
         "price_out": 0.3035
       }
-    ]
+    ],
+    "db_id": "3e382388-c48c-48dc-be8f-49e3686ab76c",
+    "origin_country": "FR"
   },
   {
-    "db_id": "12fcd66c-afcf-48c4-9976-c6899c23752c",
     "name": "Ai2",
     "icon_path": "ai2.svg",
-    "origin_country": "US",
     "models": [
       {
         "db_id": "acd99c52-0e1d-42d3-917e-24b2156f8847",
@@ -3912,13 +4013,13 @@
         "price_in": 0.0434,
         "price_out": 0.1734
       }
-    ]
+    ],
+    "db_id": "12fcd66c-afcf-48c4-9976-c6899c23752c",
+    "origin_country": "US"
   },
   {
-    "db_id": "a767c07d-b855-4805-af21-6a2b6a659522",
     "name": "AI21",
     "icon_path": "ai21",
-    "origin_country": "IL",
     "models": [
       {
         "db_id": "0b52a4bb-1345-4d08-824f-8ea59bf90b2d",
@@ -3946,13 +4047,13 @@
         "price_in": 1.7341,
         "price_out": 6.9366
       }
-    ]
+    ],
+    "db_id": "a767c07d-b855-4805-af21-6a2b6a659522",
+    "origin_country": "IL"
   },
   {
-    "db_id": "790694f7-1389-4edd-8818-654ec69d909d",
     "name": "Liquid",
     "icon_path": "liquid",
-    "origin_country": "US",
     "proprietary_license_desc": "Le modèle est disponible sous licence payante et accessible via API sur les plateformes de la société Liquid AI, nécessitant un paiement à l'utilisation basé sur le nombre de tokens traités.",
     "models": [
       {
@@ -3982,7 +4083,8 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.026,
-        "price_out": 0.104
+        "price_out": 0.104,
+        "status": "archived"
       },
       {
         "db_id": "8bb7476a-916c-42db-82d4-c95305ae4fef",
@@ -4040,13 +4142,13 @@
         "price_in": 0.1301,
         "price_out": 0.1301
       }
-    ]
+    ],
+    "db_id": "790694f7-1389-4edd-8818-654ec69d909d",
+    "origin_country": "US"
   },
   {
-    "db_id": "6ba3c65d-3fc6-49ba-81e5-279e7bb0d345",
     "name": "01-ai",
     "icon_path": "yi-color",
-    "origin_country": "CN",
     "models": [
       {
         "db_id": "7811e7cc-eedb-406e-8e7c-4198f1857e5f",
@@ -4073,13 +4175,13 @@
         "price_in": 0.0867,
         "price_out": 0.0867
       }
-    ]
+    ],
+    "db_id": "6ba3c65d-3fc6-49ba-81e5-279e7bb0d345",
+    "origin_country": "CN"
   },
   {
-    "db_id": "ff505d0b-dbe6-4ad3-b6fa-a82a8624dcf9",
     "name": "Swiss AI",
     "icon_path": "swissai.webp",
-    "origin_country": "CH",
     "models": [
       {
         "db_id": "e0f9ab80-e7ed-4c28-b598-b2d80856154c",
@@ -4135,47 +4237,17 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.5202,
-        "price_out": 0.6937
+        "price_out": 0.6937,
+        "status": "archived"
       }
-    ]
+    ],
+    "db_id": "ff505d0b-dbe6-4ad3-b6fa-a82a8624dcf9",
+    "origin_country": "CH"
   },
   {
-    "db_id": "29eb6389-44bc-4cd1-a7ff-d6383724ac9c",
     "name": "MiniMax",
     "icon_path": "minimax-color",
-    "origin_country": "CN",
     "models": [
-      {
-        "db_id": "2c088caf-39d3-4b04-b879-3a45721d4655",
-        "id": "minimax-m3",
-        "simple_name": "MiniMax M3",
-        "license": "Modified MIT",
-        "release_date": "06/2026",
-        "arch": "moe",
-        "params": 428,
-        "active_params": 23,
-        "reasoning": true,
-        "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
-        "endpoint": {
-          "api_type": "openrouter",
-          "api_model_id": "minimax/minimax-m3"
-        },
-        "desc": "Très grand modèle multimodal à poids ouverts, conçu pour des tâches complexes : génération de code et orchestration agentique sur de longs horizons. Il traite nativement le texte, l'image et la vidéo. Il intègre une capacité de raisonnement avancée activable à la demande, avec un niveau de raisonnement paramétrable par l'utilisateur ou le développeur.",
-        "size_desc": "Avec 428 milliards de paramètres, ce modèle se place dans la catégorie des très grands modèles. Il repose sur une architecture de mélange d'experts (MoE, Mixture of Experts) qui n'active que 23 milliards de paramètres par jeton généré. Il nécessite un serveur doté de plusieurs cartes graphiques très puissantes pour être hébergé. Sa fenêtre de contexte va jusqu'à 1 million de jetons, ce qui permet de traiter de très grands corpus documentaires.\n\nL'architecture de mélange d'experts n'active qu'une partie des paramètres à chaque jeton, limitant ainsi son empreinte énergétique. Les modèles de raisonnement de ce type fonctionnent toutefois plus longtemps pour produire une réponse, ce qui augmente la consommation énergétique.",
-        "fyi": "Développé par l'entreprise chinoise MiniMax, M3 introduit un mécanisme d'attention parcimonieuse baptisé MiniMax Sparse Attention (MSA), qui remplace l'attention complète par une sélection de blocs clé-valeur afin de réduire le coût de calcul par jeton sur les longs contextes. Selon l'éditeur, ce mécanisme divise par 20 le calcul par jeton par rapport à la génération précédente à 1 million de jetons de contexte, avec un gain de vitesse supérieur à 9 fois lors de la phase de préremplissage et supérieur à 15 fois lors du décodage.\n\nLe modèle a été entraîné nativement en multimodalité (texte, image et vidéo) dès les premières étapes. Il propose trois modes de raisonnement contrôlés par un paramètre dédié : activé en permanence, adaptatif (le modèle décide lui-même de raisonner ou non), ou désactivé pour minimiser la latence.\n\nSelon l'éditeur, M3 vise des performances de premier plan sur les tâches de code et les tâches agentiques de long horizon. Sur le test SWE-Bench Pro, il obtient 59,0 %, sur Terminal-Bench 2.1 66,0 %, sur MCP Atlas 74,2 % et sur KernelBench Hard 28,8 %. Ces scores rapportés par l'éditeur n'avaient pas encore fait l'objet d'une vérification indépendante au moment de sa sortie. La licence autorise la réutilisation et la redistribution des poids ; l'usage commercial est permis avec la mention « Built with MiniMax » et notification de l'éditeur, mais les organisations dépassant 20 millions de dollars de revenus annuels doivent obtenir une autorisation écrite préalable.",
-        "public_weights": true,
-        "public_training_data": false,
-        "public_training_code": false,
-        "context_tokens": 1000000,
-        "eu_hostable": true,
-        "inputs": [
-          "text",
-          "image"
-        ],
-        "knowledge_cutoff": null,
-        "price_in": 0.2419,
-        "price_out": 0.9676
-      },
       {
         "db_id": "725d230c-993f-4a98-b752-01aa81d850f6",
         "id": "minimax-m2.7",
@@ -4204,7 +4276,8 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.2419,
-        "price_out": 1.0405
+        "price_out": 1.0405,
+        "status": "archived"
       },
       {
         "db_id": "38aecf7e-1fb0-4073-be83-324031d8cc31",
@@ -4266,14 +4339,46 @@
         "knowledge_cutoff": null,
         "price_in": 0.2211,
         "price_out": 0.8671
+      },
+      {
+        "db_id": "2c088caf-39d3-4b04-b879-3a45721d4655",
+        "id": "minimax-m3",
+        "simple_name": "MiniMax M3",
+        "license": "Modified MIT",
+        "release_date": "06/2026",
+        "arch": "moe",
+        "params": 428,
+        "active_params": 23,
+        "reasoning": true,
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
+        "endpoint": {
+          "api_type": "openrouter",
+          "api_model_id": "minimax/minimax-m3"
+        },
+        "desc": "Très grand modèle multimodal à poids ouverts, conçu pour des tâches complexes : génération de code et orchestration agentique sur de longs horizons. Il traite nativement le texte, l'image et la vidéo. Il intègre une capacité de raisonnement avancée activable à la demande, avec un niveau de raisonnement paramétrable par l'utilisateur ou le développeur.",
+        "size_desc": "Avec 428 milliards de paramètres, ce modèle se place dans la catégorie des très grands modèles. Il repose sur une architecture de mélange d'experts (MoE, Mixture of Experts) qui n'active que 23 milliards de paramètres par jeton généré. Il nécessite un serveur doté de plusieurs cartes graphiques très puissantes pour être hébergé. Sa fenêtre de contexte va jusqu'à 1 million de jetons, ce qui permet de traiter de très grands corpus documentaires.\n\nL'architecture de mélange d'experts n'active qu'une partie des paramètres à chaque jeton, limitant ainsi son empreinte énergétique. Les modèles de raisonnement de ce type fonctionnent toutefois plus longtemps pour produire une réponse, ce qui augmente la consommation énergétique.",
+        "fyi": "Développé par l'entreprise chinoise MiniMax, M3 introduit un mécanisme d'attention parcimonieuse baptisé MiniMax Sparse Attention (MSA), qui remplace l'attention complète par une sélection de blocs clé-valeur afin de réduire le coût de calcul par jeton sur les longs contextes. Selon l'éditeur, ce mécanisme divise par 20 le calcul par jeton par rapport à la génération précédente à 1 million de jetons de contexte, avec un gain de vitesse supérieur à 9 fois lors de la phase de préremplissage et supérieur à 15 fois lors du décodage.\n\nLe modèle a été entraîné nativement en multimodalité (texte, image et vidéo) dès les premières étapes. Il propose trois modes de raisonnement contrôlés par un paramètre dédié : activé en permanence, adaptatif (le modèle décide lui-même de raisonner ou non), ou désactivé pour minimiser la latence.\n\nSelon l'éditeur, M3 vise des performances de premier plan sur les tâches de code et les tâches agentiques de long horizon. Sur le test SWE-Bench Pro, il obtient 59,0 %, sur Terminal-Bench 2.1 66,0 %, sur MCP Atlas 74,2 % et sur KernelBench Hard 28,8 %. Ces scores rapportés par l'éditeur n'avaient pas encore fait l'objet d'une vérification indépendante au moment de sa sortie. La licence autorise la réutilisation et la redistribution des poids ; l'usage commercial est permis avec la mention « Built with MiniMax » et notification de l'éditeur, mais les organisations dépassant 20 millions de dollars de revenus annuels doivent obtenir une autorisation écrite préalable.",
+        "public_weights": true,
+        "public_training_data": false,
+        "public_training_code": false,
+        "context_tokens": 1000000,
+        "eu_hostable": true,
+        "inputs": [
+          "text",
+          "image"
+        ],
+        "knowledge_cutoff": null,
+        "price_in": 0.2419,
+        "price_out": 0.9676,
+        "status": "archived"
       }
-    ]
+    ],
+    "db_id": "29eb6389-44bc-4cd1-a7ff-d6383724ac9c",
+    "origin_country": "CN"
   },
   {
-    "db_id": "64fde967-ef76-4824-8811-d2179da6480c",
     "name": "EuroLLM",
     "icon_path": "euroLLM.webp",
-    "origin_country": "EU",
     "models": [
       {
         "db_id": "c8d80324-803d-44d6-bcb9-53bcf639df38",
@@ -4302,15 +4407,16 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.1734,
-        "price_out": 0.3468
+        "price_out": 0.3468,
+        "status": "archived"
       }
-    ]
+    ],
+    "db_id": "64fde967-ef76-4824-8811-d2179da6480c",
+    "origin_country": "EU"
   },
   {
-    "db_id": "e17ec5a9-3899-4688-8c2e-12adc34f0d0a",
     "name": "Ordbogen",
-    "icon_path": "ordbogen.ai-color.svg",
-    "origin_country": "DK",
+    "icon_path": "ordbogen.ai.svg",
     "proprietary_reuse": false,
     "proprietary_commercial_use": false,
     "models": [
@@ -4343,7 +4449,8 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.8377,
-        "price_out": 3.3509
+        "price_out": 3.3509,
+        "status": "archived"
       },
       {
         "db_id": "7d54583a-9a7c-433c-9847-7a8a7584e114",
@@ -4374,9 +4481,51 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.1675,
-        "price_out": 0.6702
+        "price_out": 0.6702,
+        "status": "archived"
       }
-    ]
+    ],
+    "db_id": "e17ec5a9-3899-4688-8c2e-12adc34f0d0a",
+    "origin_country": "DK"
+  },
+  {
+    "name": "OpenRouter",
+    "icon_path": "openrouter",
+    "proprietary_reuse": false,
+    "proprietary_commercial_use": false,
+    "models": [
+      {
+        "id": "owl-alpha",
+        "simple_name": "Owl Alpha",
+        "license": "proprietary",
+        "release_date": "04/2026",
+        "arch": "moe",
+        "params": 295,
+        "active_params": 21,
+        "reasoning": false,
+        "url": "https://openrouter.ai/openrouter/owl-alpha",
+        "endpoint": {
+          "api_type": "openrouter",
+          "api_model_id": "openrouter/owl-alpha"
+        },
+        "desc": "Modèle fondation haute performance d'OpenRouter, conçu pour les tâches agentiques. Supporte nativement l'appel d'outils et les contextes très longs, avec de bonnes capacités en génération de code, automatisation de workflows et exécution d'instructions complexes. Compatible avec Claude Code, OpenClaw et d'autres outils de productivité. Publié en tant que modèle « stealth » : l'identité de l'équipe de développement n'est pas divulguée.",
+        "size_desc": "Avec 295 milliards de paramètres au total dont 21 milliards activés par jeton, ce modèle repose sur une architecture de mélange d'experts (MoE) qui n'active qu'une fraction des paramètres à chaque requête. La fenêtre de contexte atteint 1 048 756 jetons (~1 million), et la sortie maximale est de 262 144 jetons, ce qui est considérablement plus élevé que la plupart des modèles comparables. Le modèle est distribué en quantification int8, un compromis entre vitesse d'inférence et qualité des réponses.",
+        "fyi": "Owl Alpha est le premier modèle publié directement par OpenRouter en tant que plateforme — une initiative inédite pour un agrégateur d'API. Il est publié sous forme « stealth » : l'identité de l'équipe ou du laboratoire à l'origine du modèle n'est pas divulguée. Cette approche, parfois utilisée pour soumettre des modèles à l'évaluation sur des arènes comme LMSYS Arena, permet d'éviter les biais de notoriété dans les évaluations humaines.\n\nLes spécifications publiques font état de 295B paramètres totaux et 21B paramètres actifs, ce qui le rapproche en coût de calcul effectif de modèles comme Qwen3-27B. Sa fenêtre de contexte de ~1M tokens et sa sortie maximale de 262K tokens le distinguent nettement des offres gratuites comparables. Il supporte l'appel d'outils natif (Tool Calling) et est déjà intégré dans des environnements de développement comme KiloCode, OpenCode, OpenClaw et Claude Code.\n\nPoint de vigilance important : OpenRouter précise explicitement que les prompts et les completions peuvent être enregistrés par le fournisseur et utilisés pour améliorer le modèle. Cela le rend inadapté au traitement de données sensibles, de secrets commerciaux ou de données personnelles — notamment dans le cadre d'une démo santé avec des professionnels hospitaliers.",
+        "status": "archived",
+        "public_weights": false,
+        "public_training_data": false,
+        "public_training_code": false,
+        "eu_hostable": false,
+        "inputs": [
+          "text"
+        ],
+        "price_in": 0.0,
+        "price_out": 0.0,
+        "db_id": "a1b2c3d4-0003-4e91-9a3c-1a2b3c4d5e6f"
+      }
+    ],
+    "db_id": "0f2e1c7a-4b6d-4e91-9a3c-1a2b3c4d5e6f",
+    "origin_country": "US"
   },
   {
     "db_id": "41a206d2-d5a4-4f2b-8db3-20ef86df3d80",
@@ -4411,7 +4560,8 @@
         ],
         "knowledge_cutoff": null,
         "price_in": 0.0434,
-        "price_out": 0.0867
+        "price_out": 0.0867,
+        "status": "archived"
       }
     ]
   }

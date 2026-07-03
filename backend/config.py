@@ -73,10 +73,13 @@ STREAM_TIMEOUT = 30
 ORDBOGEN_GLOBAL_TIMEOUT = Timeout(60.0, read=60.0, write=5.0, connect=15.0)
 ORDBOGEN_STREAM_TIMEOUT = 60
 
-# Preferences
-PositivePref = Literal["useful", "complete", "creative", "clear_formatting"]
+# Preferences — Bayes Impact clinical criteria.
+# Diverges from upstream betagouv/ComparIA: generic criteria (useful/complete/
+# creative/clear_formatting | incorrect/superficial/instructions_not_followed)
+# were replaced with health-specific ones derived from bayes-bench.
+PositivePref = Literal["accuracy", "completeness", "actionable", "safety"]
 POSITIVE_PREFS: tuple[PositivePref, ...] = get_args(PositivePref)
-NegativePref = Literal["incorrect", "superficial", "instructions_not_followed"]
+NegativePref = Literal["discordance", "reasoning_error", "clinical_risk"]
 NEGATIVE_PREFS: tuple[NegativePref, ...] = get_args(NegativePref)
 AllPref = Literal[PositivePref | NegativePref]
 ALL_PREFS: tuple[AllPref, ...] = POSITIVE_PREFS + NEGATIVE_PREFS

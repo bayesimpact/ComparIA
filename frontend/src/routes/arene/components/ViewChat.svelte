@@ -77,6 +77,13 @@
       id="send-area"
       class="-bottom-24 md:bottom-0 gap-3 px-4 py-3 md:px-[20%] sticky z-2 mt-auto flex flex-col items-center bg-linear-(--my-gradient)"
     >
+      <p
+        class="mb-0! flex items-center gap-1.5 text-center text-[11px]! leading-snug! text-dark-grey"
+      >
+        <Icon icon="i-ri-error-warning-line" class="text-orange shrink-0 text-[14px]" />
+        <span>{m['sante.disclaimer.short']()}</span>
+      </p>
+
       <TextPrompt
         id="chatbot-prompt"
         bind:value={prompt}

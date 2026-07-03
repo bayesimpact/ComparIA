@@ -109,37 +109,28 @@
   // FIXME i18n specific logos
   const localizedLogos = (
     {
-      da: [],
       en: [],
       fr: [
         {
-          class: 'max-h-[95px]',
-          src: '/orgs/minicult.svg',
-          alt: 'Ministère de la Culture',
-          title: 'Ministère de la Culture'
-        },
-        {
           class: 'max-h-[95px] dark:invert',
-          src: '/orgs/ateliernumerique.png',
-          alt: 'Atelier numérique',
-          title: 'Atelier numérique'
+          src: '/orgs/bi-colors.svg',
+          alt: 'Bayes Impact',
+          title: 'Bayes Impact'
         }
-      ],
-      lt: [],
-      sv: []
+      ]
     } satisfies Record<Locale, HTMLImgAttributes[]>
   )[locale === 'en' ? 'fr' : locale]
 
   const reducedFAQ = (
     [
-      { id: 'usage', index: '2' },
+      { id: 'sante', index: '1' },
+      { id: 'sante', index: '2' },
       { id: 'models', index: '1' },
       { id: 'datasets', index: '2' },
-      { id: 'ecology', index: '1' },
-      { id: 'i18n', index: '1' }
+      { id: 'ecology', index: '1' }
     ] as const
   ).map(({ id, index }) => ({
-    id,
+    key: `${id}-${index}`,
     title: m[`faq.${id}.questions.${index}.title`](),
     desc: m[`faq.${id}.questions.${index}.desc`]()
   }))
@@ -151,7 +142,7 @@
       class="fr-container gap-20 md:flex-row md:items-center md:gap-0 flex max-w-[1070px]! flex-col"
     >
       <div class="">
-        <div class="mb-15 px-4 md:px-0">
+        <div class="mb-15 px-4 md:px-0 md:max-w-[355px]">
           <div class="mb-10 md:w-[320px] md:max-w-[320px] max-w-[280px]">
             <h1 class="mb-5!">
               {@html sanitize(m['home.intro.title']({ props: 'class="text-primary"' }))}
@@ -305,7 +296,7 @@
   <section class="fr-container--fluid bg-light-grey py-10 lg:py-20">
     <div class="fr-container">
       <h3 class="mb-2! text-center">{m['home.usage.title']()}</h3>
-      <p class="fr-mb-4w text-grey text-center">{m['home.vote.desc']()}</p>
+      <p class="fr-mb-4w text-grey text-center">{m['home.usage.desc']()}</p>
 
       <div class="gap-8 md:grid-cols-3 grid">
         {#each usageCards as card, i (i)}
@@ -321,7 +312,6 @@
 
   <section class="fr-container--fluid bg-very-light-grey lg:pb-38 py-12 lg:pt-20">
     <div class="fr-container gap-10 lg:grid-cols-2 lg:gap-6 grid">
-      <!-- i18n: specific to locales -->
       <div class="cg-border bg-white px-5 py-10 md:px-8">
         <h5>{m['home.origin.team.title']()}</h5>
         <p>{m['home.origin.team.desc']()}</p>
@@ -337,28 +327,11 @@
         <h5>{m['home.origin.project.title']()}</h5>
         <p>
           {@html sanitize(
-            m['home.origin.project.desc']({ linkProps: externalLinkProps('https://beta.gouv.fr') })
+            m['home.origin.project.desc']({
+              linkProps: externalLinkProps('https://comparia.beta.gouv.fr')
+            })
           )}
         </p>
-
-        <div class="mt-12 gap-8 flex flex-wrap">
-          <img
-            src="/orgs/betagouv.svg"
-            alt="beta.gouv.fr"
-            title="beta.gouv.fr"
-            class="max-w-[178px] dark:invert"
-            width="191px"
-            height="65px"
-          />
-          <img
-            src="/orgs/dinum.png"
-            class="max-w-[254px] dark:invert"
-            alt="DINUM"
-            title="DINUM"
-            width="278px"
-            height="59px"
-          />
-        </div>
       </div>
     </div>
   </section>
@@ -368,8 +341,8 @@
       <h3 class="mb-8! lg:mb-10! text-center">{m['home.faq.title']()}</h3>
 
       <AccordionGroup>
-        {#each reducedFAQ as q (q.id)}
-          <Accordion id={q.id} label={q.title}>
+        {#each reducedFAQ as q (q.key)}
+          <Accordion id={q.key} label={q.title}>
             {@html sanitize(q.desc)}
           </Accordion>
         {/each}
