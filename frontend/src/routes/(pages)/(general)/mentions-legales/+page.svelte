@@ -18,7 +18,7 @@
       Le présent site est édité par <strong>Bayes Impact France</strong>,
       association à but non lucratif régie par la loi du 1<sup>er</sup> juillet
       1901 (SIREN 813&nbsp;821&nbsp;279), dont le siège est situé au
-      12 rue des Jeûneurs, 75002 Paris, France.
+      146 rue de Rivoli, 75001 Paris, France.
     </p>
     <p>Directeur de la publication : Paul Duan.</p>
     <p>
