@@ -84,7 +84,7 @@
                       type="text"
                       id="share-link"
                       class="fr-col-md-8 fr-col-12 fr-input inline"
-                      value="https://arena-sante.vercamer.net/share?i={shareB64Data}"
+                      value="https://comparia.health.bayes.org/share?i={shareB64Data}"
                     />
                     <Button
                       icon="links-fill"

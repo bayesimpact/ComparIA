@@ -287,7 +287,7 @@
     },
     "general": {
         "a11y": {
-            "desc": "Cette déclaration d’accessibilité s’applique au site <strong>arena-sante.vercamer.net</strong>.",
+            "desc": "Cette déclaration d’accessibilité s’applique au site <strong>comparia.health.bayes.org</strong>.",
             "disclaimer": "<strong>Bayes Impact</strong> s’engage à rendre ses services numériques accessibles, conformément à l’article 47 de la loi n° 2005-102 du 11 février 2005.",
             "improveAdress": "Adresse : Bayes Impact, 12 rue des Jeûneurs, 75002 Paris",
             "improveDelay": "Nous essayons de répondre dans les 2 jours ouvrés.",
@@ -300,7 +300,7 @@
             "remedyDesc": "Cette procédure est à utiliser dans le cas suivant : vous avez signalé au responsable du site internet un défaut d’accessibilité qui vous empêche d’accéder à un contenu ou à un des services du portail et vous n’avez pas obtenu de réponse satisfaisante.",
             "remedyList": "Vous pouvez :",
             "remedyTitle": "Voie de recours",
-            "stateDesc": "Le site arena-sante.vercamer.net est non conforme avec le RGAA 4.1. Le site n’a <strong>pas encore été audité</strong>. Il a cependant été conçu pour être accessible au plus grand nombre. Vous devriez donc pouvoir :",
+            "stateDesc": "Le site comparia.health.bayes.org est non conforme avec le RGAA 4.1. Le site n’a <strong>pas encore été audité</strong>. Il a cependant été conçu pour être accessible au plus grand nombre. Vous devriez donc pouvoir :",
             "stateNavigate": "naviguer sur toutes les pages du site en utilisant un clavier",
             "statePrefs": "adapter le site à votre préférences (taille de la police, zoom écran, changement de typographie…) sans perte de contenu",
             "stateScreenReader": "consulter le site web avec un lecteur d’écran.",

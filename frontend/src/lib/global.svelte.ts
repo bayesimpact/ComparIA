@@ -9,7 +9,7 @@ const disabledLocaleCodes = env.PUBLIC_DISABLED_LOCALES
 
 export type LocaleOption = { code: Locale; short: string; long: string; host: string }
 
-const DEFAULT_HOST = dev ? 'localhost:5173' : 'arena-sante.vercamer.net'
+const DEFAULT_HOST = dev ? 'localhost:5173' : 'comparia.health.bayes.org'
 export const HOST_TO_LOCALE = dev
   ? {
       '127.0.0.1:8080': 'da'

@@ -273,7 +273,7 @@
     },
     "general": {
         "a11y": {
-            "desc": "This accessibility statement applies to the website <strong>arena-sante.vercamer.net</strong>.",
+            "desc": "This accessibility statement applies to the website <strong>comparia.health.bayes.org</strong>.",
             "disclaimer": "<strong>Bayes Impact</strong> is committed to making its digital services accessible, in accordance with Article 47 of Law No. 2005-102 of 11 February 2005.",
             "improveAdress": "Address: Bayes Impact, 12 rue des Jeûneurs, 75002 Paris",
             "improveDelay": "We try to respond within 2 business days.",
@@ -286,7 +286,7 @@
             "remedyDesc": "This procedure is to be used in the following case: you have reported to the website manager an accessibility defect which prevents you from accessing content or one of the portal's services and you have not received a satisfactory response.",
             "remedyList": "You can :",
             "remedyTitle": "Appeal",
-            "stateDesc": "The arena-sante.vercamer.net website is non-compliant with RGAA 4.1. The site has <strong>not yet been audited</strong>. However, it has been designed to be accessible to as many people as possible. You should therefore be able to:",
+            "stateDesc": "The comparia.health.bayes.org website is non-compliant with RGAA 4.1. The site has <strong>not yet been audited</strong>. However, it has been designed to be accessible to as many people as possible. You should therefore be able to:",
             "stateNavigate": "navigate all pages of the site using a keyboard",
             "statePrefs": "adapt the site to your preferences (font size, screen zoom, change of typography, etc.) without loss of content",
             "stateScreenReader": "view the website with a screen reader.",
