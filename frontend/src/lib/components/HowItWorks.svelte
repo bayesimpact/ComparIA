@@ -5,8 +5,8 @@
 <svg
   class="fr-responsive-img"
   width="513"
-  height="287"
-  viewBox="0 0 513 287"
+  height="315"
+  viewBox="0 0 513 315"
   fill="none"
   version="1.1"
   id="comment-ca-marche"
