@@ -36,7 +36,6 @@
   hideDiscussBtn
   hideVoteGauge={showInitialPrompt}
   hideLanguageSelector={!showInitialPrompt}
-  showHelpLink={showInitialPrompt}
   small
 />
 

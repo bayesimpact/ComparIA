@@ -46,6 +46,13 @@
       (RGPD). Le consentement peut être retiré à tout moment, sans affecter la
       licéité du traitement effectué avant ce retrait.
     </p>
+    <p>
+      Concrètement : vos données ne sont collectées qu'à partir du moment où
+      vous acceptez explicitement de participer aux tests, en connaissance de
+      cause. Vous pouvez à tout moment arrêter de participer et demander la
+      suppression de vos données déjà collectées, sans avoir à vous justifier
+      et sans conséquence sur votre accès à la plateforme.
+    </p>
 
     <h2 id="donnees-collectees">Données collectées</h2>
     <ul>

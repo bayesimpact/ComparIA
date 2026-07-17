@@ -25,6 +25,9 @@ services:
       COMPARIA_REDIS_HOST: redis
       OPENROUTER_API_KEY:
       ALBERT_KEY:
+      MAILCHIMP_API_KEY:
+      MAILCHIMP_AUDIENCE_ID:
+      MAILCHIMP_DC:
       # Only needed for dataset export (uv run python -m utils.dataset.run):
       # HF_PUSH_DATASET_KEY:
       # HF_PUSH_DATASET_PATH: "ministere-culture/comparia"
