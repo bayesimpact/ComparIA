@@ -28,8 +28,18 @@
     <h2 id="hebergement" class="fr-h5">Hébergement</h2>
     <p>
       Ce service est hébergé sur des infrastructures situées en France, sous
-      administration directe de l'éditeur. Aucune donnée n'est transférée en
-      dehors de l'Union européenne sans base légale appropriée.
+      administration directe de l'éditeur. Les données de connexion restent
+      hébergées en Union Européenne.
+    </p>
+    <p>
+      Le contenu saisi dans la fenêtre de dialogue est en revanche transmis
+      aux modèles de langage comparés, dont certains sont hébergés en dehors
+      de l'Union européenne : c'est une conséquence directe de la finalité du
+      service, qui compare des modèles de plusieurs fournisseurs. Les données
+      personnelles de l'utilisateur (comme son adresse IP) ne sont jamais
+      transmises à ces modèles, seul le contenu qu'il saisit l'est. C'est
+      pourquoi il est essentiel de ne saisir aucune donnée personnelle dans la
+      fenêtre de dialogue, par exemple des éléments de dossier patient.
     </p>
 
     <h2 id="responsable-traitement" class="fr-h5">Responsable de traitement</h2>

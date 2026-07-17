@@ -14,6 +14,7 @@
 <main class="py-10 lg:py-15">
   <div class="fr-container">
     <h1 id="modalites-d-utilisation">{m['general.tos.title']()}</h1>
+    <p>{m['general.tos.intro']()}</p>
 
     <h2 id="1-champ-d-application">{m['general.tos.scopeTitle']()}</h2>
     <p>{m['general.tos.scopeDesc']()}</p>
@@ -39,15 +40,11 @@
     <p>{m['general.tos.featuresDesc']()}</p>
     <ul>
       <li>{m['general.tos.featuresDescMore']()}</li>
-    </ul>
-    <p>{m['general.tos.featuresModels']()}</p>
-    <ul>
       <li>{m['general.tos.featuresModelsMore']()}</li>
-    </ul>
-    <p>{m['general.tos.featuresVote']()}</p>
-    <ul>
       <li>{m['general.tos.featuresVoteMore']()}</li>
     </ul>
+    <p>{m['general.tos.featuresModels']()}</p>
+    <p>{m['general.tos.featuresVote']()}</p>
     <p>{m['general.tos.featuresDatasets']()}</p>
     <p>
       {@html sanitize(
@@ -62,7 +59,14 @@
     <p>{m['general.tos.respLegal']()}</p>
     <p>{m['general.tos.respLegalMore']()}</p>
     <p>{m['general.tos.respPrivacy']()}</p>
-    <p>{m['general.tos.respPrivacyMore']()}</p>
+    <p>
+      {@html sanitize(
+        m['general.tos.respPrivacyMore']({
+          formLinkProps: externalLinkProps('https://www.bayesimpact.org/fr/#contact'),
+          privacyLinkProps: 'href="/donnees-personnelles"'
+        })
+      )}
+    </p>
     <p>{m['general.tos.respEditor']()}</p>
 
     <h2 id="6-code-et-licences">{m['general.tos.licenceTitle']()}</h2>
