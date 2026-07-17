@@ -26,6 +26,9 @@ class Settings(BaseSettings):
     SENTRY_SAMPLE_RATE: float = 1.0
     LINKUP_API_KEY: str | None = None
     OPENROUTER_API_KEY: str | None = None
+    MAILCHIMP_API_KEY: str | None = None
+    MAILCHIMP_AUDIENCE_ID: str | None = None
+    MAILCHIMP_DC: str | None = None
     ALBERT_KEY: str | None = None
     HF_INFERENCE_KEY: str | None = None
     ORDBOGEN_API_KEY: str | None = None

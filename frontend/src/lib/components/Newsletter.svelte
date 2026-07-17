@@ -1,5 +1,32 @@
 <script lang="ts">
-  import { Icon, Link } from '$components/dsfr'
+  import { Button, Checkbox, Icon, Link } from '$components/dsfr'
+  import { api } from '$lib/fastapi-client'
+
+  let email = $state('')
+  let honeypot = $state('')
+  let consent = $state(false)
+  let status = $state<'idle' | 'loading' | 'subscribed' | 'already_subscribed' | 'error'>('idle')
+
+  async function subscribe(event: SubmitEvent) {
+    event.preventDefault()
+    // Hidden field: real users leave it empty, most spam bots fill every field.
+    if (honeypot || !consent) return
+
+    status = 'loading'
+    try {
+      const result = await api.request<{ status: 'subscribed' | 'already_subscribed' }>(
+        '/newsletter/subscribe',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, website_url: honeypot })
+        }
+      )
+      status = result.status
+    } catch {
+      status = 'error'
+    }
+  }
 </script>
 
 <div class="mt-3 text-center">
@@ -19,24 +46,45 @@
         modèles, publications de jeux de données et nouvelles fonctionnalités !
       </p>
     </div>
-    <div>
-      <iframe
-        data-tally-src="https://tally.so/embed/zxKR40?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-        loading="lazy"
-        width="100%"
-        height="380"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        title="Infolettre compar:IA"
-        class="outline-none! dark:invert"
-      ></iframe>
-    </div>
+    {#if status === 'subscribed' || status === 'already_subscribed'}
+      <p class="text-sm! font-bold">
+        {status === 'already_subscribed'
+          ? 'Vous êtes déjà abonné·e à notre lettre d’information.'
+          : 'Merci ! Votre inscription est confirmée.'}
+      </p>
+    {:else}
+      <form onsubmit={subscribe}>
+        <div class="flex flex-wrap items-start gap-2">
+          <label for="newsletter-email" class="sr-only">Adresse e-mail</label>
+          <input
+            bind:value={honeypot}
+            type="text"
+            name="website_url"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+            class="sr-only"
+          />
+          <input
+            bind:value={email}
+            id="newsletter-email"
+            type="email"
+            required
+            placeholder="prenom.nom@email.fr"
+            class="fr-input grow min-w-[16rem]"
+          />
+          <Button text="M’abonner" type="submit" disabled={status === 'loading' || !consent} />
+        </div>
+        <Checkbox
+          id="newsletter-consent"
+          bind:checked={consent}
+          class="mt-2!"
+          label="J’accepte de recevoir la lettre d’information et j’ai lu la <a href='/donnees-personnelles'>politique de confidentialité</a>."
+        />
+      </form>
+      {#if status === 'error'}
+        <p class="text-sm! text-error mt-2">Une erreur est survenue, veuillez réessayer.</p>
+      {/if}
+    {/if}
   </div>
 </section>
-
-<style>
-  iframe {
-    color-scheme: light;
-  }
-</style>

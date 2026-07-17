@@ -6,6 +6,7 @@ from backend.arena.router import router as arena_router
 from backend.config import settings
 from backend.llms.router import router as models_router
 from backend.logger import configure_logger, configure_uvicorn_logging
+from backend.newsletter.router import router as newsletter_router
 from backend.sentry import init_sentry
 from backend.utils.countries import get_vote_count
 
@@ -45,6 +46,7 @@ Instrumentator().instrument(app).expose(app, endpoint="/metrics")
 
 app.include_router(models_router)
 app.include_router(arena_router)
+app.include_router(newsletter_router)
 
 
 @app.get("/counter")
